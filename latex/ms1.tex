@@ -1,0 +1,495 @@
+\documentclass[a4paper,11pt,listof=numbered,glossary=totoc,parskip=half]{scrartcl}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+
+
+\usepackage[colorlinks,
+pdfpagelabels,
+pdfstartview = FitH,
+bookmarksopen = true,
+bookmarksnumbered = true,
+linkcolor = black,
+plainpages = false,
+hypertexnames = false,
+citecolor = black]{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[automake,toc,section=section,numberedsection]{glossaries}
+\usepackage{uarial}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[cache=false]{minted}
+\renewcommand{\listoflistingscaption}{Verzeichnis der Code-Listings}
+
+\usepackage{csquotes}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{quellen.bib}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\RedeclareSectionCommand[
+beforeskip = 3pt,
+afterskip = 3pt]{subsection} %vor subsection 6pt und nach subsection 6pt Abstand
+\RedeclareSectionCommand[
+beforeskip = 1pt,
+afterskip = 1pt]{subsubsection} %vor subsection 6pt und nach subsection 6pt Abstand
+
+
+% Glossar
+\newacronym{saas}{SaaS}{Software-as-a-Service}
+\newacronym{re}{RE}{Requirements Engineering}
+\newacronym{qs}{QS}{Qualitätssicherung}
+\newacronym{gui}{GUI}{Graphical User Interface}
+\newacronym{ota}{OTA}{Over-The-Air}
+\newacronym{http}{HTTP}{Hypertext Transfer Protocol}
+\newacronym{jsx}{JSX}{JavaScript XML}
+\newacronym{json}{JSON}{JavaScript Object Notation}
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{html}{HTML}{Hypertext Markup Language}
+\newacronym{ux}{UX}{User Experience}
+\newacronym{ui}{UI}{User Interface}
+\newacronym{xml}{XML}{Extensible Markup Language}
+\newacronym{css}{CSS}{Cascading Style Sheets}
+\newacronym{js}{JS}{JavaScript}
+\newacronym{jit}{JIT}{Just-In-Time}
+\newacronym{aot}{AOT}{Ahead-Of-Time}
+\newacronym{cpu}{CPU}{Central Processing Unit}
+\newacronym{io}{IO}{Input / Output}
+\newacronym{gpu}{GPU}{Graphics Processing Unit}
+\newacronym{vm}{VM}{Virtual Machine}
+\newacronym{ide}{IDE}{Integrated Development Environment}	
+\newacronym{adb}{ADB}{Android Debug Bridge}
+\newacronym{etl}{ETL}{Extract, Trans	form, Load}
+\newacronym{dwh}{DWH}{Data Warehouse}
+\newacronym{hdfs}{HDFS}{Hadoop File System}
+\newacronym{crm}{CRM}{Customer Relationship Management}
+\newacronym{erp}{ERP}{Enterprise Resource Planning}
+\newacronym{mvp}{MVP}{Minimum Viable Product}
+\newacronym{ig}{i.G.}{in Gründung}
+\newacronym{ci}{CI}{Continuous Integration}
+\newacronym{ssh}{SSH}{Secure Shell}
+\newacronym{cd}{CD}{Continuous Delivery}
+\newacronym{rest}{REST}{Representational State Transfer}
+\newacronym{orm}{ORM}{Object-Relational Mapper}
+\newacronym{dom}{DOM}{Document Object Model}
+\newacronym{url}{URL}{Uniform Resource Locator}
+\glsaddall
+
+\makeglossaries
+
+\subject{Meilensteinbericht}
+\title{Meilenstein 1}
+\subtitle{Projektkonfiguration abgeschlossen und bereitgestellt}
+\author{Projektteam \frqq{}Q-Teams\flqq{}}
+\begin{document}
+	\pagenumbering{Roman}
+	\begin{titlepage}
+		\maketitle
+		\centering
+		
+		\includegraphics[scale=0.5]{iubh_logo}
+		
+		IUBH Fernstudium
+		
+		\vspace{2cm}
+		\begin{tabular}{lllrl}
+			\toprule
+			\textbf{Gruppe} & \textbf{Nachname} & \textbf{Vorname} & \textbf{Matrikelnr.} & \textbf{Studiengang} \\
+			\midrule
+			Projektleiter & Sawatzki & Jörg & 9186524 & BSc. Informatik \\
+			Mitglied 2 & Hahn & Maximilian & 91710055 & BSc. Wirtschaftsinformatik \\
+			Mitglied 3 & Lapenat & Holger & 3191237 & BSc. Wirtschaftsinformatik \\
+			Mitglied 4 & Moch & Daniel & 91710824 & BSc. Wirtschaftsinformatik \\
+			\bottomrule
+		\end{tabular}				
+		
+	\end{titlepage}
+	
+	
+	\newpage
+	\setcounter{tocdepth}{2}
+	\tableofcontents
+	\newpage
+
+	\renewcommand*{\thesection}{\Roman{section}}	
+
+	\listoffigures
+	\listoftables
+
+	\newpage
+	\printglossary[type=\acronymtype,title=Abkürzungsverzeichnis]
+	
+	\pagenumbering{arabic}	
+	\renewcommand*{\thesection}{\arabic{section}}	
+
+	\section{Projektvision}
+	
+	Ein Fernstudium bedeutet meist, viele Stunden alleine lernen zu müssen. Doch dabei ist der Mensch ein ausgeprägt soziales Wesen und Kooperation sowie soziale Eingebundenheit sind wesentliche Gelingensfaktoren für einen nachhaltigen Lernprozess. Durch Kommunikation beim Lernen kann neues Wissen gesichert und vertieft werden. Inzwischen stellt dank der fortschreitenden technischen Vernetzung auch die audiovisuelle Kommunikation zwischen weltweit verteilten Menschen kein Problem mehr dar. Dennoch werden diese Potenziale derzeit nur unzureichend von Bildungseinrichtungen ausgeschöpft.
+Des Weiteren verhelfen harte Fakten und Qualifikation alleine schon lange nicht mehr zu beruflichem Erfolg. Gefragt sind \textit{Soft Skills}, die aktiv zu entwickeln sind. Es gilt also: Gemeinsam lernt man am besten!
+
+Inspiriert durch das Konzept des \frqq{}Haus des Fragens\flqq{} \autocite{HausDesFragens} machen wir mit unserem Quiz-Projekt kooperative Lernmethoden aus dem Unterrichtsraum mit Hilfe einer Webanwendung im Fernstudium nutzbar. Dabei werden in Kleingruppen kollaborativ Fragen gestaltet und kooperativ Lösungen erarbeitet. Die Fragen und Antworten werden in einem für alle Studenten zugänglichen Katalog aufgenommen, somit können Lerner jederzeit auf das gemeinsam Erarbeitete zurückgreifen und davon profitieren. Spielerische Elemente (engl. \textit{Gamification}) fördern den Spaß und die Motivation beim Lernen. Beispielsweise spornen fakultative kompetitive Elemente die Spieler zu Höchstleistungen an. Unsere Anwendung bildet den Nukleus für eine weitreichende Implementation kooperativer Lernmethoden im Fernstudium.
+
+Das Projekt wird durch ein verteilt arbeitendes Team von vier Studenten ohne Finanzierung durchgeführt. Das Ergebnis ist die prototypische Darstellung der angeführten Funktionalitäten, eine Einbindung in das Produktivsystem der IUBH wird allerdings nicht vollzogen.
+\newpage
+	\section{Vorstellung des Teams}
+	Das Projekt wird von einem vierköpfigen Team aus Studenten der Studiengänge Informatik und Wirtschaftsinformatik durchgeführt (Abbildung \ref{fig:team}). Alle Mitglieder haben beruflich bedingt unterschiedliche Vorerfahrungen und Schwerpunkte im Bereich des Software-Engineerings.
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.2\linewidth]{Bild-Max.jpg}
+		\includegraphics[width=0.2\linewidth]{Bild-Holger-square.jpg}
+		\includegraphics[width=0.2\linewidth]{Bild-Daniel-square.jpg}
+		\includegraphics[width=0.2\linewidth]{Bild-Joerg-square.jpg}
+		\caption{Projektteam (v.l.n.r. Maximilian Hahn, Holger Lapenat, Daniel Moch, Jörg Sawatzki)}
+		\label{fig:team}
+	\end{figure}
+
+
+\subsection{Maximilian Hahn}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textit{Studiengang}: & BSc. Wirtschaftsinformatik\\
+\textit{Profil}: & Abgeschlossene Berufsausbildung als Zollbeamter im mittleren Dienst, Abitur nachgeholt und jetzt in der Schweiz arbeitend mit parallelem Wirtschaftsinformatik Vollzeitstudium. Arbeitet gerne im Team und lernt neue Sachen. Sportbegeistert. \\
+\textit{Skills}: & Kleinere private Python Programmierungsprojekte durchgeführt; WI-Studium bis Semester 4 abgeschlossen \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Holger Lapenat}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textit{Studiengang}: & BSc. Wirtschaftsinformatik\\
+\textit{Profil}: & Mittlerweile über 10 Jahre Berufserfahrung in der IT. Ausbildung als Fachinformatiker Systemintegration. Privat am Wochenende sehr oft in Süddeutschland wegen Freunden und Familie unterwegs.
+ \\
+\textit{Skills}: & ITIL; diverse Microsoft-Zertifizierungen \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Daniel Moch}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textit{Studiengang}: & BSc. Wirtschaftsinformatik\\
+\textit{Profil}: & Technischer Offizier in einem binationalen Fernmeldeverband der Bundeswehr. M.Sc. Fahrzeugtechnik in 2013 abgeschlossen, 2017 Fortbildung zum Sicherheitsingenieur. Privat als Bassist in einer Band.
+ \\
+\textit{Skills}: & PRINCE2-Practitioner; SCRUM-Master \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Jörg Sawatzki}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textit{Studiengang}: & BSc. Informatik\\
+\textit{Profil}: & Selbstständiger Software-Entwickler aus Leidenschaft mit Fokus auf Projekte kleiner Startup-Unternehmen.  Privat ambitionierter Einrad- und Zweiradfahrer, Läufer, Polyglot und Globetrotter. 
+ \\
+\textit{Skills}: & Agiles Projektmanagement; Full-Stack-Web-Entwicklung \\
+\bottomrule
+\end{tabularx}
+\newpage
+
+
+	\section{Projektauftrag}
+
+	\subsection{Anforderungen}
+	\newpage
+	
+	\subsection{Lösungsansatz}
+
+Das Spiel ist für 2 bis 5 Spieler konzipiert, diese bilden ein Team.
+Jeder Spieler loggt sich auf der Anwendungswebseite ein. Ein Spieler begründet ein Team für eine feste Spieleranzahl und erstellt das Spiel. Alle weiteren Spieler treten dann dem Team bei. Zur Unterstützung der Kommunikation sollte parallel ein (Bild-)Telefoniedienst durch das Team genutzt werden. Der Spielersteller kann den Spielmodus und Spieleinstellungen ändern.
+
+Der Spielersteller legt vor Beginn des Spiels fest, in welchem Modus gespielt wird.
+
+\subsubsection{Nicht-kompetitiver Spielmodus}
+
+Dieser Modus stellt das gemeinsame Erarbeiten des Wissens in den Vordergrund. Die Spielerleistung wird am Ende des Spiels nur für den jeweiligen Spieler sichtbar. Es wird kein Gewinner gekürt.
+
+\subsubsection{Kompetitiver Spielmodus}
+
+In diesem Modus ist das Leistungsniveau aller Spieler jederzeit ersichtlich. Am Ende des Spiels gibt es einen oder mehrere Gewinner.
+
+
+\subsubsection{Beginn des Spiels}
+
+Das Team einigt sich sinnvollerweise auf einen begrenzten Themenbereich aus einem Kurs, das könnte ein Lernzyklus oder aber ein Abschnitt im Skript sein. Das dazugehörige Skript sollte jedem Spieler digital oder analog vorliegen.
+
+Außerdem sollte sich das Team bezüglich des Schwierigkeitsgrades der Fragen einigen. In einer frühen Phase des Lernens sind einfache Textverständnisfragen sinnvoll. Im späteren Verlauf sollte auch Transferwissen erfragt werden, um den Stoff weiter zu vertiefen.
+
+Sobald alle Spieler beigetreten sind und ihre Bereitschaft zum Starten signalisiert haben, beginnt das Spiel. 
+
+
+
+\subsubsection{Erarbeitungsphase}
+
+Jeder Spieler überlegt sich eine Frage mit dazugehöriger \frqq{}Musterantwort\flqq{} und schreibt diese in die entsprechende Eingabemaske. Dazu kann und sollte das Skript zur Hilfe genommen werden. Des Weiteren steht eine \textit{Knowledge Base} mit Fragen anderer Spieler (siehe unten) als Hilfe zur Verfügung. Jeder Spieler signalisiert, wenn er fertig ist, dann geht das Spiel zur ersten Fragephase über.
+
+Alle Fragen bilden nun den Fragenkatalog dieses Spiels.
+
+\subsubsection{Fragephase}
+
+Eine Frage wird zufällig aus dem Fragenkatalog entnommen. Jedem Spieler wird diese Frage eingeblendet. Bis auf den Fragesteller beantworten nun alle Spieler individuell die Frage und tragen ihre Antwort in die entsprechende Eingabemaske ein. Die Spieler signalisieren, wenn sie fertig sind.
+
+\textit{Gilt nicht für die erste Fragephase:}
+Ähnelt die aktuelle Frage einer der vorherigen Fragen, kann durch den Fragesteller entschieden werden, dass die aktuelle Frage übersprungen wird.
+Wurden alle Fragen aus dem Fragenkatalog bereits gestellt, geht das Spiel in die Schlussphase über.
+
+\subsubsection{Bewertungsphase}
+
+Allen Spielern werden nun die Frage, die Musterantwort und die eigene Antwort angezeigt. Dem Fragesteller werden die Antworten aller anderen Spieler angezeigt. Er bewertet nun die Antworten mit:
+
+\begin{itemize}
+	\item richtig (3 Punkte)
+	\item teilweise richtig (1 Punkt)
+	\item falsch (0 Punkte)
+\end{itemize}
+
+Allen Spielern wird ihre jeweilige Bewertung sofort angezeigt. Das Spiel geht zur \textit{Klärungsphase} über.
+
+\subsubsection{Klärungsphase}
+
+Bei Bedarf wird die Antwort im Team erarbeitet, sodass alle Mitspieler diese verstanden haben. Der Fragesteller entscheidet, wann das Spiel fortgesetzt wird. Dann geht es mit einer weiteren \textit{Fragephase} weiter.
+
+\subsubsection{Schlussphase}
+
+Allen Spielern werden nochmal die Fragen mit ihrer eigenen Antwort und der Musterantwort angezeigt.
+Im kompetitiven Modus informiert eine Statistik über die Punktzahl der Spieler. Der Spieler mit den meisten Punkten hat das Spiel gewonnen, bei Gleichstand gibt es mehrere Gewinner.
+Ist der nicht-kompetitive Modus aktiviert, so sieht jeder Spieler nur seine eigene, persönliche Statistik, die den Mitspielern verborgen bleibt. In diesem Modus gibt es keinen Gewinner.
+
+Durch einstimmige Entscheidung aller Spieler wird eine neue Runde gespielt. Die weitere Runde beginnt mit der Vorbereitungsphase. Bei Gegenstimmen wird das Spiel beendet und das Team aufgelöst.
+
+\subsubsection{Besondere Spielsituationen}
+
+Verlässt ein Spieler vorzeitig das Spiel, wird das Spiel beendet und das Team aufgelöst.
+
+\subsubsection{Knowledge Base}
+
+Die Spieler können sich dazu entscheiden, ihre entwickelten Fragen und Musterantworten der Community in einer \textit{Knowledge Base} zur Verfügung zu stellen.
+Jeder Spieler kann seine mit der Community geteilten Fragen in einem separaten Bereich der Anwendung jederzeit bearbeiten oder löschen.
+	\newpage
+	\subsection{Annahmen und Beschränkungen}
+	Anforderungen von Projekten sind durch den Auftraggeber in der Regel nicht bis ins kleinste Detail vorgegeben, sondern es wird erwartet, dass entsprechend dem Geist der Projektvision sinnvolle Annahmen getroffen werden. 
+	
+	Beschränkungen können durch externe Faktoren (z.B. rechtliche Vorschriften), aber auch durch projektbezogene Einflüsse (z.B. gewünschter Umfang oder Reifegrad der geforderten Lösung, Verfügbarkeit von Ressourcen) entstehen.	
+	
+	Im folgenden werden vom Projektteam konkret ermittelte Anforderungen und Beschränkungen zusammengefasst beschrieben.
+	
+	\subsubsection{Annahmen}
+Die Spieler haben unabhängig vom Spiel Zugriff auf das erforderliche Kursmaterial (z.B. das Skript).
+
+Die Spieler nutzen das Spiel nicht, um Kommilitonen kennenzulernen. Die Absprache zum gemeinsamen Lernen erfolgt vorher.
+
+Die Spieler nutzen zur Kommunikation während des Spiels einen (Bild-)Telefoniedienst (z.B. Skype, Teams oder Teamspeak).
+
+\subsubsection{Beschränkungen}
+Es wird keine technische Schnittstelle zu Produktivsystemen der IUBH implementiert (Moodle, Webreader etc.).
+
+Der Prototyp wird mit dem Schwerpunkt auf der Nutzung mit aktuell gängigen Browsern am PC entwickelt. Es wird zwar nach den Prinzipien des Responsive Designs gearbeitet, die Anwendung wird aber nicht explizit für Mobilgeräte angepasst.
+
+Der Prototyp verfügt über eine Benutzeroberfläche in ausschließlich deutscher Sprache.
+
+Das Projekt wird kostenneutral durchgeführt.
+
+Dem Projektteam ist bekannt, dass für den Betrieb einer Web-Anwendung rechtliche Vorgaben u.a. des Telemediengesetzes und der EU-DSGVO einzuhalten sind. Die Bereitstellung und Integration entsprechender Dokumente (Impressum, Datenschutzerklärung, AGB etc.) erfolgt im Rahmen dieses Projektes nicht.	
+	
+	\newpage
+	\subsection{Meilensteine}
+Dieser Abschnitt beschreibt in kürze die im Rahmen des Projektes mit dem Auftraggeber abgestimmten Meilensteine und deren Zeitplanung.
+Sollte es zu Änderungen des Zeitplans kommen, werden diese umgehend mit dem Auftraggeber abgestimmt.
+
+\subsubsection{MS1 Projektkonfiguration abgeschlossen und bereitgestellt}
+
+In diesem Meilenstein findet sich das Team zusammen und initialisiert das Projekt. 
+Dazu gehört die Etablierung der Kommunikationskanäle, das Zeit- und Personalmanagement, die Einrichtung der technischen Infrastruktur und das Risikomanagement.
+Eine Projektvision entsteht, erste Anforderungen werden ermittelt und ein Lösungsansatz wird erarbeitet.
+
+Zeitrahmen: 13.4. -- 25.4.2020
+
+
+\subsubsection{MS2 Projektvideo bereitgestellt}
+
+Im Rahmen eines kurzen und prägnanten Videos werden Team, Projektvision und Lösungsansatz vorgestellt.
+
+Zeitrahmen: 26.4. -- 30.4.2020
+
+\subsubsection{MS3 Dokumentationskonzept bereitgestellt}
+
+Das Dokumentationskonzept beschreibt die Dokumente, die im Rahmen der Projektdokumentation geliefert werden. Darüber hinaus stellt es Prozesse und Struktur der Implementierung sowie des Qualitätsmanagements dar.
+
+Zeitrahmen: 1.5. -- 10.5.2020
+
+\subsubsection{MS4 Zentrale Ergebnisartefakte bereitgestellt}
+
+Dem Tutor wird der lauffähige Prototyp inkl. des Quellcodes und der Dokumentation als Web-Anwendung zur Verfügung gestellt.
+
+Zeitrahmen: 11.5. -- 21.5.2020
+
+\subsubsection{MS5 Ergebnispräsentation als Screencast bereitgestellt}
+
+Die entwickelte Anwendung wird im Rahmen eines Screencasts (max. 20 Minuten) präsentiert.
+
+Zeitrahmen: 22.5. -- 26.5.2020
+
+\subsubsection{MS6 Finale Ergebnisse, Dokumentation und Projektbericht bereitgestellt}
+
+Dieser Meilenstein schließt das Projekt ab. Der Projektbericht wird über Turnitin eingereicht, während die Dokumentation über Redmine zur Verfügung gestellt wird.
+
+Zeitrahmen: 27.5. -- 31.5.2020
+
+	\newpage
+	\subsection{Projektstruktur und Ablauf}
+
+	\newpage
+	\subsection{Rollen und Verantwortungen}	
+
+Das Team organisiert sich nach agilen Prinzipien. Dementsprechend versteht sich das Team als eine Gruppe motivierter Individuen, die eigenständig und verantwortungsvoll ihre Aufgaben im Sinne des gemeinsamen Projekterfolges wahrnehmen. Dabei stellen die intensive und offene Kommunikation und das Vertrauen zueinander den Grundpfeiler des gemeinsamen Handelns dar.
+
+Im agilen Kontext besteht keine starre Rollenverteilung, sondern jedes Individuum unterstützt das Team mit seinen stärken abhängig von der jeweiligen Projektsituation in den verschiedensten Bereichen.
+Dementsprechend werden im folgenden statt fester Rollen den Teammitgliedern lediglich Aufgabenschwerpunkte zugeordnet, die im Projektverlauf noch ergänzt werden können.
+
+\subsubsection{Maximilian Hahn}
+
+Schwerpunkte: Konzept, Dokumentation, Risikomanagement, Backend-Entwicklung
+
+\subsubsection{Holger Lapenat}
+
+Schwerpunkte: Qualitätssicherung, Betrieb, IT-Sicherheit, Support, Dokumentation
+
+\subsubsection{Daniel Moch}
+
+Schwerpunkte: Projektmanagement, Konzept, Frontend-Entwicklung, Dokumentation
+
+\subsubsection{Jörg Sawatzki}
+
+Schwerpunkte: Projektmanagement, interne und externe Kommunikation, Entwicklung Frontend/Backend
+
+
+	
+	\newpage
+	\subsection{Aufgaben und Aufwandsschätzung}
+	
+	\newpage
+	\subsection{Aufbau der technischen Infrastruktur}
+
+Die im Rahmen des Projekts verwendete technische Infrastruktur gliedert sich in zwei Teilbereiche:
+
+Kommunikationstools, darunter Microsoft Teams, Redmines Ticketsystem oder der GitHub-Issue-Tracker, dienen dem Austausch miteinander und ermöglichen eine effiziente, strukturierte Arbeitsorganisation.
+
+Kollaborationstools, darunter Redmines Wiki und die GIT-Repositories dienen der Persistierung und Versionierung von Zwischenergebnissen bis hin zu lieferfähigen Artefakten.
+
+Die verwendeten Werkzeuge werden in den folgenden Abschnitten kurz beschrieben.
+
+\subsubsection{Redmine}
+
+Das Projektmanagementsystem Redmine wird vom Auftraggeber zur Verfügung gestellt.
+Es dient der Kommunikation mit dem Auftraggeber sowie der Bereitstellung der vereinbarten Ergebnisartefakte.
+Das Team nutzt Redmine auch für die interne Kommunikation und Planung.
+
+\subsubsection{Microsoft Teams}
+
+Teams dient der audiovisuellen Kommunikation innerhalb des Teams und wird im Rahmen des Office365-Paketes von der IUBH zur Verfügung gestellt.
+
+\subsubsection{Wiki}
+
+Das in Redmine bereitgestellte Wiki dient als zentrales Werkzeug zur Dokumentation des Projektes.
+Im Wiki werden Entwürfe gesammelt und in einem kollaborativen und iterativen Prozess zu lieferfähigen Dokumenten verfeinert.
+
+\subsubsection{Repository für LaTeX-Dokumente}
+
+Die im Wiki erarbeiteten Artefakte werden in einem letzten Schritt mit dem Textsatzsystem LaTeX gesetzt und in die Reinschrift überführt, die dem Auftraggeber in Form von PDF-Dokumenten zur Verfügung gestellt wird.
+Zur Verwaltung der LaTeX-Dokumente und Assets wird ein GIT-Repository\footnote{https://github.com/joerg86/quizdoc} verwendet.
+
+\subsubsection{Quellcode-Repositories}
+
+Das zugrunde liegende Entwicklungsprojekt gliedert sich in zwei Teilprojekte, die in jeweils separaten GitHub-Repositories verwaltet werden.
+Für die Verwaltung der auf das jeweilige Teilprojekt bezogenen Bug-Reports und Feature-Requests kommt der entsprechende GitHub-Issue-Tracker zum Einsatz.
+
+Das severseitige Backend\footnote{{https://github.com/joerg86/quiz\_ backend}} verwaltet Entitäten und deren Beziehungen untereinander in einer Datenbank und stellt damit das der Applikation zugrundeliegende Datenmodell zur Verfügung. 
+Der Zugriff auf Daten und Funktionen wird über eine Web-Schnittstelle realisiert.
+
+Das Frontend\footnote{https://github.com/joerg86/quiz\_ frontend} ist der Teil der Anwendung, mit der der Endanwender interagiert. Als SPA (Single Page Application) im Browser realisiert, setzt es die grafische Oberfläche sowie große Teile der Anwendungslogik um.
+Es greift auf das Datenmodell und serverseitig implementierte Funktionen über die bereits erwähnte Web-Schnittstelle zu.
+
+\subsubsection{Deployment}
+
+Für das Hosting der Entwicklerversion und der Staging-Version für den Auftraggeber wird der in Deutschland ansässige Anbieter Uberspace (https://uberspace.de) favorisiert.
+Er bietet eine kostengünstige, nach dem Solidaritätsprinzip finanzierte Plattform für kleine Projekte.
+Eine finale Entscheidung bzgl. der Bereitstellung der Applikation kann aber erst später getroffen werden, wenn die Architektur der Anwendung festgelegt wurde.
+	\newpage
+	\section{Personalmanagement}
+
+Die Planung entspricht dem Projektzeitraum 13.4.2020 -- 30.6.2020.
+
+\subsection{Ressourcenplanung}
+Aufgrund der aktuellen Covid-19-Situation sind alle Projektteilnehmer von Kurzarbeit betroffen bzw. derzeit beruflich gar nicht aktiv und können somit auch unter der Woche in Teilzeit oder sogar Vollzeit im Projekt eingeplant werden.
+
+\subsubsection{Maximilian Hahn}
+
+Verfügbarkeit: 16 -- 20 Std. / Woche
+
+\subsubsection{Holger Lapenat}
+
+Verfügbarkeit: 21 -- 28 Std. / Woche
+
+\subsection{Daniel Moch}
+
+Verfügbarkeit: 35 -- 40 Std. / Woche, ab 10.5.2020: 18 -- 22 Std. / Woche
+
+\subsubsection{Jörg Sawatzki}
+
+Verfügbarkeit: 20 -- 30 Std. / Woche, ab 5.5.2020: 40 -- 50 Std. / Woche
+
+
+\subsection{Urlaubs-/Abwesenheitsplanung}
+Alle Projektteilnehmer sind während der gesamten Projektlaufzeit verfügbar.
+
+\newpage
+	\section{Kommunikationsmanagement}
+	
+Wichtigster Gelingensfaktor eines agiles Softwareprojektes ist die regelmäßige und transparente Kommunikation im Team.
+
+\subsection{Regelmeetings}
+
+Das Team trifft sich zu einem \textit{Jour fixe} per Videokonferenz jeden Montag und Donnerstag um 20.00 Uhr
+Zusätzliche und/oder individuelle Meetings werden nach Bedarf durchgeführt.
+Sobald das Projekt etabliert ist und Aufgaben selbstständig bearbeitet werden können, soll schrittweise versucht werden, die Meetings timeboxed abzuhalten.
+Tägliche Standup-Besprechungen finden im Chat statt. 
+
+\subsection{Kommunikationswege}
+
+Das Projektteam greift auf verschiedene Kommunikationskanäle zurück, die nachfolgend beschrieben werden.
+
+\subsubsection{Redmine}
+
+Bündelung der Kommunikation bzgl. einzelner Arbeitspakete und Aufgaben in Tickets.
+
+\subsubsection{GitHub Issue Tracker}
+
+Bündelung der Kommunikation mit eher technischem Fokus und Bezug zum Sourcecode in Tickets (Bugs, zur Implementierung freigegebene Features).
+
+\subsubsection{WhatsApp-Gruppe}
+
+Ungebundene, informelle schriftliche Kommunikation.
+
+\subsubsection{Microsoft Teams}
+
+Videokonferenzen im Rahmen des \textit{Jour fixe}, auch Standup-Meetings.
+
+\subsubsection{Kommunikation mit dem Auftraggeber}
+
+Der Projektleiter fungiert als Schnittstelle zwischen dem Team und dem Auftraggeber. Er bündelt und koordiniert die Kommunikation und die Auslieferung vereinbarter Artefakte.
+
+	\newpage
+	\section{Risikomanagement}
+	
+	
+	\newpage	
+	\printbibliography[heading=bibnumbered,title=Literaturverzeichnis]
+	
+\end{document}
