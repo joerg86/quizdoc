@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt,listof=numbered,glossary=totoc,parskip=half]{scrartcl}
+\documentclass[a4paper,11pt,listof=numbered,glossary=totoc,parskip=half]{scrreprt}
 \usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage[onehalfspacing]{setspace}
 
@@ -90,14 +90,16 @@ afterskip = 1pt]{subsubsection} %vor subsection 6pt und nach subsection 6pt Abst
 \begin{document}
 	\pagenumbering{Roman}
 	\begin{titlepage}
-		\maketitle
+		{
+			\let\newpage\relax
+			\maketitle
+		}		
 		\centering
 		
 		\includegraphics[scale=0.5]{iubh_logo}
 		
 		IUBH Fernstudium
 		
-		\vspace{2cm}
 		\begin{tabular}{lllrl}
 			\toprule
 			\textbf{Gruppe} & \textbf{Nachname} & \textbf{Vorname} & \textbf{Matrikelnr.} & \textbf{Studiengang} \\
@@ -113,23 +115,13 @@ afterskip = 1pt]{subsubsection} %vor subsection 6pt und nach subsection 6pt Abst
 	
 	
 	\newpage
-	\setcounter{tocdepth}{2}
+	\setcounter{tocdepth}{1}
 	\tableofcontents
 	\newpage
 
-	\renewcommand*{\thesection}{\Roman{section}}	
-
-	\listoffigures
-	\listoftables
-
-	\newpage
-	\printglossary[type=\acronymtype,title=Abkürzungsverzeichnis]
-	
 	\pagenumbering{arabic}	
-	\renewcommand*{\thesection}{\arabic{section}}	
-	\setcounter{section}{0}
 
-	\section{Projektvision}
+	\chapter{Projektvision}
 	
 	Ein Fernstudium bedeutet meist, viele Stunden alleine lernen zu müssen. Doch dabei ist der Mensch ein ausgeprägt soziales Wesen und Kooperation sowie soziale Eingebundenheit sind wesentliche Gelingensfaktoren für einen nachhaltigen Lernprozess. Durch Kommunikation beim Lernen kann neues Wissen gesichert und vertieft werden. Inzwischen stellt dank der fortschreitenden technischen Vernetzung auch die audiovisuelle Kommunikation zwischen weltweit verteilten Menschen kein Problem mehr dar. Dennoch werden diese Potenziale derzeit nur unzureichend von Bildungseinrichtungen ausgeschöpft.
 Des Weiteren verhelfen harte Fakten und Qualifikation alleine schon lange nicht mehr zu beruflichem Erfolg. Gefragt sind \textit{Soft Skills}, die aktiv zu entwickeln sind. Es gilt also: Gemeinsam lernt man am besten!
@@ -138,7 +130,7 @@ Inspiriert durch das Konzept des \frqq{}Haus des Fragens\flqq{} \autocite{HausDe
 
 Das Projekt wird durch ein verteilt arbeitendes Team von vier Studenten ohne Finanzierung durchgeführt. Das Ergebnis ist die prototypische Darstellung der angeführten Funktionalitäten, eine Einbindung in das Produktivsystem der IUBH wird allerdings nicht vollzogen.
 \newpage
-	\section{Vorstellung des Teams}
+	\chapter{Vorstellung des Teams}
 	Das Projekt wird von einem vierköpfigen Team aus Studenten der Studiengänge Informatik und Wirtschaftsinformatik durchgeführt (Abbildung \ref{fig:team}). Alle Mitglieder haben beruflich bedingt unterschiedliche Vorerfahrungen und Schwerpunkte im Bereich des Software-Engineerings.
 
 	\begin{figure}
@@ -152,7 +144,7 @@ Das Projekt wird durch ein verteilt arbeitendes Team von vier Studenten ohne Fin
 	\end{figure}
 
 
-\subsection{Maximilian Hahn}
+\section{Maximilian Hahn}
 
 \begin{tabularx}{\linewidth}{lX}
 \toprule
@@ -162,7 +154,7 @@ Das Projekt wird durch ein verteilt arbeitendes Team von vier Studenten ohne Fin
 \bottomrule
 \end{tabularx}
 
-\subsection{Holger Lapenat}
+\section{Holger Lapenat}
 
 \begin{tabularx}{\linewidth}{lX}
 \toprule
@@ -173,7 +165,7 @@ Das Projekt wird durch ein verteilt arbeitendes Team von vier Studenten ohne Fin
 \bottomrule
 \end{tabularx}
 
-\subsection{Daniel Moch}
+\section{Daniel Moch}
 
 \begin{tabularx}{\linewidth}{lX}
 \toprule
@@ -184,7 +176,7 @@ Das Projekt wird durch ein verteilt arbeitendes Team von vier Studenten ohne Fin
 \bottomrule
 \end{tabularx}
 
-\subsection{Jörg Sawatzki}
+\section{Jörg Sawatzki}
 
 \begin{tabularx}{\linewidth}{lX}
 \toprule
@@ -197,28 +189,28 @@ Das Projekt wird durch ein verteilt arbeitendes Team von vier Studenten ohne Fin
 \newpage
 
 
-	\section{Projektauftrag}
+	\chapter{Projektauftrag}
 
-	\subsection{Anforderungen}
+	\section{Anforderungen}
 	\newpage
 	
-	\subsection{Lösungsansatz}
+	\section{Lösungsansatz}
 
 Das Spiel ist für 2 bis 5 Spieler konzipiert, diese bilden ein Team.
 Jeder Spieler loggt sich auf der Anwendungswebseite ein. Ein Spieler begründet ein Team für eine feste Spieleranzahl und erstellt das Spiel. Alle weiteren Spieler treten dann dem Team bei. Zur Unterstützung der Kommunikation sollte parallel ein (Bild-)Telefoniedienst durch das Team genutzt werden. Der Spielersteller kann den Spielmodus und Spieleinstellungen ändern.
 
 Der Spielersteller legt vor Beginn des Spiels fest, in welchem Modus gespielt wird.
 
-\subsubsection{Nicht-kompetitiver Spielmodus}
+\subsection{Nicht-kompetitiver Spielmodus}
 
 Dieser Modus stellt das gemeinsame Erarbeiten des Wissens in den Vordergrund. Die Spielerleistung wird am Ende des Spiels nur für den jeweiligen Spieler sichtbar. Es wird kein Gewinner gekürt.
 
-\subsubsection{Kompetitiver Spielmodus}
+\subsection{Kompetitiver Spielmodus}
 
 In diesem Modus ist das Leistungsniveau aller Spieler jederzeit ersichtlich. Am Ende des Spiels gibt es einen oder mehrere Gewinner.
 
 
-\subsubsection{Beginn des Spiels}
+\subsection{Beginn des Spiels}
 
 Das Team einigt sich sinnvollerweise auf einen begrenzten Themenbereich aus einem Kurs, das könnte ein Lernzyklus oder aber ein Abschnitt im Skript sein. Das dazugehörige Skript sollte jedem Spieler digital oder analog vorliegen.
 
@@ -228,13 +220,13 @@ Sobald alle Spieler beigetreten sind und ihre Bereitschaft zum Starten signalisi
 
 
 
-\subsubsection{Erarbeitungsphase}
+\subsection{Erarbeitungsphase}
 
 Jeder Spieler überlegt sich eine Frage mit dazugehöriger \frqq{}Musterantwort\flqq{} und schreibt diese in die entsprechende Eingabemaske. Dazu kann und sollte das Skript zur Hilfe genommen werden. Des Weiteren steht eine \textit{Knowledge Base} mit Fragen anderer Spieler (siehe unten) als Hilfe zur Verfügung. Jeder Spieler signalisiert, wenn er fertig ist, dann geht das Spiel zur ersten Fragephase über.
 
 Alle Fragen bilden nun den Fragenkatalog dieses Spiels.
 
-\subsubsection{Fragephase}
+\subsection{Fragephase}
 
 Eine Frage wird zufällig aus dem Fragenkatalog entnommen. Jedem Spieler wird diese Frage eingeblendet. Bis auf den Fragesteller beantworten nun alle Spieler individuell die Frage und tragen ihre Antwort in die entsprechende Eingabemaske ein. Die Spieler signalisieren, wenn sie fertig sind.
 
@@ -242,7 +234,7 @@ Eine Frage wird zufällig aus dem Fragenkatalog entnommen. Jedem Spieler wird di
 Ähnelt die aktuelle Frage einer der vorherigen Fragen, kann durch den Fragesteller entschieden werden, dass die aktuelle Frage übersprungen wird.
 Wurden alle Fragen aus dem Fragenkatalog bereits gestellt, geht das Spiel in die Schlussphase über.
 
-\subsubsection{Bewertungsphase}
+\subsection{Bewertungsphase}
 
 Allen Spielern werden nun die Frage, die Musterantwort und die eigene Antwort angezeigt. Dem Fragesteller werden die Antworten aller anderen Spieler angezeigt. Er bewertet nun die Antworten mit:
 
@@ -254,11 +246,11 @@ Allen Spielern werden nun die Frage, die Musterantwort und die eigene Antwort an
 
 Allen Spielern wird ihre jeweilige Bewertung sofort angezeigt. Das Spiel geht zur \textit{Klärungsphase} über.
 
-\subsubsection{Klärungsphase}
+\subsection{Klärungsphase}
 
 Bei Bedarf wird die Antwort im Team erarbeitet, sodass alle Mitspieler diese verstanden haben. Der Fragesteller entscheidet, wann das Spiel fortgesetzt wird. Dann geht es mit einer weiteren \textit{Fragephase} weiter.
 
-\subsubsection{Schlussphase}
+\subsection{Schlussphase}
 
 Allen Spielern werden nochmal die Fragen mit ihrer eigenen Antwort und der Musterantwort angezeigt.
 Im kompetitiven Modus informiert eine Statistik über die Punktzahl der Spieler. Der Spieler mit den meisten Punkten hat das Spiel gewonnen, bei Gleichstand gibt es mehrere Gewinner.
@@ -266,30 +258,30 @@ Ist der nicht-kompetitive Modus aktiviert, so sieht jeder Spieler nur seine eige
 
 Durch einstimmige Entscheidung aller Spieler wird eine neue Runde gespielt. Die weitere Runde beginnt mit der Vorbereitungsphase. Bei Gegenstimmen wird das Spiel beendet und das Team aufgelöst.
 
-\subsubsection{Besondere Spielsituationen}
+\subsection{Besondere Spielsituationen}
 
 Verlässt ein Spieler vorzeitig das Spiel, wird das Spiel beendet und das Team aufgelöst.
 
-\subsubsection{Knowledge Base}
+\subsection{Knowledge Base}
 
 Die Spieler können sich dazu entscheiden, ihre entwickelten Fragen und Musterantworten der Community in einer \textit{Knowledge Base} zur Verfügung zu stellen.
 Jeder Spieler kann seine mit der Community geteilten Fragen in einem separaten Bereich der Anwendung jederzeit bearbeiten oder löschen.
 	\newpage
-	\subsection{Annahmen und Beschränkungen}
+	\section{Annahmen und Beschränkungen}
 	Anforderungen von Projekten sind durch den Auftraggeber in der Regel nicht bis ins kleinste Detail vorgegeben, sondern es wird erwartet, dass entsprechend dem Geist der Projektvision sinnvolle Annahmen getroffen werden. 
 	
 	Beschränkungen können durch externe Faktoren (z.B. rechtliche Vorschriften), aber auch durch projektbezogene Einflüsse (z.B. gewünschter Umfang oder Reifegrad der geforderten Lösung, Verfügbarkeit von Ressourcen) entstehen.	
 	
 	Im folgenden werden vom Projektteam konkret ermittelte Anforderungen und Beschränkungen zusammengefasst beschrieben.
 	
-	\subsubsection{Annahmen}
+	\subsection{Annahmen}
 Die Spieler haben unabhängig vom Spiel Zugriff auf das erforderliche Kursmaterial (z.B. das Skript).
 
 Die Spieler nutzen das Spiel nicht, um Kommilitonen kennenzulernen. Die Absprache zum gemeinsamen Lernen erfolgt vorher.
 
 Die Spieler nutzen zur Kommunikation während des Spiels einen (Bild-)Telefoniedienst (z.B. Skype, Teams oder Teamspeak).
 
-\subsubsection{Beschränkungen}
+\subsection{Beschränkungen}
 Es wird keine technische Schnittstelle zu Produktivsystemen der IUBH implementiert (Moodle, Webreader etc.).
 
 Der Prototyp wird mit dem Schwerpunkt auf der Nutzung mit aktuell gängigen Browsern am PC entwickelt. Es wird zwar nach den Prinzipien des Responsive Designs gearbeitet, die Anwendung wird aber nicht explizit für Mobilgeräte angepasst.
@@ -301,11 +293,11 @@ Das Projekt wird kostenneutral durchgeführt.
 Dem Projektteam ist bekannt, dass für den Betrieb einer Web-Anwendung rechtliche Vorgaben u.a. des Telemediengesetzes und der EU-DSGVO einzuhalten sind. Die Bereitstellung und Integration entsprechender Dokumente (Impressum, Datenschutzerklärung, AGB etc.) erfolgt im Rahmen dieses Projektes nicht.	
 	
 	\newpage
-	\subsection{Meilensteine}
+	\section{Meilensteine}
 Dieser Abschnitt beschreibt in kürze die im Rahmen des Projektes mit dem Auftraggeber abgestimmten Meilensteine und deren Zeitplanung.
 Sollte es zu Änderungen des Zeitplans kommen, werden diese umgehend mit dem Auftraggeber abgestimmt.
 
-\subsubsection{MS1 Projektkonfiguration abgeschlossen und bereitgestellt}
+\subsection{MS1 Projektkonfiguration abgeschlossen und bereitgestellt}
 
 In diesem Meilenstein findet sich das Team zusammen und initialisiert das Projekt. 
 Dazu gehört die Etablierung der Kommunikationskanäle, das Zeit- und Personalmanagement, die Einrichtung der technischen Infrastruktur und das Risikomanagement.
@@ -314,70 +306,70 @@ Eine Projektvision entsteht, erste Anforderungen werden ermittelt und ein Lösun
 Zeitrahmen: 13.4. -- 25.4.2020
 
 
-\subsubsection{MS2 Projektvideo bereitgestellt}
+\subsection{MS2 Projektvideo bereitgestellt}
 
 Im Rahmen eines kurzen und prägnanten Videos werden Team, Projektvision und Lösungsansatz vorgestellt.
 
 Zeitrahmen: 26.4. -- 30.4.2020
 
-\subsubsection{MS3 Dokumentationskonzept bereitgestellt}
+\subsection{MS3 Dokumentationskonzept bereitgestellt}
 
 Das Dokumentationskonzept beschreibt die Dokumente, die im Rahmen der Projektdokumentation geliefert werden. Darüber hinaus stellt es Prozesse und Struktur der Implementierung sowie des Qualitätsmanagements dar.
 
 Zeitrahmen: 1.5. -- 10.5.2020
 
-\subsubsection{MS4 Zentrale Ergebnisartefakte bereitgestellt}
+\subsection{MS4 Zentrale Ergebnisartefakte bereitgestellt}
 
 Dem Tutor wird der lauffähige Prototyp inkl. des Quellcodes und der Dokumentation als Web-Anwendung zur Verfügung gestellt.
 
 Zeitrahmen: 11.5. -- 21.5.2020
 
-\subsubsection{MS5 Ergebnispräsentation als Screencast bereitgestellt}
+\subsection{MS5 Ergebnispräsentation als Screencast bereitgestellt}
 
 Die entwickelte Anwendung wird im Rahmen eines Screencasts (max. 20 Minuten) präsentiert.
 
 Zeitrahmen: 22.5. -- 26.5.2020
 
-\subsubsection{MS6 Finale Ergebnisse, Dokumentation und Projektbericht bereitgestellt}
+\subsection{MS6 Finale Ergebnisse, Dokumentation und Projektbericht bereitgestellt}
 
 Dieser Meilenstein schließt das Projekt ab. Der Projektbericht wird über Turnitin eingereicht, während die Dokumentation über Redmine zur Verfügung gestellt wird.
 
 Zeitrahmen: 27.5. -- 31.5.2020
 
 	\newpage
-	\subsection{Projektstruktur und Ablauf}
+	\section{Projektstruktur und Ablauf}
 
 	\newpage
-	\subsection{Rollen und Verantwortungen}	
+	\section{Rollen und Verantwortungen}	
 
 Das Team organisiert sich nach agilen Prinzipien. Dementsprechend versteht sich das Team als eine Gruppe motivierter Individuen, die eigenständig und verantwortungsvoll ihre Aufgaben im Sinne des gemeinsamen Projekterfolges wahrnehmen. Dabei stellen die intensive und offene Kommunikation und das Vertrauen zueinander den Grundpfeiler des gemeinsamen Handelns dar.
 
 Im agilen Kontext besteht keine starre Rollenverteilung, sondern jedes Individuum unterstützt das Team mit seinen stärken abhängig von der jeweiligen Projektsituation in den verschiedensten Bereichen.
 Dementsprechend werden im folgenden statt fester Rollen den Teammitgliedern lediglich Aufgabenschwerpunkte zugeordnet, die im Projektverlauf noch ergänzt werden können.
 
-\subsubsection{Maximilian Hahn}
+\subsection{Maximilian Hahn}
 
 Schwerpunkte: Konzept, Dokumentation, Risikomanagement, Backend-Entwicklung
 
-\subsubsection{Holger Lapenat}
+\subsection{Holger Lapenat}
 
 Schwerpunkte: Qualitätssicherung, Betrieb, IT-Sicherheit, Support, Dokumentation
 
-\subsubsection{Daniel Moch}
+\subsection{Daniel Moch}
 
 Schwerpunkte: Projektmanagement, Konzept, Frontend-Entwicklung, Dokumentation
 
-\subsubsection{Jörg Sawatzki}
+\subsection{Jörg Sawatzki}
 
 Schwerpunkte: Projektmanagement, interne und externe Kommunikation, Entwicklung Frontend/Backend
 
 
 	
 	\newpage
-	\subsection{Aufgaben und Aufwandsschätzung}
+	\section{Aufgaben und Aufwandsschätzung}
 	
 	\newpage
-	\subsection{Aufbau der technischen Infrastruktur}
+	\section{Aufbau der technischen Infrastruktur}
 
 Die im Rahmen des Projekts verwendete technische Infrastruktur gliedert sich in zwei Teilbereiche:
 
@@ -387,27 +379,27 @@ Kollaborationstools, darunter Redmines Wiki und die GIT-Repositories dienen der 
 
 Die verwendeten Werkzeuge werden in den folgenden Abschnitten kurz beschrieben.
 
-\subsubsection{Redmine}
+\subsection{Redmine}
 
 Das Projektmanagementsystem Redmine wird vom Auftraggeber zur Verfügung gestellt.
 Es dient der Kommunikation mit dem Auftraggeber sowie der Bereitstellung der vereinbarten Ergebnisartefakte.
 Das Team nutzt Redmine auch für die interne Kommunikation und Planung.
 
-\subsubsection{Microsoft Teams}
+\subsection{Microsoft Teams}
 
 Teams dient der audiovisuellen Kommunikation innerhalb des Teams und wird im Rahmen des Office365-Paketes von der IUBH zur Verfügung gestellt.
 
-\subsubsection{Wiki}
+\subsection{Wiki}
 
 Das in Redmine bereitgestellte Wiki dient als zentrales Werkzeug zur Dokumentation des Projektes.
 Im Wiki werden Entwürfe gesammelt und in einem kollaborativen und iterativen Prozess zu lieferfähigen Dokumenten verfeinert.
 
-\subsubsection{Repository für LaTeX-Dokumente}
+\subsection{Repository für LaTeX-Dokumente}
 
 Die im Wiki erarbeiteten Artefakte werden in einem letzten Schritt mit dem Textsatzsystem LaTeX gesetzt und in die Reinschrift überführt, die dem Auftraggeber in Form von PDF-Dokumenten zur Verfügung gestellt wird.
 Zur Verwaltung der LaTeX-Dokumente und Assets wird ein GIT-Repository\footnote{https://github.com/joerg86/quizdoc} verwendet.
 
-\subsubsection{Quellcode-Repositories}
+\subsection{Quellcode-Repositories}
 
 Das zugrunde liegende Entwicklungsprojekt gliedert sich in zwei Teilprojekte, die in jeweils separaten GitHub-Repositories verwaltet werden.
 Für die Verwaltung der auf das jeweilige Teilprojekt bezogenen Bug-Reports und Feature-Requests kommt der entsprechende GitHub-Issue-Tracker zum Einsatz.
@@ -418,87 +410,87 @@ Der Zugriff auf Daten und Funktionen wird über eine Web-Schnittstelle realisier
 Das Frontend\footnote{https://github.com/joerg86/quiz\_ frontend} ist der Teil der Anwendung, mit der der Endanwender interagiert. Als SPA (Single Page Application) im Browser realisiert, setzt es die grafische Oberfläche sowie große Teile der Anwendungslogik um.
 Es greift auf das Datenmodell und serverseitig implementierte Funktionen über die bereits erwähnte Web-Schnittstelle zu.
 
-\subsubsection{Deployment}
+\subsection{Deployment}
 
 Für das Hosting der Entwicklerversion und der Staging-Version für den Auftraggeber wird der in Deutschland ansässige Anbieter Uberspace (https://uberspace.de) favorisiert.
 Er bietet eine kostengünstige, nach dem Solidaritätsprinzip finanzierte Plattform für kleine Projekte.
 Eine finale Entscheidung bzgl. der Bereitstellung der Applikation kann aber erst später getroffen werden, wenn die Architektur der Anwendung festgelegt wurde.
 	\newpage
-	\section{Personalmanagement}
+	\chapter{Personalmanagement}
 
 Die Planung entspricht dem Projektzeitraum 13.4.2020 -- 30.6.2020.
 
-\subsection{Ressourcenplanung}
+\section{Ressourcenplanung}
 Aufgrund der aktuellen Covid-19-Situation sind alle Projektteilnehmer von Kurzarbeit betroffen bzw. derzeit beruflich gar nicht aktiv und können somit auch unter der Woche in Teilzeit oder sogar Vollzeit im Projekt eingeplant werden.
 
-\subsubsection{Maximilian Hahn}
+\subsection{Maximilian Hahn}
 
 Verfügbarkeit: 16 -- 20 Std. / Woche
 
-\subsubsection{Holger Lapenat}
+\subsection{Holger Lapenat}
 
 Verfügbarkeit: 21 -- 28 Std. / Woche
 
-\subsubsection{Daniel Moch}
+\section{Daniel Moch}
 
 Verfügbarkeit: 35 -- 40 Std. / Woche, ab 10.5.2020: 18 -- 22 Std. / Woche
 
-\subsubsection{Jörg Sawatzki}
+\subsection{Jörg Sawatzki}
 
 Verfügbarkeit: 20 -- 30 Std. / Woche, ab 5.5.2020: 40 -- 50 Std. / Woche
 
 
-\subsection{Urlaubs-/Abwesenheitsplanung}
+\section{Urlaubs-/Abwesenheitsplanung}
 Alle Projektteilnehmer sind während der gesamten Projektlaufzeit verfügbar.
 
 \newpage
-	\section{Kommunikationsmanagement}
+	\chapter{Kommunikationsmanagement}
 	\label{sec:kommunikationsmanagement}
 	
 Wichtigster Gelingensfaktor eines agiles Softwareprojektes ist die regelmäßige und transparente Kommunikation im Team.
 
-\subsection{Regelmeetings}
+\section{Regelmeetings}
 
 Das Team trifft sich zu einem \textit{Jour fixe} per Videokonferenz jeden Montag und Donnerstag um 20.00 Uhr
 Zusätzliche und/oder individuelle Meetings werden nach Bedarf durchgeführt.
 Sobald das Projekt etabliert ist und Aufgaben selbstständig bearbeitet werden können, soll schrittweise versucht werden, die Meetings timeboxed abzuhalten.
 Tägliche Standup-Besprechungen finden im Chat statt. 
 
-\subsection{Kommunikationswege}
+\section{Kommunikationswege}
 
 Das Projektteam greift auf verschiedene Kommunikationskanäle zurück, die nachfolgend beschrieben werden.
 
-\subsubsection{Redmine}
+\subsection{Redmine}
 
 Bündelung der Kommunikation bzgl. einzelner Arbeitspakete und Aufgaben in Tickets.
 
-\subsubsection{GitHub Issue Tracker}
+\subsection{GitHub Issue Tracker}
 
 Bündelung der Kommunikation mit eher technischem Fokus und Bezug zum Sourcecode in Tickets (Bugs, zur Implementierung freigegebene Features).
 
-\subsubsection{WhatsApp-Gruppe}
+\subsection{WhatsApp-Gruppe}
 
 Ungebundene, informelle schriftliche Kommunikation.
 
-\subsubsection{Microsoft Teams}
+\subsection{Microsoft Teams}
 
 Videokonferenzen im Rahmen des \textit{Jour fixe}, auch Standup-Meetings.
 
-\subsubsection{Kommunikation mit dem Auftraggeber}
+\subsection{Kommunikation mit dem Auftraggeber}
 
 Der Projektleiter fungiert als Schnittstelle zwischen dem Team und dem Auftraggeber. Er bündelt und koordiniert die Kommunikation und die Auslieferung vereinbarter Artefakte.
 
 	\newpage
-	\section{Risikomanagement}
+	\chapter{Risikomanagement}
 
 Risiken sind Ereignisse, deren Eintreten ungewiss ist, deren Eintreten aber Auswirkungen auf die Erreichung der Projektziele haben wird. Diese Auswirkungen können sich in mehreren Dimensionen manifestieren, z.B. Zeit oder Qualität. Da alle Projekte mit gewissen Risiken verbunden sind, ist immer ein effektives Risikomanagement erforderlich. 
 
-\subsection{Risikomanagement-Ansatz}
+\section{Risikomanagement-Ansatz}
 
 Die geringe Komplexität und Größe des Projekts erfordern und ermöglichen ein besonders ressourceneffizientes Risikomanagement. Die Umsetzung des Risikomanagements in diesem Projekt orientiert sich an den Vorgaben der Projektmanagementmethode PRINCE2\textregistered\ \autocite{Prince2}.
 Der Teamleiter ist für den Ansatz des Risikomanagements verantwortlich. Der Risikomanager unterstützt den Teamleiter bei der Umsetzung des Risikomanagements.
 
-\subsection{Prozess und Verfahren}
+\section{Prozess und Verfahren}
 
 Das Risikomanagement des Projekts findet grundsätzlich in fünf Schritten statt:
 
@@ -512,36 +504,36 @@ Das Risikomanagement des Projekts findet grundsätzlich in fünf Schritten statt
 
 Die Schritte sind wie folgt ausgestaltet:
 
-\subsubsection{Identifizieren}
+\subsection{Identifizieren}
 
 Während der Projektkonfiguration wurde während eines Jour fixes ein Brainstorming zu Risiken durchgeführt. Zum Festhalten der Risiken ist im Redmine ein Risikoregister verfügbar (siehe Abschnitt \nameref{subsec:risikoregister}). Im weiteren Verlauf des Projekts können alle Teammitglieder jederzeit weitere Risiken vorbringen und im Risikoregister aufnehmen .
 
-\subsubsection{Bewerten}
+\subsection{Bewerten}
 
 Der Risikoautor, d.h. die Person, die das Risiko gemeldet hat, führt die Risikobewertung gemäß des Abschnitts Bewertungsskalen durch. Das Ergebnis der Bewertung wird im Risikoregister festgehalten.
 
-\subsubsection{Planen}
+\subsection{Planen}
 
 Vor jedem Jour fixe wird das Risikoregister durch den Teamleiter auf neue Eintragungen geprüft und bei Bedarf bereits bekannte Risiken aktualisiert. Der Teamleiter entscheidet über die Kategorie der Risikomaßnahme und plant die zu treffenden Maßnahmen für jedes Risiko gemeinsam mit dem Umsetzer der Risikomaßnahme.
 
-\subsubsection{Implementieren}
+\subsection{Implementieren}
 
 Der Teamleiter erstellt grundsätzlich ein Ticket für die umzusetzende Risikomaßnahme.
 
-\subsubsection{Kommunizieren}
+\subsection{Kommunizieren}
 
 Die Kommunikation findet gemäß des Kommunikationsmanagementansatzes statt (siehe Abschnitt \nameref{sec:kommunikationsmanagement}). Risiken, die durch den Risikoautor mit dem höchsten Schweregrad bewertet werden, sind sofort an den Teamleiter zu melden. Alle weiteren Risiken sind im Risikoregister aufzunehmen. Während des Jour fixes gibt der Teamleiter ausgewählte Risiken an das Team weiter.
 
-\subsection{Risikoregister}
+\section{Risikoregister}
 \label{subsec:risikoregister}
 
 Das Risikoregister ist eine Aufzeichnung der identifizierten Projektrisiken. Darin werden Informationen zu allen Bedrohungen bezüglich des Projekts erfasst.
 
-\subsubsection{Format und Speicherort}
+\subsection{Format und Speicherort}
 
 Das Risikoregister wird als Excel-Tabellendokument (*.xlsx) geführt und steht auf Redmine allen Teammitgliedern zur Bearbeitung zur Verfügung.
 
-\subsubsection{Aufbau}
+\subsection{Aufbau}
 
 
 Tabelle \ref{tab:risikoregister} zeigt den Aufbau des Risikoregisters.
@@ -567,11 +559,11 @@ Tabelle \ref{tab:risikoregister} zeigt den Aufbau des Risikoregisters.
 \label{tab:risikoregister}
 \end{table}
 	
-\subsection{Berichte}
+\section{Berichte}
 
 Es erfolgen keine regelmäßigen Berichte über Risiken an den Auftraggeber. Der Teamleiter entscheidet über die Eskalation von Projektrisiken an den Auftraggeber.
 
-\subsection{Bewertungsskalen}
+\section{Bewertungsskalen}
 \label{subsec:bewertungsskalen}
 
 Der Schweregrad eines Risikos wird mit einer 4x4-Eintrittswahrscheinlichkeits- und Auswirkungsmatrix ermittelt. Die Ermittlung erfolgt im Risikoregister nach Angabe der Eintrittswahrscheinlichkeit und der Auswirkung automatisch.
@@ -618,12 +610,12 @@ Aus der Eintrittswahrscheinlichkeit und der Auswirkung wird mit Hilfe der \namer
 	\label{fig:risiko}
 \end{figure}
 
-\subsection{Eintrittsnähe}
+\section{Eintrittsnähe}
 \label{subsec:eintrittsnaehe}
 
 Die Eintrittsnähe wird bezüglich der Projektmeilensteine angegeben. Dabei wird ein Zeitraum von Beginn bis Ende des möglichen Eintrittszeitraums angegeben, z.B. bedeutet „MS 2 bis MS 3“ von Abschluss des Meilensteins 1 bis zum Abschluss des Meilensteins 3.
 
-\subsection{Risikokategorien}
+\section{Risikokategorien}
 \label{subsec:risikokategorien}
 
 Es sind folgende Risikokategorien festgelegt:
@@ -635,7 +627,7 @@ Es sind folgende Risikokategorien festgelegt:
 	\item Sonstige (Risiken, die nicht von den anderen Kategorien erfasst werden)
 \end{itemize}
 
-\subsection{Kategorien der Risikomaßnahmen}
+\section{Kategorien der Risikomaßnahmen}
 
 Folgende Kategorien der Risikomaßnahmen stehen dem Teamleiter zur Verfügung:
 \begin{itemize}
