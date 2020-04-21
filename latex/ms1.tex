@@ -18,7 +18,7 @@ citecolor = black]{hyperref}
 \usepackage[ngerman]{babel}
 \usepackage{graphicx}
 \usepackage{caption}
-\usepackage[automake,toc,section=section,numberedsection]{glossaries}
+\usepackage[automake,toc,section=chapter,numberedsection]{glossaries}
 \usepackage{uarial}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -42,46 +42,51 @@ afterskip = 1pt]{subsubsection} %vor subsection 6pt und nach subsection 6pt Abst
 
 
 % Glossar
-\newacronym{saas}{SaaS}{Software-as-a-Service}
-\newacronym{re}{RE}{Requirements Engineering}
-\newacronym{qs}{QS}{Qualitätssicherung}
-\newacronym{gui}{GUI}{Graphical User Interface}
-\newacronym{ota}{OTA}{Over-The-Air}
-\newacronym{http}{HTTP}{Hypertext Transfer Protocol}
-\newacronym{jsx}{JSX}{JavaScript XML}
-\newacronym{json}{JSON}{JavaScript Object Notation}
-\newacronym{api}{API}{Application Programming Interface}
-\newacronym{html}{HTML}{Hypertext Markup Language}
-\newacronym{ux}{UX}{User Experience}
-\newacronym{ui}{UI}{User Interface}
-\newacronym{xml}{XML}{Extensible Markup Language}
-\newacronym{css}{CSS}{Cascading Style Sheets}
-\newacronym{js}{JS}{JavaScript}
-\newacronym{jit}{JIT}{Just-In-Time}
-\newacronym{aot}{AOT}{Ahead-Of-Time}
-\newacronym{cpu}{CPU}{Central Processing Unit}
-\newacronym{io}{IO}{Input / Output}
-\newacronym{gpu}{GPU}{Graphics Processing Unit}
-\newacronym{vm}{VM}{Virtual Machine}
-\newacronym{ide}{IDE}{Integrated Development Environment}	
-\newacronym{adb}{ADB}{Android Debug Bridge}
-\newacronym{etl}{ETL}{Extract, Trans	form, Load}
-\newacronym{dwh}{DWH}{Data Warehouse}
-\newacronym{hdfs}{HDFS}{Hadoop File System}
-\newacronym{crm}{CRM}{Customer Relationship Management}
-\newacronym{erp}{ERP}{Enterprise Resource Planning}
-\newacronym{mvp}{MVP}{Minimum Viable Product}
-\newacronym{ig}{i.G.}{in Gründung}
-\newacronym{ci}{CI}{Continuous Integration}
-\newacronym{ssh}{SSH}{Secure Shell}
-\newacronym{cd}{CD}{Continuous Delivery}
-\newacronym{rest}{REST}{Representational State Transfer}
-\newacronym{orm}{ORM}{Object-Relational Mapper}
-\newacronym{dom}{DOM}{Document Object Model}
-\newacronym{url}{URL}{Uniform Resource Locator}
-\glsaddall
+\makeglossary
+\newglossaryentry{re}
+{
+	name={Requirements Engineering (RE)},
+	description={Das \textit{Requirements Engineering} bezeichnet die Disziplin der Anforderungsermittlung. Damit ist typischerweise das Ermitteln, Dokumentieren, Prüfen und Abstimmen von funktionalen und nicht-funktionalen Anforderungen gemeint.}
+}
 
-\makeglossaries
+\newglossaryentry{stakeholder}
+{
+	name={Stakeholder},
+	description={\textit{Stakeholder} (dt. Anspruchsgruppen) sind alle Personen, die mit dem zu entwickelnden System konfrontiert sind.
+Der Begriff beschränkt sich nicht nur auf diejenigen, die unmittelbar mit dem System arbeiten, sondern schließt insbesondere den Auftraggeber, das Entwicklerteam oder die mit dem Betrieb des Systems betrauten Personen mit ein.}
+}
+\newglossaryentry{userstory}
+{
+	name={User Story},
+	description={Eine \textit{User Story} ist eine besonders in agilen Projekten weit verbreitete Dokumentationsform im Kontext der Anforderungsermittlung.
+Sie besteht aus einem einfachen Satz, der eine Anforderung aus der Sicht einer definierten Stakeholder-Rolle beschreibt und entspricht immer einem fest vorgegebenen Format:
+\textit{Als [Rolle] möchte ich / wünsche ich mir [Funktion], damit [Begründung].}
+User Stories lassen sich damit auf einfache Karteikarten schreiben, die an ein Whiteboard gepinnt oder auf einem großen Tisch ausgebreitet werden können. Somit lassen sie sich gut in Workshops zur Visualisierung und Priorisierung der Anforderungen nutzen.}
+}
+\newglossaryentry{moscow}
+{
+	name={MoSCoW},
+	description={Die \textit{MoSCoW-Methode} wird im vorliegenden Projekt genutzt, um Anforderungen zu priorisieren.
+\textit{Must have (M)} legt fest, dass die betrachtete Anforderung zwingend umgesetzt werden muss.
+\textit{Should have (S)} bedeutet, dass die Umsetzung wünschenswert, aber nicht kritisch ist.
+\textit{Can have (C)} bezeichnet unkritische Anforderungen, die optional zu einem späteren Zeitpunkt implementiert werden können.
+\textit{Won't have (W)} legt fest, dass die betrachtete Anforderung (aktuell) nicht umgesetzt wird.
+Die Priorisierung von Anforderungen ist nicht endgültig, sondern kann im Projektverlauf angepasst werden.
+	}
+}
+\newglossaryentry{git} 
+{
+	name={Git-Repository},
+	description={GIT ist ein Werkzeug zur Versionskontrolle, dass vor allem zur kollaborativen Quellcode-Verwaltung in Software-Projekten eingesetzt wird, sich aber auch zur Verwaltung und Versionierung von Artefakten der Dokumentation eignet.
+Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das Hosting von Git-Repositories.}
+}
+\newglossaryentry{responsive}
+{
+	name={Responsive Design},
+	description={Ist eine Applikation so gestaltet, dass sie sich an verschiedene Bildschirmgrößen und -ausrichtungen, wie sie beispielsweise bei Smartphones-, Tablets oder Desktop-PCs zu finden sind, anpassen kann, so spricht man von \textit{Responsive Design}.
+	}
+}
+
 
 \subject{Meilensteinbericht}
 \title{Meilenstein 1}
@@ -202,14 +207,14 @@ Das Projekt wird durch ein verteilt arbeitendes Team von vier Studenten ohne Fin
 
 Der Software-Engineering-Prozess ist dadurch gekennzeichnet, dass er ein iterativer, kooperativer und inkrementeller Prozess ist.
 
-Dies gilt somit auch für den Teilprozess der Anforderungsermittlung (Requirements Engineering).
+Dies gilt somit auch für den Teilprozess der Anforderungsermittlung (\Gls{re}).
 Das bedeutet, dass auch das Ermitteln, Dokumentieren und Prüfen/Abstimmen der Anforderungen in mehreren Zyklen durchgeführt wird. Somit sind zu keinem Zeitpunkt im Projekt alle Anforderungen vollständig bekannt und detailliert.
 
 Im Projektverlauf werden, bedingt durch die erkenntnisgetriebene Natur des Entwicklungsprozesses, laufend neue Anforderungen hinzu kommen und bekannte Anforderungen detailliert, verworfen oder repriorisiert werden müssen. 
 
 Dementsprechend stellt dieser Abschnitt lediglich eine Momentaufnahme der in der Anfangsphase des Projektes ermittelten wesentlichen Anforderungen dar. Der Detailgrad der dokumentierten Anforderungen ist dementsprechend relativ niedrig gewählt, aber ausreichend, um dem Team und dem Auftraggeber einen soliden Gesamtüberblick zu vermitteln.
 
-Das Team hat sich für die Dokumentationsform der User Stories als wichtigstes Werkzeug bei der Anforderungsermittlung entschieden. Diese wurden nach der MoSCoW-Methode bereits grob priorisiert.
+Das Team hat sich für die Dokumentationsform der User Stories \Glspl{userstory} als wichtigstes Werkzeug bei der Anforderungsermittlung entschieden. Diese wurden nach der \Gls{moscow}-Methode bereits grob priorisiert.
 
 \subsection{Systemkontext}
 
@@ -218,7 +223,7 @@ Dementsprechend liegen zum aktuellen Zeitpunkt keine Schnittstellen zu Umsysteme
 Auch Dokumente wie z.B. rechtliche Vorschriften zum Datenschutz, liegen aktuell außerhalb des Systemkontexts.
 Wichtigste Quelle von Anforderungen sind daher im wesentlichen die im folgenden Abschnitt beschriebenen Anspruchsgruppen.
 
-\subsection{Stakeholder}
+\subsection{\Gls{stakeholder}}
 
 Bevor mit der Ermittlung der Anforderungen begonnen werden kann, müssen die Anspruchsgruppen (Stakeholder) ermittelt werden.
 
@@ -251,7 +256,7 @@ Sie müssen einen reibungslosen Betriebsablauf garantieren können und solten de
 
 \subsection{Ermittelte Anforderungen }
 
-Dieser Abschnitt soll sich auf die vom Auftraggeber bereitgestellten Anforderungen beschränken. Das Projektteam pflegt eine umfangreiche Liste mit User Stories, die die vorgegebenen Anforderungen verfeinern und ergänzen. Sie ist in Form einer Google-Tabelle hinterlegt und wird laufend aktualisiert\footnote{https://docs.google.com/spreadsheets/d/1\_{}oWCU0Z0ybt4eHaNSfDKxIm69L42qAAZPqFLbNwvmyo/edit\# gid=0}.
+Dieser Abschnitt soll sich auf die vom Auftraggeber bereitgestellten Anforderungen beschränken. Das Projektteam pflegt eine umfangreiche Liste mit \Glspl{userstory}, die die vorgegebenen Anforderungen verfeinern und ergänzen. Sie ist in Form einer Google-Tabelle hinterlegt und wird laufend aktualisiert\footnote{https://docs.google.com/spreadsheets/d/1\_{}oWCU0Z0ybt4eHaNSfDKxIm69L42qAAZPqFLbNwvmyo/edit\# gid=0}.
 
 \subsection{Funktionale Anforderungen}
 
@@ -377,7 +382,7 @@ Die Spieler nutzen zur Kommunikation während des Spiels einen (Bild-)Telefonied
 \subsection{Beschränkungen}
 Es wird keine technische Schnittstelle zu Produktivsystemen der IUBH implementiert (Moodle, Web-Reader etc.).
 
-Der Prototyp wird mit dem Schwerpunkt auf der Nutzung mit aktuell gängigen Browsern am PC entwickelt. Es wird zwar nach den Prinzipien des Responsive Designs gearbeitet, die Anwendung wird aber nicht explizit für Mobilgeräte angepasst.
+Der Prototyp wird mit dem Schwerpunkt auf der Nutzung mit aktuell gängigen Browsern am PC entwickelt. Es wird zwar nach den Prinzipien des \Gls{responsive} gearbeitet, die Anwendung wird aber nicht explizit für Mobilgeräte angepasst.
 
 Der Prototyp verfügt über eine Benutzeroberfläche in ausschließlich deutscher Sprache.
 
@@ -575,7 +580,7 @@ Die im Wiki erarbeiteten Artefakte werden in einem letzten Schritt mit dem Texts
 Zur Verwaltung der LaTeX-Dokumente und Assets wird ein GIT-Repository\footnote{https://
 /joerg86/quizdoc} verwendet.
 
-\subsection{Quellcode-Repositories}
+\subsection{\glslink{git}{Quellcode-Repositories}}
 
 Das zugrunde liegende Entwicklungsprojekt gliedert sich in zwei Teilprojekte, die in jeweils separaten GitHub-Repositories verwaltet werden.
 Für die Verwaltung der auf das jeweilige Teilprojekt bezogenen Bug-Reports und Feature-Requests kommt der entsprechende GitHub-Issue-Tracker zum Einsatz.
@@ -616,7 +621,7 @@ Verfügbarkeit: 35 -- 40 Std. / Woche, ab 10.5.2020: 18 -- 22 Std. / Woche
 Verfügbarkeit: 20 -- 30 Std. / Woche, ab 5.5.2020: 40 -- 50 Std. / Woche
 
 
-\section{Urlaubs-/Abwesenheitsplanung}
+\section{Urlaubs- und Abwesenheitsplanung}
 Alle Projektteilnehmer sind während der gesamten Projektlaufzeit verfügbar.
 
 \newpage
@@ -820,6 +825,7 @@ Folgende Kategorien der Risikomaßnahmen stehen dem Teamleiter zur Verfügung:
 
 Die Umsetzung von Maßnahmen der Kategorien Übertragen bzw. Teilen ist in diesem Projekt nicht möglich.
 
+	\printglossaries
 	\newpage	
 	\printbibliography[heading=bibnumbered,title=Literaturverzeichnis]
 
