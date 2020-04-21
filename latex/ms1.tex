@@ -25,6 +25,7 @@ citecolor = black]{hyperref}
 \usepackage{multirow}
 \usepackage[cache=false]{minted}
 \renewcommand{\listoflistingscaption}{Verzeichnis der Code-Listings}
+\usepackage[table]{xcolor} % Zum Ändern der Farben in Tabellen
 
 \usepackage{csquotes}
 \usepackage[backend=biber, style=apa]{biblatex}
@@ -451,6 +452,7 @@ Alle Projektteilnehmer sind während der gesamten Projektlaufzeit verfügbar.
 
 \newpage
 	\section{Kommunikationsmanagement}
+	\label{sec:kommunikationsmanagement}
 	
 Wichtigster Gelingensfaktor eines agiles Softwareprojektes ist die regelmäßige und transparente Kommunikation im Team.
 
@@ -487,9 +489,164 @@ Der Projektleiter fungiert als Schnittstelle zwischen dem Team und dem Auftragge
 
 	\newpage
 	\section{Risikomanagement}
+
+Risiken sind Ereignisse, deren Eintreten ungewiss ist, deren Eintreten aber Auswirkungen auf die Erreichung der Projektziele haben wird. Diese Auswirkungen können sich in mehreren Dimensionen manifestieren, z.B. Zeit oder Qualität. Da alle Projekte mit gewissen Risiken verbunden sind, ist immer ein effektives Risikomanagement erforderlich. 
+
+\subsection{Risikomanagement-Ansatz}
+
+Die geringe Komplexität und Größe des Projekts erfordern und ermöglichen ein besonders ressourceneffizientes Risikomanagement. Die Umsetzung des Risikomanagements in diesem Projekt orientiert sich an den Vorgaben der Projektmanagementmethode PRINCE2\textregistered\ \autocite{Prince2}.
+Der Teamleiter ist für den Ansatz des Risikomanagements verantwortlich. Der Risikomanager unterstützt den Teamleiter bei der Umsetzung des Risikomanagements.
+
+\subsection{Prozess und Verfahren}
+
+Das Risikomanagement des Projekts findet grundsätzlich in fünf Schritten statt:
+
+\begin{enumerate}
+	\item Identifizieren
+	\item Bewerten
+	\item Planen
+	\item Implementieren
+	\item Kommunizieren (findet parallel zu allen anderen Schritten statt)
+\end{enumerate}
+
+Die Schritte sind wie folgt ausgestaltet:
+
+\subsubsection{Identifizieren}
+
+Während der Projektkonfiguration wurde während eines Jour fixes ein Brainstorming zu Risiken durchgeführt. Zum Festhalten der Risiken ist im Redmine ein Risikoregister verfügbar (siehe Abschnitt \nameref{subsec:risikoregister}). Im weiteren Verlauf des Projekts können alle Teammitglieder jederzeit weitere Risiken vorbringen und im Risikoregister aufnehmen .
+
+\subsubsection{Bewerten}
+
+Der Risikoautor, d.h. die Person, die das Risiko gemeldet hat, führt die Risikobewertung gemäß des Abschnitts Bewertungsskalen durch. Das Ergebnis der Bewertung wird im Risikoregister festgehalten.
+
+\subsubsection{Planen}
+
+Vor jedem Jour fixe wird das Risikoregister durch den Teamleiter auf neue Eintragungen geprüft und bei Bedarf bereits bekannte Risiken aktualisiert. Der Teamleiter entscheidet über die Kategorie der Risikomaßnahme und plant die zu treffenden Maßnahmen für jedes Risiko gemeinsam mit dem Umsetzer der Risikomaßnahme.
+
+\subsubsection{Implementieren}
+
+Der Teamleiter erstellt grundsätzlich ein Ticket für die umzusetzende Risikomaßnahme.
+
+\subsubsection{Kommunizieren}
+
+Die Kommunikation findet gemäß des Kommunikationsmanagementansatzes statt (siehe Abschnitt \nameref{sec:kommunikationsmanagement}). Risiken, die durch den Risikoautor mit dem höchsten Schweregrad bewertet werden, sind sofort an den Teamleiter zu melden. Alle weiteren Risiken sind im Risikoregister aufzunehmen. Während des Jour fixes gibt der Teamleiter ausgewählte Risiken an das Team weiter.
+
+\subsection{Risikoregister}
+\label{subsec:risikoregister}
+
+Das Risikoregister ist eine Aufzeichnung der identifizierten Projektrisiken. Darin werden Informationen zu allen Bedrohungen bezüglich des Projekts erfasst.
+
+\subsubsection{Format und Speicherort}
+
+Das Risikoregister wird als Excel-Tabellendokument (*.xlsx) geführt und steht auf Redmine allen Teammitgliedern zur Bearbeitung zur Verfügung.
+
+\subsubsection{Aufbau}
+
+
+Tabelle \ref{tab:risikoregister} zeigt den Aufbau des Risikoregisters.
+
+\begin{table}
+\begin{tabularx}{\textwidth}{lX}
+	\toprule
+	Feld & Inhalt \\
+	\midrule
+	Risikokennung (ID) & Ein eindeutiger fortlaufender numerischer Wert \\
+	 Risikoautor& Person, die das Risiko gemeldet hat \\
+	 Registriert am& Datum, an dem das Risiko identifiziert wurde\\
+	 Risikokategorie& Art des Risikos (gemäß Abschnitt \nameref{subsec:risikokategorien})\\
+	 Risikobeschreibung& Beschreibung des Risikos mit Risikoursache, -ereignis und -auswirkung\\
+	 Risikobewertung& Eintrittswahrscheinlichkeit, Auswirkung und der daraus abgeleitete Schweregrad (gemäß Abschnitt \nameref{subsec:bewertungsskalen})\\
+	 Eintrittsnähe& Angabe, wie nahe des Risikoereignis bevorsteht (gemäß Abschnitt \nameref{subsec:eintrittsnaehe})\\
+	 Risikomaßnahme& Zu ergreifende Maßnahme für den Umgang mit dem Risiko\\
+	 Risikostatus& Angabe, ob das Risiko aktiv oder abgeschlossen ist\\
+	 \bottomrule
+	 
+\end{tabularx}
+\caption{Risikoregister}
+\label{tab:risikoregister}
+\end{table}
 	
-	
+\subsection{Berichte}
+
+Es erfolgen keine regelmäßigen Berichte über Risiken an den Auftraggeber. Der Teamleiter entscheidet über die Eskalation von Projektrisiken an den Auftraggeber.
+
+\subsection{Bewertungsskalen}
+\label{subsec:bewertungsskalen}
+
+Der Schweregrad eines Risikos wird mit einer 4x4-Eintrittswahrscheinlichkeits- und Auswirkungsmatrix ermittelt. Die Ermittlung erfolgt im Risikoregister nach Angabe der Eintrittswahrscheinlichkeit und der Auswirkung automatisch.
+Die Eintrittswahrscheinlichkeit wird in vier Stufen angegeben (die entsprechenden Wahrscheinlichkeiten sind als Anhalt in Klammern angegeben):
+\begin{itemize}
+	\item Niedrig (< 30 \%)
+	\item Mittel (30 \% - 50 \%)
+	\item Hoch (51 \% - 70 \%)
+	\item Sehr hoch (> 70 \%)
+\end{itemize}
+
+Die Auswirkung wird in vier Stufen angegeben. Die Stufen orientieren sich unter anderem aus den intern mit der MoSCoW-Methode bewerteten Anforderungen. In Klammern ist angegeben, welche Anforderungen gefährdet sind:
+\begin{itemize}
+	\item Niedrig (C-bewertete Anforderungen können nicht erfüllt werden)
+	\item Mittel (S-bewertete Anforderungen könnten gefährdet sein)
+	\item Hoch (S-bewertete Anforderungen können mit Sicherheit nicht erfüllt werden oder M-bewertete Anforderungen könnten gefährdet sein)
+	\item Sehr hoch (M-bewertete Anforderungen können mit Sicherheit nicht erfüllt werden)
+\end{itemize}
+Bei Risiken, die sich nicht direkt auf die Anforderungen auswirken, sind die Stufen sinngemäß anzuwenden.
+
+Aus der Eintrittswahrscheinlichkeit und der Auswirkung wird mit Hilfe der \nameref{fig:risiko} (siehe Seite \pageref{fig:risiko}) der Schweregrad ermittelt. Dieser wird wiederum in vier Stufen angegeben:
+\begin{itemize}
+	\item Niedrig
+	\item Mittel
+	\item Hoch
+	\item Sehr hoch
+\end{itemize}
+
+\begin{figure}
+	\centering
+	\renewcommand{\arraystretch}{2}	
+	\begin{tabular}{rrccccc}	
+		\arrayrulecolor{white}
+		& & &  \multicolumn{4}{c}{\textbf{Schweregrad}} \\ 
+		\multirow{4}{*}{\rotatebox{90}{\textbf{Wahrscheinlichkeit}}} &
+		\cellcolor[HTML]{bee3d3}Sehr hoch&&  \cellcolor[HTML]{f79448} Mittel & \cellcolor[HTML]{f04e4d} Hoch & \cellcolor[HTML]{ce181e} Sehr hoch & \cellcolor[HTML]{ce181e}Sehr hoch \\
+		&\cellcolor[HTML]{bee3d3}Hoch && \cellcolor[HTML]{f79448}Mittel & \cellcolor[HTML]{f79448}Mittel & \cellcolor[HTML]{f04e4d}Hoch & \cellcolor[HTML]{ce181e}Sehr hoch \\
+		&\cellcolor[HTML]{bee3d3}Mittel &&\cellcolor[HTML]{fdb94d} Niedrig &\cellcolor[HTML]{f79448} Mittel &\cellcolor[HTML]{f79448} Mittel &\cellcolor[HTML]{f04e4d} Hoch \\
+		&\cellcolor[HTML]{bee3d3}Niedrig && \cellcolor[HTML]{fdb94d}Niedrig &\cellcolor[HTML]{fdb94d} Niedrig & \cellcolor[HTML]{f79448}Mittel & \cellcolor[HTML]{f79448}Mittel \\ \cmidrule[6pt]{3-6}
+		&&& \cellcolor[HTML]{c2e0ae}Niedrig & \cellcolor[HTML]{c2e0ae}Mittel & \cellcolor[HTML]{c2e0ae}Hoch & \cellcolor[HTML]{c2e0ae}Sehr hoch \\ 
+		&&& \multicolumn{4}{c}{\textbf{Auswirkung}}
+	\end{tabular}
+	\caption{4x4-Eintrittswahrscheinlichkeits- und Auswirkungsmatrix}
+	\label{fig:risiko}
+\end{figure}
+
+\subsection{Eintrittsnähe}
+\label{subsec:eintrittsnaehe}
+
+Die Eintrittsnähe wird bezüglich der Projektmeilensteine angegeben. Dabei wird ein Zeitraum von Beginn bis Ende des möglichen Eintrittszeitraums angegeben, z.B. bedeutet „MS 2 bis MS 3“ von Abschluss des Meilensteins 1 bis zum Abschluss des Meilensteins 3.
+
+\subsection{Risikokategorien}
+\label{subsec:risikokategorien}
+
+Es sind folgende Risikokategorien festgelegt:
+\begin{itemize}
+	\item Zeit (Das Risikoereignis hat Auswirkung auf den Zeitplan des Projekts)
+	\item Qualität (Das Risikoereignis wirkt sich auf die Erreichung der Akzeptanzkriterien aus)
+	\item Technik (Das Risikoereignis wirkt sich auf den Umgang mit Technologien oder Verfahren aus)
+	\item Akzeptanz (Das Risikoereignis wirkt sich auf die Zufriedenheit des Auftraggebers aus)
+	\item Sonstige (Risiken, die nicht von den anderen Kategorien erfasst werden)
+\end{itemize}
+
+\subsection{Kategorien der Risikomaßnahmen}
+
+Folgende Kategorien der Risikomaßnahmen stehen dem Teamleiter zur Verfügung:
+\begin{itemize}
+	\item Vermeiden (Das Risiko wird vollkommen beseitigt)
+	\item Reduzieren (Die Eintrittswahrscheinlichkeit oder Auswirkung werden reduziert)
+	\item Akzeptieren (Das Risiko wird nicht verändert, es werden keine Maßnahmen ergriffen)
+	\item Notfallplanung (Das Risiko wird für den Moment akzeptiert, es wird aber ein Plan für den Fall einer signifikanten Änderung der Situation aufgestellt)
+\end{itemize}
+
+Die Umsetzung von Maßnahmen der Kategorien Übertragen bzw. Teilen ist in diesem Projekt nicht möglich.
+
 	\newpage	
 	\printbibliography[heading=bibnumbered,title=Literaturverzeichnis]
-	
+
 \end{document}
