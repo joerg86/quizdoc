@@ -255,6 +255,13 @@ Dieser Abschnitt soll sich auf die vom Auftraggeber bereitgestellten Anforderung
 
 \subsection{Funktionale Anforderungen}
 
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{ucd.png}
+	\caption{Anwendungsfälle}
+	\label{ucd}
+\end{figure}
+
 Abbildung \ref{ucd} zeigt die beiden wesentlichen fachlichen Anwendungsfälle des Systems.
 
 !ucd.png!
@@ -456,6 +463,87 @@ Schwerpunkte: Projektmanagement, interne und externe Kommunikation, Entwicklung 
 	\newpage
 	\section{Aufgaben und Aufwandsschätzung}
 	
+	\begin{table}
+		\centering
+		\begin{tabular}{lrrr}
+			\toprule
+			Aufgabe & Best Case (MIP) & Likely Case (WAP) & Worst Case (MAP) \\
+			\midrule
+			\textbf{Backend} & \textbf{4,5} & \textbf{7,5} & \textbf{11,5} \\
+			Grundstruktur & 0,5 & 1 & 1,5 \\
+			Definieren des Datenmodells & 1 & 1.5 & 2 \\
+			Implementierung Spiellogik & 2 & 3 & 5 \\
+			Implementierung Web-Schnittstelle & 1 & 2 & 3 \\
+			\midrule
+			\textbf{Frontend} & \textbf{4,5} & \textbf{7} & \textbf{10,5} \\
+			Grundstruktur & 0,5 & 1 & 1,5 \\
+			Workflows abbilden & 3 & 4 & 6 \\
+			Integration & 1 & 2 & 3 \\
+			\midrule
+			\textbf{Qualitätssicherung} & \textbf{4} & \textbf{7} & \textbf{10} \\
+			Manuelle Tests & 2 & 3 & 4 \\
+			Erstellung automatisierter Testfälle & 1 & 2 & 3 \\
+			Sonstige QS-Maßnahmen & 1 & 2 & 3 \\
+			\midrule 
+			\textbf{Dokumenation} & \textbf{21} & \textbf{32} & \textbf{45} \\
+			Meilensteinberichte & 10 & 15 & 20 \\
+			Projektbericht & 4 & 6 & 8 \\
+			Videos & 1 & 2 & 3 \\
+			Benutzerhandbuch & 3 & 5 & 7 \\
+			Projektdokumentation & 3 & 5 & 7 \\
+			\midrule
+			\textbf{Projektmanagement} & \textbf{2} & \textbf{4} & \textbf{6} \\
+			Kommunikation \& Abstimmung & 2 & 4 & 6 \\
+			\midrule 
+			\Large\bfseries Summe & \Large\bfseries 33 & \Large\bfseries 53,5 & \Large\bfseries 83 \\
+			\bottomrule	
+				
+		\end{tabular}
+		\caption{Aufgaben und Aufwandsschätzung in Personentagen}
+		\label{tab:aufwand}
+	\end{table}
+	
+	Zur groben Aufwandsschätzung zu Beginn des Projekts eignet sich die Drei-Punkt-Schätzung, welche in den 1950er-Jahren im Rahmen eines US-Amerikanischen Militärprojekts entwickelt
+wurde. 
+
+Diese Schätzmethode basiert auf der Dreiecksverteilung und bezieht folgende vom Projektteam bereits bei Initialisierung des Projekts festgelegten Schätzwerte mit ein:
+
+\begin{itemize}
+	\item geschätzter minimaler Projektaufwand (MIP),
+	\item geschätzter maximaler Projektaufwand (MAP) sowie
+	\item geschätzter wahrscheinlicher Projektaufwand (WAP).
+\end{itemize}
+
+Tabelle \ref{tab:aufwand} gibt eine Übersicht über die Aufgaben im Projekt und liefert eine grobe Drei-Punkt-Schätzung in Personentagen (PT). Ein Personentag entspricht in der Regel acht Arbeitsstunden.
+
+Der im Rahmen der Projektkonfiguration geschätzte minimale Projektaufwand beläuft sich auf 33 PT. Der maximale Projektaufwand hingegen
+auf 83 Tage. Der wahrscheinliche Projektaufwand beträgt voraussichtlich 53,5 Tage. 
+
+Zur Berechnung des Erwartungswertes E wird an dieser Stelle folgende Formel verwendet:
+
+\begin{align}
+E &= \frac{MIP + 4 \cdot WAP + MAP}{6}
+\end{align}
+
+Mithilfe der geschätzten Projektaufwandswerte gelangt man bezüglich dieses Projekts zu folgendem Erwartungswert:
+
+\begin{align}
+E &= \frac{33 + 4 \cdot 53,5 + 83}{6}\\
+E &= 55
+\end{align}
+
+Der Erwartungswert des Projektaufwands liegt folglich bei 55 PT.
+
+Durch die Standardabweichung S erhält man ein Maß für die Genauigkeit des ermittelten Erwartungswertes E. Diese lässt sich mit folgender Formel ermitteln:
+
+\begin{align}
+S &= \frac{MAP - MIP}{6} \\
+S &= \frac{83 - 33}{6} \\
+S &= 8,33
+\end{align}
+
+Die Standardabweichung des Projektaufwands beträgt somit 8,33 PT.
+	
 	\newpage
 	\section{Aufbau der technischen Infrastruktur}
 
@@ -471,6 +559,7 @@ Die verwendeten Werkzeuge werden in den folgenden Abschnitten kurz beschrieben.
 
 Das Projektmanagementsystem Redmine wird vom Auftraggeber zur Verfügung gestellt.
 Es dient der Kommunikation mit dem Auftraggeber sowie der Bereitstellung der vereinbarten Ergebnisartefakte.
+
 Das Team nutzt Redmine auch für die interne Kommunikation und Planung.
 
 \subsection{Microsoft Teams}
