@@ -251,20 +251,18 @@ Sie müssen einen reibungslosen Betriebsablauf garantieren können und solten de
 
 \subsection{Ermittelte Anforderungen }
 
-Dieser Abschnitt soll sich auf die vom Auftraggeber bereitgestellten Anforderungen beschränken. Das Projektteam pflegt eine umfangreiche Liste mit User Stories, die die vorgegebenen Anforderungen verfeinern und ergänzen. Sie ist in Form einer Google-Tabelle hinterlegt und wird laufend aktualisiert\footnote{https://docs.google.com/spreadsheets/d/1\_ oWCU0Z0ybt4eHaNSfDKxIm69L42qAAZPqFLbNwvmyo/edit\# gid=0}.
+Dieser Abschnitt soll sich auf die vom Auftraggeber bereitgestellten Anforderungen beschränken. Das Projektteam pflegt eine umfangreiche Liste mit User Stories, die die vorgegebenen Anforderungen verfeinern und ergänzen. Sie ist in Form einer Google-Tabelle hinterlegt und wird laufend aktualisiert\footnote{https://docs.google.com/spreadsheets/d/1\_{}oWCU0Z0ybt4eHaNSfDKxIm69L42qAAZPqFLbNwvmyo/edit\# gid=0}.
 
 \subsection{Funktionale Anforderungen}
 
+Abbildung \ref{fig:ucd} zeigt die beiden wesentlichen fachlichen Anwendungsfälle des Systems.
+
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.6]{ucd.png}
-	\caption{Anwendungsfälle}
-	\label{ucd}
+	\includegraphics[width=0.8\linewidth]{ucd.png}
+	\caption{Anwendungsfalldiagramm (engl. \textit{use case diagram}) des Systems}
+	\label{fig:ucd}
 \end{figure}
-
-Abbildung \ref{ucd} zeigt die beiden wesentlichen fachlichen Anwendungsfälle des Systems.
-
-!ucd.png!
 
 Als Spieler möchte ich mit dem Quizsystem gezielt fachliche Inhalte wiederholen, um mich auf Prüfungen vorzubereiten.
 
@@ -574,17 +572,18 @@ Im Wiki werden Entwürfe gesammelt und in einem kollaborativen und iterativen Pr
 \subsection{Repository für LaTeX-Dokumente}
 
 Die im Wiki erarbeiteten Artefakte werden in einem letzten Schritt mit dem Textsatzsystem LaTeX gesetzt und in die Reinschrift überführt, die dem Auftraggeber in Form von PDF-Dokumenten zur Verfügung gestellt wird.
-Zur Verwaltung der LaTeX-Dokumente und Assets wird ein GIT-Repository\footnote{https://github.com/joerg86/quizdoc} verwendet.
+Zur Verwaltung der LaTeX-Dokumente und Assets wird ein GIT-Repository\footnote{https://
+/joerg86/quizdoc} verwendet.
 
 \subsection{Quellcode-Repositories}
 
 Das zugrunde liegende Entwicklungsprojekt gliedert sich in zwei Teilprojekte, die in jeweils separaten GitHub-Repositories verwaltet werden.
 Für die Verwaltung der auf das jeweilige Teilprojekt bezogenen Bug-Reports und Feature-Requests kommt der entsprechende GitHub-Issue-Tracker zum Einsatz.
 
-Das severseitige Backend\footnote{{https://github.com/joerg86/quiz\_ backend}} verwaltet Entitäten und deren Beziehungen untereinander in einer Datenbank und stellt damit das der Applikation zugrundeliegende Datenmodell zur Verfügung. 
+Das severseitige Backend\footnote{{https://github.com/joerg86/quiz\_{}backend}} verwaltet Entitäten und deren Beziehungen untereinander in einer Datenbank und stellt damit das der Applikation zugrundeliegende Datenmodell zur Verfügung. 
 Der Zugriff auf Daten und Funktionen wird über eine Web-Schnittstelle realisiert.
 
-Das Frontend\footnote{https://github.com/joerg86/quiz\_ frontend} ist der Teil der Anwendung, mit der der Endanwender interagiert. Als SPA (Single Page Application) im Browser realisiert, setzt es die grafische Oberfläche sowie große Teile der Anwendungslogik um.
+Das Frontend\footnote{https://github.com/joerg86/quiz\_{}frontend} ist der Teil der Anwendung, mit der der Endanwender interagiert. Als SPA (Single Page Application) im Browser realisiert, setzt es die grafische Oberfläche sowie große Teile der Anwendungslogik um.
 Es greift auf das Datenmodell und serverseitig implementierte Funktionen über die bereits erwähnte Web-Schnittstelle zu.
 
 \subsection{Deployment}
