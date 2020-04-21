@@ -432,34 +432,86 @@ Zeitrahmen: 27.5. -- 31.5.2020
 	\newpage
 	\section{Projektstruktur und Ablauf}
 
-	\newpage
-	\section{Rollen und Verantwortungen}	
+Die Ausgestaltung des Managements für dieses Projekt fand vor allem unter Berücksichtigung folgender Rahmenbedingungen statt:
 
-Das Team organisiert sich nach agilen Prinzipien. Dementsprechend versteht sich das Team als eine Gruppe motivierter Individuen, die eigenständig und verantwortungsvoll ihre Aufgaben im Sinne des gemeinsamen Projekterfolges wahrnehmen. Dabei stellen die intensive und offene Kommunikation und das Vertrauen zueinander den Grundpfeiler des gemeinsamen Handelns dar.
+\begin{itemize}
+	\item der Projektzeitraum beträgt nur sechs Kalenderwochen
+	\item der geschätzte Projektumfang beträgt nur 53,5 Personentage (vgl. Abschnitt \nameref{sec:aufwand}), wobei mehr als die Hälfte auf die gemäß Projektauftrag geforderte Dokumentation entfällt
+	\item das Projektteam hat nur vier Personen
+	\item das Projektteam arbeitet ausschließlich verteilt
+\end{itemize}
+
+Ziel bei der Projektkonfiguration war also ein leichtgewichtiges Projektmanagement, welches
+\begin{itemize}
+	\item die häufige Kommunikation im Team fördert und fordert,
+	\item den zusätzlichen Aufwand zum Erstellen und Pflegen von Managementartefakten minimiert,
+	\item keine strikte Rollenverteilung erfordert und
+	\item eine effektive Zielerreichung ermöglicht.
+\end{itemize}
+
+Das Projektteam hat sich daher entschieden, den gesamten Software-Engineering-Prozess agil durchzuführen, d.h. auch die Erstellung der Managementartefakte findet agil statt. 
+Die Basis des aktuell vorherrschende Verständnisses von Agilität bildet das \textit{Manifest für Agile Softwareentwicklung} \autocite{Agile}, es besteht aus vier Kernsätzen und zwölf Prinzipien. Zwar existiert mit \textit{Scrum} ein Prozessrahmenwerk, dass Agilität umsetzt, jedoch wäre der Aufwand für die vollständige Umsetzung von \textit{Scrum} im Rahmen dieses Projekts zu hoch. Daher dienten der \textit{Scrum-Guide} \autocite{Scrum} und das \textit{Manifest für Agile Softwareentwicklung} lediglich als Vorlage für das implementierte Projektmanagement.
+
+
+\subsection{Rollen und Verantwortungen}
+% IMHO gehört es zu Projektstruktur und Ablauf
+%	\newpage			
+%	\section{Rollen und Verantwortungen}	
+
+Das Team versteht sich als eine Gruppe motivierter Individuen, die eigenständig und verantwortungsvoll ihre Aufgaben im Sinne des gemeinsamen Projekterfolges wahrnehmen. Dabei stellen die intensive und offene Kommunikation und das Vertrauen zueinander den Grundpfeiler des gemeinsamen Handelns dar.
 
 Im agilen Kontext besteht keine starre Rollenverteilung, sondern jedes Individuum unterstützt das Team mit seinen stärken abhängig von der jeweiligen Projektsituation in den verschiedensten Bereichen.
 Dementsprechend werden im folgenden statt fester Rollen den Teammitgliedern lediglich Aufgabenschwerpunkte zugeordnet, die im Projektverlauf noch ergänzt werden können.
 
-\subsection{Maximilian Hahn}
+\subsubsection{Maximilian Hahn}
 
 Schwerpunkte: Konzept, Dokumentation, Risikomanagement, Backend-Entwicklung
 
-\subsection{Holger Lapenat}
+\subsubsection{Holger Lapenat}
 
 Schwerpunkte: Qualitätssicherung, Betrieb, IT-Sicherheit, Support, Dokumentation
 
-\subsection{Daniel Moch}
+\subsubsection{Daniel Moch}
 
 Schwerpunkte: Projektmanagement, Konzept, Frontend-Entwicklung, Dokumentation
 
-\subsection{Jörg Sawatzki}
+\subsubsection{Jörg Sawatzki}
 
 Schwerpunkte: Projektmanagement, interne und externe Kommunikation, Entwicklung Frontend/Backend
+
+
+\subsection{Tickets}
+
+Tickets beschreiben einzelne Arbeitspakete und Aufgaben und werden in Redmine geführt. Diese werden an ein Teammitglied zugewiesen, dieses Teammitglied ist dann dafür ergebnisverantwortlich. Die Tickets werden priorisiert und haben verschiedene Status (Neu, In Arbeit, Feedback, Abgeschlossen).
+
+\subsection{Der Sprint}
+Das Projekt wird in Sprints durchgeführt. Der Sprint ist ein fester Zeitraum, innerhalb dessen ein fertiges, nutzbares und potenziell auslieferbares Produktinkrement hergestellt wird \autocite[S.9]{Scrum}. Im Rahmen dieses Projekts umfasst jeder Sprint eine Sprintplanung, die täglichen Standup-Meetings, die Entwicklungsarbeit, das Halftime-Meeting und einen Sprintabschluss. Es nimmt immer das gesamte Team teil.
+
+Die Dauer des Sprints beträgt eine Kalenderwoche. Jeder Sprint beginnt mit der Sprintplanung und endet mit dem Sprintabschluss. An das Ende eines Sprints schließt sich unmittelbar ein weiterer Sprint an.
+
+Vor der ersten ordentlichen Sprintplanung werden Tickets in einem Kick-off-Meeting erarbeitet.
+
+\subsubsection{Sprintplanung}
+Im zweiten Teil des am Donnerstag stattfindenden Jour fixes wird die Sprintplanung durchgeführt (vgl. Abschnitt \nameref{sec:kommunikationsmanagement}). Zunächst wird das Sprintziel ausdifferenziert. Der nächste zu erfüllende Meilenstein gibt dabei den Rahmen vor. 
+Die Tickets, die für die Erfüllung des Sprintziels abgearbeitet werden müssen, werden priorisiert. Diese Tickets werden im Team besprochen und im Aufwand geschätzt. Das Team verteilt nun die priorisierten Tickets unter sich.
+
+\subsubsection{Standup-Meetings}
+Täglich werden Informationen über das bisher erreichte und am aktuellen anstehende ausgetauscht. Die Kommunikation findet dabei asynchron über den Chat statt. Jedes Teammitglied stellt bis 10:00 Uhr morgens diese Informationen zur Verfügung und nimmt die Meldungen der anderen Teammitglieder auf.
+
+\subsubsection{Entwicklungsarbeit}
+Während des Sprints findet die Entwicklungsarbeit am auszuliefernden Produkt statt. Parallel dazu werden Tickets für die folgenden Sprints erstellt.
+
+\subsubsection{Halftime-Meeting}
+Im montäglichen Jour fixe findet das Halftime-Meeting statt. Hier werden zunächst die bisher im aktuellen Sprint abgearbeiteten Tickets durch jedes Teammitglied vorgestellt. Hindernisse bei der Bearbeitung der weiteren Tickets werden gemeinsam identifiziert und beseitigt.
+
+\subsubsection{Sprintabschluss}
+Im ersten Teil des am Donnerstag stattfindenen Jour fix findet der Sprintabschluss statt. Die bisher noch nicht vorgestellten abgeschlossenen Tickets werden vorgestellt. Danach wird die gemeinsame Arbeit reflektiert und wo nötig Anpassungen am Projektmanagement vorgenommen.
 
 
 	
 	\newpage
 	\section{Aufgaben und Aufwandsschätzung}
+	\label{sec:aufwand}
 	
 	\begin{table}
 		\centering
@@ -469,7 +521,7 @@ Schwerpunkte: Projektmanagement, interne und externe Kommunikation, Entwicklung 
 			\midrule
 			\textbf{Backend} & \textbf{4,5} & \textbf{7,5} & \textbf{11,5} \\
 			Grundstruktur & 0,5 & 1 & 1,5 \\
-			Definieren des Datenmodells & 1 & 1.5 & 2 \\
+			Definieren des Datenmodells & 1 & 1,5 & 2 \\
 			Implementierung Spiellogik & 2 & 3 & 5 \\
 			Implementierung Web-Schnittstelle & 1 & 2 & 3 \\
 			\midrule
