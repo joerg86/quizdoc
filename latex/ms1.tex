@@ -192,6 +192,87 @@ Das Projekt wird durch ein verteilt arbeitendes Team von vier Studenten ohne Fin
 	\chapter{Projektauftrag}
 
 	\section{Anforderungen}
+
+Der Software-Engineering-Prozess ist dadurch gekennzeichnet, dass er ein iterativer, kooperativer und inkrementeller Prozess ist.
+
+Dies gilt somit auch für den Teilprozess der Anforderungsermittlung (Requirements Engineering).
+Das bedeutet, dass auch das Ermitteln, Dokumentieren und Prüfen/Abstimmen der Anforderungen in mehreren Zyklen durchgeführt wird. Somit sind zu keinem Zeitpunkt im Projekt alle Anforderungen vollständig bekannt und detailliert.
+
+Im Projektverlauf werden, bedingt durch die erkenntnisgetriebene Natur des Entwicklungsprozesses, laufend neue Anforderungen hinzu kommen und bekannte Anforderungen detailliert, verworfen oder repriorisiert werden müssen. 
+
+Dementsprechend stellt dieser Abschnitt lediglich eine Momentaufnahme der in der Anfangsphase des Projektes ermittelten wesentlichen Anforderungen dar. Der Detailgrad der dokumentierten Anforderungen ist dementsprechend relativ niedrig gewählt, aber ausreichend, um dem Team und dem Auftraggeber einen soliden Gesamtüberblick zu vermitteln.
+
+Das Team hat sich für die Dokumentationsform der User Stories als wichtigstes Werkzeug bei der Anforderungsermittlung entschieden. Diese wurden nach der MoSCoW-Methode bereits grob priorisiert.
+
+\subsection{Systemkontext}
+
+Das geplante System wird lediglich prototypisch umgesetzt, daher wird die Einbindung in die Anwendungslandschaft der IUBH zunächst nicht berücksichtigt.
+Dementsprechend liegen zum aktuellen Zeitpunkt keine Schnittstellen zu Umsystemen vor.
+Auch Dokumente wie z.B. rechtliche Vorschriften zum Datenschutz, liegen aktuell außerhalb des Systemkontexts.
+Wichtigste Quelle von Anforderungen sind daher im wesentlichen die im folgenden Abschnitt beschriebenen Anspruchsgruppen.
+
+\subsection{Stakeholder}
+
+Bevor mit der Ermittlung der Anforderungen begonnen werden kann, müssen die Anspruchsgruppen (Stakeholder) ermittelt werden.
+
+\subsubsection{Auftraggeber (Tutor)}
+
+Der Auftraggeber ist Quelle wichtiger und verbindlicher Anforderungen, die er durch den Projektleitfaden und die themenbezogene Aufgabenstellung dem Team mitteilt.
+Er ist bei wichtigen Entscheidungen einzubeziehen und muss regelmäßig über den Projektstatus informiert werden.
+
+\subsubsection{Projektteam}
+
+Das Team übernimmt die Verantwortung für die erfolgreiche und termingerechte Durchführung des Projektes gegenüber dem Auftraggeber.
+Die Teammitglieder nehmen verschiedene Rollen an, darunter z.B. die des Entwicklers, Testers, Qualitätsmanagers oder Projektleiters. 
+An jede Rolle sind verschiedene Interessen und Verantwortungen geknüpft, so dass jede Rolle eine wichtige Anforderungsquelle darstellt.
+
+\subsubsection{Anwender}
+
+Als Anwender sollen hier diejenigen bezeichnet werden, die das Quizsystem aktiv z.B. in der Rolle der Spieler benutzen. In der Regel handelt es sich dabei um Studierende der IUBH, die mithilfe des Quiz Lerninhalte spielerisch erarbeiten. 
+Sie sind Hauptzielgruppe der Anwendung und damit eine der wichtigsten Quellen für Anforderungen, denn an ihre Akzeptanz des Produktes ist der Erfolg des Projektes eng gekoppelt. 
+
+\subsubsection{Administrative Nutzer}
+
+Unter diesem Begriff sind Nutzer zu verstehen, die das Quiz-System nicht aktiv nutzen, sondern lediglich administrative Aufgaben übernehmen.
+Bzgl. dieser Nutzergruppe sind zum einen keine Vorgaben vom Auftraggeber gemacht worden und zum anderen ist der Lösungsansatz des Projektteams so konzipiert, dass das System kollaborativ von den Nutzern verwaltet wird. 
+Somit fallen sehr wenige administrative Aufgaben an und diese Anspruchsgruppe wird nur am Rande berücksichtigt.
+
+\subsubsection{Betreiber}
+
+Unter den Begriff des Betreibers werden diejenigen Personen gefasst, die mit der Installation, dem Betrieb und der Wartung der Infrastruktur konfrontiert sind.
+Sie müssen einen reibungslosen Betriebsablauf garantieren können und solten dementsprechend als Anforderungsquelle einbezogen werden.
+
+\subsection{Ermittelte Anforderungen }
+
+Dieser Abschnitt soll sich auf die vom Auftraggeber bereitgestellten Anforderungen beschränken. Das Projektteam pflegt eine umfangreiche Liste mit User Stories, die die vorgegebenen Anforderungen verfeinern und ergänzen. Sie ist in Form einer Google-Tabelle hinterlegt und wird laufend aktualisiert\footnote{https://docs.google.com/spreadsheets/d/1\_ oWCU0Z0ybt4eHaNSfDKxIm69L42qAAZPqFLbNwvmyo/edit\# gid=0}.
+
+\subsection{Funktionale Anforderungen}
+
+Abbildung \ref{ucd} zeigt die beiden wesentlichen fachlichen Anwendungsfälle des Systems.
+
+!ucd.png!
+
+Als Spieler möchte ich mit dem Quizsystem gezielt fachliche Inhalte wiederholen, um mich auf Prüfungen vorzubereiten.
+
+Als Spieler möchte ich gegen einen anderen Spieler antreten können, um mich mit ihm zu messen / vergleichen.
+
+Als Spieler möchte ich mit einem anderen Spieler gemeinsam spielen, um mich im Team über Lerninhalte austauschen zu können.
+
+Als Spieler möchte ich Fragen und Antworten für andere Spieler hinzufügen und pflegen, um mein Wissen weiterzugeben und zu festigen.
+
+Als Spieler möchte ich Feedback zu meiner Lösung bekommen, um aus Fehlern zu lernen.
+
+
+\subsection{Nicht-funktionale Anforderungen}
+
+Als Spieler möchte ich das Quiz im Browser spielen können, damit ich es auf verschiedenen Plattformen spielen kann und keine Zusatzssoftware installieren muss.
+
+Als Auftraggeber wünsche ich mir einen lauffähigen Prototyp, damit ich die mögliche Einsatzfähigkeit in der Praxis evaluieren kann.
+
+Als Auftraggeber / Spieler wünsche ich mir ein Benutzerhandbuch, um mir einen Überblick über Aufbau und Funktionen des Systems verschaffen zu können.
+
+Als Auftraggeber / Betreiber wünsche ich mir eine Dokumentation zur Installation und Inbetriebnahme, damit ich das Quiz ohne großen Aufwand den Studenten zur Verfügung stellen kann.
+
 	\newpage
 	
 	\section{Lösungsansatz}
