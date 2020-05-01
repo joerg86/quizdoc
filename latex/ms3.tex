@@ -158,7 +158,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	
 	\newpage
-	\setcounter{tocdepth}{1}
+	\setcounter{tocdepth}{2}
 	\tableofcontents
 	
 	\newpage
@@ -276,26 +276,100 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	\newpage
 	\chapter{Implementierung}
-	% @toDo einleitende Worte	
+	Dieses Kapitel beschreibt die geplante Vorgehensweise und Rollenverteilung in Bezug auf den Implementierungsprozess. Daran anknüpfend werden die geplante Softwarearchitektur, die fachlichen Abläufe und das Datenmodell vorgestellt. Das Kapitel schließt mit einem Überblick über die eingesetzten Werkzeuge.
 	
 	\section{Implementierungsprozess}
-	Wie der gesamte Softwareentwicklungsprozess wird auch die Implementierung agil durchgeführt. Die Definition der Rahmenbedingungen wurde bereits im Bericht zum Meilenstein 1 dargelegt (\cite{MS1}, S.12ff). 
+	Wie der gesamte Softwareentwicklungsprozess wird auch die Implementierung agil durchgeführt. Die Definition der Rahmenbedingungen wurde bereits im Bericht zu Meilenstein 1 in Abschnitt 3.5 dargelegt.
 	
 	Im ersten Schritt der Implementierung wird die Grobstruktur des Systems erarbeitet. Die Reihenfolge der zu erstellenden Softwareartefakte ergibt sich einerseits durch die strukturellen Abhängigkeitsbeziehungen. Damit ist z.B. die Abhängigkeit des Backends von den im Frontend gewonnen Daten gemeint.\footnote{Auf die Erstellung von Dummies oder Treibern wird in diesem Projekt verzichtet.} Andererseits ergeben sich durch den fachlichen Prozess zeitliche Abhängigkeiten. Dem bezüglich der Implementierungsreihenfolge übrigen Entscheidungsspielraum wird mit der Risiko-Wert-Matrix (siehe Abschnitt \ref{sec:risikowertmatrix}) begegnet.
 	
-	\section{Rollenverteilung}
-	Die Rollenverteilung während der Implementierung ergibt sich ebenfalls aus den Festlegungen, die im Bericht zum Meilenstein 1 getroffen wurden. Diese Zuordnung ist allerdings nicht trennscharf, denn zwischen den Themenbereichen gibt es Überschneidungen und Verknüpfungen. Nach Themenbereich geordnet ergibt sich folgende Verteilung:
+	\subsection{Vorgehensmodell}
 	
-	\subsubsection{Backend-Entwicklung}
-	Jörg Sawatzki, Maximilian Hahn
+	Die Implementierung des Projekts angelehnt an \textit{Scrum} in Sprint-Zyklen. Detaillierte Ausführungen zu Ablauf und Ausgestaltung der Sprints finden sich im Bericht zu Meilenstein 1 in Abschnitt 3.5.3. 
 	
-	\subsubsection{Frontend-Entwicklung}
-	Jörg Sawatzki, Daniel Moch
+	\subsection{Rollenverteilung}
+	Die Rollenverteilung während der Implementierung ergibt sich ebenfalls aus den Festlegungen, die im Bericht zum Meilenstein 1 getroffen wurden. Diese Zuordnung ist allerdings nicht trennscharf, denn zwischen den Themenbereichen gibt es Überschneidungen und Verknüpfungen. 
 	
-	\subsubsection{Qualitätssicherung}
-	Holger Lapenat
+	An dieser Stelle werden kurz die Tätigkeitsschwerpunkte der Mitglieder des Projektteams in Bezug auf den Implementierungsprozess dargestellt.
+	
+	\subsubsection{Jörg Sawatzki}
+	Jörg überwacht als \textit{Head of Development} den Entwicklungsprozess und sichert das reibungslose Zusammenspiel der Architekturkomponenten. Er unterstützt bei der Programmierung des Frontends und des Backends.
+	
+	\subsubsection{Daniel Moch}
+	Daniel hat bereits Erfahrungen mit JavaScript und unterstützt bei der Frontend-Entwicklung und bei den parallel zur Entwicklung laufenden Integrationstests.
+	
+	\subsubsection{Maximilian Hahn}
+	Maximilian hat bereits Erfahrungen mit der Programmiersprache Python und unterstützt dementsprechend bei der Backend-Entwicklung und dem Test der Schnittstelle.
+	
+	\subsubsection{Holger Lapenat}
+	Holger bringt als Fachinformatiker für Systemintegration fundierte Erfahrungen im Betrieb von Serversystemen mit. Er sorgt für die Installation und Wartung des Entwicklungsservers und führt regelmäßige Deployments durch. Außerdem unterstützt er beim kontinuierlichen Test der Artefakte und überwacht Akzeptanzkriterien.
 
-	\newpage
+	
+	\section{Architektur}
+		QTeams wird als Single Page Application (SPA) umgesetzt, d. h. die grafische Oberfläche der Applikation wird komplett im Webbrowser gerendert (Frontend). Die Kommunikation mit dem zentralen Server (Backend) erfolgt über eine Web-Schnittstelle.
+		
+		Im Folgenden wird die Architektur der zentralen Komponenten beschrieben.
+		
+	\subsection{Backend}
+	\label{subsec:backend}
+	Das serverseitige Backend übernimmt die Datenhaltung sowie die fachliche Anwendungslogik und stellt die Schnittstelle zum Frontend bereit. Es wird in der Programmiersprache Python mit dem Django-Framework\footnote{https://www.djangoproject.com/} implementiert. Django ist ein auf einer \frqq{}Model View Controller (MVC)\flqq{}-Architektur basierendes Framework für datenbankgestützte Web-Applikationen.
+	
+	Das Django-Framework abstrahiert über einen Object Relational Mapper (ORM) den Datenbankzugriff, so dass verschiedene relationale Datenbanken ohne Anpassung des Programmcodes verwendet werden können. Da es sich bei diesem Projekt lediglich um einen Prototyp handelt, wird das SQLite-Backend gewählt. SQLite ist ein dateibasiertes Datenbanksystem, das ohne einen Datenbankserver auskommt und sich deshalb schnell und unkompliziert integrieren lässt.
+	
+	Zur Anbindung des Frontends stellt der Server eine GraphQL-Schnittstelle bereit. GraphQL\footnote{https://graphql.org/} ist eine von Facebook entwickelte schemabasierte Abfragesprache. Im Gegensatz zu klassischen REST-APIs erlaubt GraphQL dem Client genau festzulegen, welche Datenfelder und -beziehungen vom Server zurück geliefert werden, so dass das Entwerfen benutzerdefinierter Query-Parameter nicht mehr nötig ist. Darüber hinaus wird mithilfe des GraphQL-Schemas bereits auf dem Client verhindert werden, dass fehlerhafte Anfragen formuliert werden.
+	
+	GraphQL ermöglicht es mit \textit{Subscriptions} einem Client, sich über Ereignisee benachrichtigen zu lassen. Dieser Mechanismus ist mit den von mobilen Geräten bekannten Push-Benachrichtigungen vergleichbar. QTeams verwendet Subscriptions, um den Spielablauf auf den Clients aller beteiligten Spieler zu synchronisieren. Technisch realisiert wird dies über eine WebSocket-Verbindung.
+
+	Der Backend-Server stellt außerdem eine serverseitig gerenderte Web-Oberfläche zur Administration der QTeams-Instanz bereit. Diese basiert auf der angepassten Django-Administrationsoberfläche.
+	
+	\subsection{Frontend}
+	Das Frontend stellt die grafische Oberfläche dar, mit der die Spieler interagieren. Sie wird im Webbrowser ausgeführt und wird dementsprechend in der Programmiersprache JavaScript implementiert.
+	
+	 Für die Umsetzung der \Gls{gui}-Komponenten kommt das React-Framework\footnote{https://reactjs.com} zum Einsatz. React ist ein von Facebook veröffentlichtes, deklaratives und komponentenorientiertes Framework zur schnellen Entwicklung von clientseitig gerenderten Benutzerschnittstellen.
+	
+	Details zur Anbindung an das Backend wurden bereits im Abschnitt \ref{subsec:backend} beschrieben.
+
+	\section{Prozessbeschreibung}
+	
+	Abbildung \ref{fig:bpmn} visualisiert den zu implementierenden Spielablauf mithilfe eines BPMN-Diagramms.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{bpmn.pdf}
+		\caption{Prozessbeschreibung des Spielablaufs}
+		\label{fig:bpmn}
+	\end{figure}	 
+	
+	\section{Datenmodell}
+	
+	Das geplante Datenmodell ist in Abbildung \ref{fig:models} in Form eines Klassendiagramms dargestellt, das im Folgenden kurz erläutert wird.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{models.png}
+		\caption{Fachliche Entitäten im Klassendiagramm}
+		\label{fig:models}
+	\end{figure}
+	
+	\section{Werkzeuge}
+	Im Folgenden werden die im Rahmen der Implementierung genutzten Werkzeuge kurz vorgestellt.
+	
+	\subsection{Visual Studio Code}
+	\textit{Visual Studio Code}\footnote{https://code.visualstudio.com/} ist einheitliche Entwicklungsumgebung für Frontend und Backend.
+	
+	\subsection{Git}
+	\textit{Git}\footnote{https://git-scm.com/} wird als Versionskontrollsystem zur Verwaltung des Quellcodes eingesetzt.
+	
+	\subsection{NPM}
+	Der \textit{Node Package Manager (NPM)}\footnote{https://www.npmjs.com/} wird zur Verwaltung der im Frontend benötigten externen JavaScript-Bibliotheken eingesetzt.
+	
+	\subsection{Pip}
+	Das Tool \textit{Pip}\footnote{https://packaging.python.org/guides/tool-recommendations/} verwaltet die vom Backend benötigten externen Python-Bibliotheken.
+	
+	\subsection{Webpack}
+	\textit{Webpack}\footnote{https://webpack.js.org/} minimiert und bündelt den CSS- und JavaScript-Code des Frontends für die Ausführung im Browser.
+	
+
 	\chapter{Qualitätsmanagement}
 	
 	
