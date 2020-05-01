@@ -87,7 +87,30 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	description={Ist eine Applikation so gestaltet, dass sie sich an verschiedene Bildschirmgrößen und -ausrichtungen, wie sie beispielsweise bei Smartphones-, Tablets oder Desktop-PCs zu finden sind, anpassen kann, so spricht man von \textit{Responsive Design}.
 	}
 }
-
+\newglossaryentry{uml}
+{
+	name={UML},
+	description={Die \textit{Unified Modeling Language} ist eine grafische Modellierungssprache zur Analyse, Implementation und zum Design von softwarebasierten Systemen sowie zur Beschreibung von Prozessen. \autocite{UML} Sie wird durch die \textit{Object Management Group} entwickelt. Die Sprache definiert jeweils sieben Struktur- und Verhaltensdiagramme.
+	}
+}
+\newglossaryentry{bpmn}
+{
+	name={BPMN},
+	description={Die \textit{Business Process Model and Notation} ist ein Standard zur grafischen Spezifikation von Geschäftsprozessen. \autocite{BPMN} 
+	}
+}
+\newglossaryentry{erm}
+{
+	name={ERM},
+	description={Ein \textit{Entity-Relationship-Model} ist ein Modell zur Darstellung von Entitäten und Beziehungen. Der Einsatz von ERM gilt als Standard bei der Datenmodellierung in der Softwareentwicklung.
+	}
+}
+\newglossaryentry{gui}
+{
+	name={GUI},
+	description={Grafische Benutzeroberfläche
+	}
+}
 
 \subject{Meilensteinbericht}
 \title{Meilenstein 3}
@@ -134,14 +157,108 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\newpage
 	\pagenumbering{arabic}	
 	\chapter{Beschreibung der Projektdokumente}
+
+	Im Verlauf des Projektes werden verschiedene Dokumente erstellt und gepflegt. Diese unterstützen das Projektmanagement oder informieren Stakeholder über den Status bestimmter Aspekte des Projekts.
 	
-	$0,23$	
+	Der Aufbau des Risikoregisters ist bereits im Bericht zum Meilenstein 1 definiert worden. Die weiteren Dokumente werden im Folgenden definiert.
 	
-	\newpage
-	\chapter{Implementierungsprozess}
+	\section{Anforderungsliste} %Tickets + Anforderungsliste(User Stories)
+	Das Projektteam hat einerseits die Berichtspflicht gegenüber dem Auftraggeber zu erfüllen, andererseits hat es die Anforderungen an die zu entwickelnde Software zu erfüllen. Die Gesamtheit dieser beiden Arten von Anforderungen ergibt die Anforderungsliste.
+	
+	\subsection{Berichtspflicht}
+	Die Anforderungen, die sich aus der Berichtspflicht gegenüber dem Auftraggeber ergeben, werden in Form von Tickets im System Redmine geführt. 
+	Die zu pflegenden Informationen jedes Tickets sind in Tabelle \ref{tab:tickets} dargestellt.
+	\begin{table}
+		\centering
+		\begin{tabularx}{\textwidth}{lX}
+			\toprule
+			\textbf{Aspekt} & \textbf{Beschreibung} \\
+			\midrule
+			Titel & Aussagekräftige Bezeichnung des Tickets \\
+			ID & Für das Projekt eindeutige Identifikationsnummer \\
+			Status & New / In Progress / Feedback / Closed \\
+			Priorität & Low / Normal / High / Urgent \\
+			Zugewiesen an & Die Person, die für die Bearbeitung des Tickets verantwortlich ist \\
+			Übergeordnete Aufgabe & Jedes Ticket kann einem anderen Ticket untergeordnet werden. Hier wird das dann übergeordnete Ticket angegeben. \\
+			Beginn und Abgabedatum & Falls erforderlich kann ein Beginn und Ende der Bearbeitung angegeben werden. \\
+			Beschreibung & Hier wird das erforderliche Ergebnis beschrieben.\\
+			\bottomrule
+		\end{tabularx}
+		\caption{Aufbau von Tickets im Redmine-System}
+		\label{tab:tickets}
+	\end{table}	
+	
+	\subsection{Fachliche Anforderungen}
+	% @todo
+	% Wie kann die Implementierung abgestimmt werden?
+	% Müssen die User Stories geschnitten werden und in Tickets umgesetzt werden?
+	
+	\section{Sprint Backlog}
+	Die Tickets, die im folgenden Sprint bearbeitet werden sollen, werden mit \textit{High} oder \textit{Urgent} priorisiert. Die Menge dieser Tickets bildet den Sprint Backlog, ein seperates Dokument wird nicht gepflegt. Der Lebenszyklus eines Tickets wird in Abbildung \ref{fig:ticketlebenszyklus} dargestellt. Während der Sprintplanung und während des Sprints werden die Tickets des Sprint Backlogs an die Teammitglieder zur Bearbeitung zugewiesen. Nach der Bearbeitung wird dem Team ein Ergebnisentwurf zur Verfügung gestellt wird. Das Ergebnis wird freigegeben oder es werden Änderungen eingearbeitet. Die fertig bearbeiteten Tickets werden nicht gelöscht, sondern verbleiben als geschlossene Tickets in der Anforderungsliste.
+	\begin{figure}
+		\includegraphics[width=\textwidth]{Ticketlebenszyklus}
+		\caption{Lebenszyklus eines Tickets}
+		\label{fig:ticketlebenszyklus}
+	\end{figure}
+	
+	
+	\section{Ergebnisdokumentation}
+	Das ausgelieferte Softwareprodukt wird in der Ergebnisdokumentation beschrieben. Folgende Aspekte werden detailliert dokumentiert:
+	
+	\subsection{Funktionsbeschreibung}
+	Der in der Anwendung umgesetzte Geschäftsprozess wird aus der Sicht eines Nutzers mit der \Gls{bpmn} dargestellt. Es werden die unterstützten Fachfunktionen benannt und in den Gesamtkontext gebracht. Die wichtigsten Fachfunktionen werden detailliert beschrieben.
+			
+	\subsection{Softwarearchitektur}
+	\label{subsec:softwarearchitektur}
+	Die Softwarearchitektur wird aus verschiedenen Sichten beschrieben, in Tabelle \ref{tab:softwarearchitektur} sind diese dargestellt. Außerdem werden die zur Visualisierung zu nutzenden Modelle festgelegt.
+	
+	\begin{table}
+		\centering
+		\begin{tabularx}{\textwidth}{lXl}
+			\toprule
+			\textbf{Sicht} & \textbf{Beschreibung} & \textbf{Modell} \\
+			\midrule
+			Systemstruktur & Die Komponenten und die Schnittstellen der Anwendung werden in einem Überblick dargestellt. & \Gls{uml}-cod \\
+			Daten & Das technische Datenmodell mit den Entitätstypen, den zugehörigen Attributen und den Beziehungen untereinander wird dargestellt.  & \Gls{erm} \\
+			Komponenten & Bei Bedarf werden einzelne Komponenten des Systems detaillierter dargestellt. & \Gls{uml}-cld \\
+			Zeit & Bei Bedarf werden einzelne Aufrufbeziehungen zwischen Komponenten detailliert dargestellt. & \Gls{uml}-sqd \\
+			\bottomrule
+		\end{tabularx}
+		\caption{Sichten und genutzte Modelle für die Dokumentation der Softwarearchitektur}
+		\label{tab:softwarearchitektur}
+	\end{table}	
+	
+	
+	\subsection{Anhang}
+	Tabelle \ref{tab:ergebnisdokumentation_anhang} stellt dar, welche weiteren Aspekte im Anhang aufgelistet werden.
+	\begin{table}
+		\centering
+		\begin{tabularx}{\textwidth}{lX}
+			\toprule
+			\textbf{Aspekt} & \textbf{Beschreibung} \\
+			\midrule
+			Anforderungen & Die während des Projektzeitraums umgesetzten Anforderungen werden dargestellt. Zu jeder Anforderung wird der Erfüllungsgrad der Akzeptanzkriterien dargelegt. Nicht umgesetzte Anforderungen werden aufgelistet. \\
+			\Gls{gui} & Der Aufbau der grafischen Benutzeroberfläche wird auf einem beispielhaften Zielsystem dargestellt.\\
+			Qualitätsziele & Die Erfüllung der Qualitätsziele und die durchgeführten Maßnahmen zur Qualitätssicherung werden zusammenfassend dargestellt. \\
+			Benutzerhandbuch & Der Benutzer wird über die bestimmungsgemäße Nutzung der Anwendung informiert. Das Benutzerhandbuch wird in deutscher Sprache verfasst sein. \\
+			Administration & Die Tätigkeiten zur Administration der Anwendung werden in einem Handbuch beschrieben. \\
+			Inbetriebnahme & Die erforderlichen Schritte zur Installation und Inbetriebnahme auf einem anderen System werden beschrieben. \\
+			\bottomrule
+		\end{tabularx}
+		\caption{Anhang der Ergebnisdokumentation}
+		\label{tab:ergebnisdokumentation_anhang}
+	\end{table}
+	
+	\section{Projektdokumentation}
+	Eine Projektdokumentation informiert abschließend über den gesamten Verlauf des Projektes. Da zu diesem Projekt ein abschließender Projektbericht erstellt wird, beschränkt sich die hier zu erstellende Projektdokumentation auf die Darstellung des Entwicklungsfortschritts auf der Zeitachse. Dazu werden jeweils die Ergebnisse der Sprints zusammengefasst. Die Projektdokumentation soll dem Auftraggeber dazu dienen, die Arbeitsleistung des Projektteams ex post bewerten zu können.
+	 
+	\section{Testprotokoll} % kommt von Holger?! 
+	
 	
 	\newpage
 	\chapter{Implementierung}
+	\section{Implementierungsprozess}
+	Wie der gesamte Softwareentwicklungsprozess wird auch die Implementierung agil durchgeführt. Die Definition der Rahmenbedingungen wurde bereits im Bericht zum Meilenstein 1 dargelegt. 
 
 	\newpage
 	\chapter{Qualitätsmanagement}
