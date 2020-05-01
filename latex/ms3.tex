@@ -91,6 +91,13 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 {
 	name={UML},
 	description={Die \textit{Unified Modeling Language} ist eine grafische Modellierungssprache zur Analyse, Implementation und zum Design von softwarebasierten Systemen sowie zur Beschreibung von Prozessen. \autocite{UML} Sie wird durch die \textit{Object Management Group} entwickelt. Die Sprache definiert jeweils sieben Struktur- und Verhaltensdiagramme.
+	In diesem Bericht werden folgende Diagrammtypen genannt:
+	\begin{itemize}
+	\item cod:	Komponentendiagramm
+	\item cld:	Klassendiagramm
+	\item sm:	Zustandsdiagramm
+	\item sqd:	Sequenzdiagramm
+	\end{itemize}
 	}
 }
 \newglossaryentry{bpmn}
@@ -162,12 +169,10 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	Der Aufbau des Risikoregisters ist bereits im Bericht zum Meilenstein 1 definiert worden. Die weiteren Dokumente werden im Folgenden definiert.
 	
-	\section{Anforderungsliste} %Tickets + Anforderungsliste(User Stories)
-	Das Projektteam hat einerseits die Berichtspflicht gegenüber dem Auftraggeber zu erfüllen, andererseits hat es die Anforderungen an die zu entwickelnde Software zu erfüllen. Die Gesamtheit dieser beiden Arten von Anforderungen ergibt die Anforderungsliste.
+	\section{Aufgabenliste}
+	Die Gesamtheit der Aufgaben, die durch das Team zu erledigen sind, werden in der Aufgabenliste geführt. Alle Aufgaben werden als Ticket im System Redmine geführt. Die zu pflegenden Informationen jedes Tickets sind in Tabelle \ref{tab:tickets} dargestellt. 
 	
-	\subsection{Berichtspflicht}
-	Die Anforderungen, die sich aus der Berichtspflicht gegenüber dem Auftraggeber ergeben, werden in Form von Tickets im System Redmine geführt. 
-	Die zu pflegenden Informationen jedes Tickets sind in Tabelle \ref{tab:tickets} dargestellt.
+	Für die Implementierung werden nur die User Stories als Tickets angelegt, die bereits im Bericht zum Meilenstein 1 vorgestellt wurden (\cite{MS1}, S. 5f). Die weitere Verfeinerung der User Stories und die Ableitung der Aufgaben findet im GitHub Issue Tracker statt. Das heißt, dass die Implementierung nur sehr grob in Redmine abgebildet ist. Dieser Schnitt wird vollzogen, um den direkten Bezug der Implementierungsaufgaben zum Quellcode herstellen zu können. Da auch die Anzahl der in Redmine anfallenden Tickets deutlich reduziert wird, hilft dieses Vorgehen außerdem dabei, den Gesamtüberblick über das Projekt nicht zu verlieren.
 	\begin{table}
 		\centering
 		\begin{tabularx}{\textwidth}{lX}
@@ -188,13 +193,8 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 		\label{tab:tickets}
 	\end{table}	
 	
-	\subsection{Fachliche Anforderungen}
-	% @todo
-	% Wie kann die Implementierung abgestimmt werden?
-	% Müssen die User Stories geschnitten werden und in Tickets umgesetzt werden?
-	
 	\section{Sprint Backlog}
-	Die Tickets, die im folgenden Sprint bearbeitet werden sollen, werden mit \textit{High} oder \textit{Urgent} priorisiert. Die Menge dieser Tickets bildet den Sprint Backlog, ein seperates Dokument wird nicht gepflegt. Der Lebenszyklus eines Tickets wird in Abbildung \ref{fig:ticketlebenszyklus} dargestellt. Während der Sprintplanung und während des Sprints werden die Tickets des Sprint Backlogs an die Teammitglieder zur Bearbeitung zugewiesen. Nach der Bearbeitung wird dem Team ein Ergebnisentwurf zur Verfügung gestellt wird. Das Ergebnis wird freigegeben oder es werden Änderungen eingearbeitet. Die fertig bearbeiteten Tickets werden nicht gelöscht, sondern verbleiben als geschlossene Tickets in der Anforderungsliste.
+	Die Tickets, die im folgenden Sprint bearbeitet werden sollen, werden mit \textit{High} oder \textit{Urgent} priorisiert. Um ein Ticket als besonders dringend zu kennzeichnen, kann die höhere der beiden Priorisierungen genutzt werden, grundsätzlich wird hier jedoch die Priorität \textit{High} genutzt. Die Menge dieser Tickets bildet den Sprint Backlog, ein seperates Dokument wird nicht gepflegt. Der Lebenszyklus eines Tickets wird in Abbildung \ref{fig:ticketlebenszyklus} dargestellt. Während der Sprintplanung und während des Sprints werden die Tickets des Sprint Backlogs an die Teammitglieder zur Bearbeitung zugewiesen. Nach der Bearbeitung wird dem Team ein Ergebnisentwurf zur Verfügung gestellt wird. Das Team führt nun die festgelegten Qualitätssicherungsmaßnahmen durch, falls diese nicht bereits Bestandteil des vorherigen Bearbeitungsprozesses waren. Das Ergebnis wird anschließend freigegeben oder es werden Änderungen eingearbeitet. Die fertig bearbeiteten Tickets werden nicht gelöscht, sondern verbleiben als geschlossene Tickets in der Anforderungsliste.
 	\begin{figure}
 		\includegraphics[width=\textwidth]{Ticketlebenszyklus}
 		\caption{Lebenszyklus eines Tickets}
@@ -203,7 +203,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	
 	\section{Ergebnisdokumentation}
-	Das ausgelieferte Softwareprodukt wird in der Ergebnisdokumentation beschrieben. Folgende Aspekte werden detailliert dokumentiert:
+	Das ausgelieferte Softwareprodukt wird in der Ergebnisdokumentation beschrieben. Nachfolgend werden die einzelnen Aspekte dieser Dokumentation vorgestellt.
 	
 	\subsection{Funktionsbeschreibung}
 	Der in der Anwendung umgesetzte Geschäftsprozess wird aus der Sicht eines Nutzers mit der \Gls{bpmn} dargestellt. Es werden die unterstützten Fachfunktionen benannt und in den Gesamtkontext gebracht. Die wichtigsten Fachfunktionen werden detailliert beschrieben.
@@ -219,8 +219,9 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 			\textbf{Sicht} & \textbf{Beschreibung} & \textbf{Modell} \\
 			\midrule
 			Systemstruktur & Die Komponenten und die Schnittstellen der Anwendung werden in einem Überblick dargestellt. & \Gls{uml}-cod \\
-			Daten & Das technische Datenmodell mit den Entitätstypen, den zugehörigen Attributen und den Beziehungen untereinander wird dargestellt.  & \Gls{erm} \\
-			Komponenten & Bei Bedarf werden einzelne Komponenten des Systems detaillierter dargestellt. & \Gls{uml}-cld \\
+			Daten & Das technische Datenmodell mit den Entitätstypen, den zugehörigen Attributen und den Beziehungen untereinander wird dargestellt.  & \Gls{uml}-cld \\
+			\Gls{gui} & Die in der grafischen Benutzeroberfläche möglichen Zustände und die erlaubten Übergänge zwischen diesen werden dargestellt. Die visuelle Gestaltung der GUI (z.B. in Form von Screenshots) wird hier nicht dargestellt. & \Gls{uml}-sm\\
+			Komponenten & Bei Bedarf werden einzelne Komponenten des Systems detaillierter dargestellt. & \Gls{uml}-cod \\
 			Zeit & Bei Bedarf werden einzelne Aufrufbeziehungen zwischen Komponenten detailliert dargestellt. & \Gls{uml}-sqd \\
 			\bottomrule
 		\end{tabularx}
@@ -238,7 +239,6 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 			\textbf{Aspekt} & \textbf{Beschreibung} \\
 			\midrule
 			Anforderungen & Die während des Projektzeitraums umgesetzten Anforderungen werden dargestellt. Zu jeder Anforderung wird der Erfüllungsgrad der Akzeptanzkriterien dargelegt. Nicht umgesetzte Anforderungen werden aufgelistet. \\
-			\Gls{gui} & Der Aufbau der grafischen Benutzeroberfläche wird auf einem beispielhaften Zielsystem dargestellt.\\
 			Qualitätsziele & Die Erfüllung der Qualitätsziele und die durchgeführten Maßnahmen zur Qualitätssicherung werden zusammenfassend dargestellt. \\
 			Benutzerhandbuch & Der Benutzer wird über die bestimmungsgemäße Nutzung der Anwendung informiert. Das Benutzerhandbuch wird in deutscher Sprache verfasst sein. \\
 			Administration & Die Tätigkeiten zur Administration der Anwendung werden in einem Handbuch beschrieben. \\
@@ -254,11 +254,46 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	 
 	\section{Testprotokoll} % kommt von Holger?! 
 	
+	\section{Risiko-Wert-Matrix}
+	\label{sec:risikowertmatrix} % Ist mir auch irgendwie nicht Projektspezifisch genug. Könnte man also ggf. weglassen.
+	Die Bearbeitungsreihenfolge von Aufgaben im Projekt kann nicht willkürlich festgelegt werden. Einschränkend gibt es in nahezu jedem Fall Abhängigkeitsbeziehungen zwischen den Aufgaben. Auch andere Rahmenbedingungen können die Freiheitsgrade weiter einschränken. Die dann noch erforderliche Reihung der Aufgaben wird durch die Risiko-Wert-Matrix in Abbildung \ref{fig:risikowertmatrix} unterstützt. Mit Hilfe dieser Matrix wird zum Einen das \textit{Fail-Fast-Prinzip} umgesetzt. Demnach sollten Risiken möglichst frühzeitig angegangen werden. Ein Scheitern (engl. \textit{fail}) sollte somit möglichst zu einem frühen Zeitpunkt passieren, eben schnell (engl. \textit{fast}). Zum Anderen wird der Fokus auf wertbringende Aufgaben gelegt. Unter Berücksichtigung der Faktoren Risiko und Wert ergibt sich somit eine Umsetzungsreihenfolge.
 	
+	\begin{figure}
+	\centering
+	\renewcommand{\arraystretch}{2}	
+	\begin{tabular}{rrccc}	
+		\arrayrulecolor{white}
+		& & &  \multicolumn{2}{c}{\textbf{Umsetzungsreihenfolge}} \\ 
+		\multirow{2}{*}{\rotatebox{90}{\textbf{Risiko}}} &
+		\cellcolor[HTML]{bee3d3}Hoch  && \cellcolor[HTML]{F6D8CE} Vermeiden & \cellcolor[HTML]{D8F6CE} Als Erstes umsetzen\\
+		&\cellcolor[HTML]{bee3d3}Niedrig && \cellcolor[HTML]{F5ECCE}Zuletzt umsetzen & \cellcolor[HTML]{ECF6CE}Als Zweites umsetzen \\ \cmidrule[6pt]{3-4}
+		&&& \cellcolor[HTML]{c2e0ae}Niedrig & \cellcolor[HTML]{c2e0ae}Hoch\\ 
+		&&& \multicolumn{2}{c}	{\textbf{Wert}}
+	\end{tabular}
+	\caption{Risiko-Wert-Matrix}
+	\label{fig:risikowertmatrix}
+\end{figure}
+
 	\newpage
 	\chapter{Implementierung}
+	% @toDo einleitende Worte	
+	
 	\section{Implementierungsprozess}
-	Wie der gesamte Softwareentwicklungsprozess wird auch die Implementierung agil durchgeführt. Die Definition der Rahmenbedingungen wurde bereits im Bericht zum Meilenstein 1 dargelegt. 
+	Wie der gesamte Softwareentwicklungsprozess wird auch die Implementierung agil durchgeführt. Die Definition der Rahmenbedingungen wurde bereits im Bericht zum Meilenstein 1 dargelegt (\cite{MS1}, S.12ff). 
+	
+	Im ersten Schritt der Implementierung wird die Grobstruktur des Systems erarbeitet. Die Reihenfolge der zu erstellenden Softwareartefakte ergibt sich einerseits durch die strukturellen Abhängigkeitsbeziehungen. Damit ist z.B. die Abhängigkeit des Backends von den im Frontend gewonnen Daten gemeint.\footnote{Auf die Erstellung von Dummies oder Treibern wird in diesem Projekt verzichtet.} Andererseits ergeben sich durch den fachlichen Prozess zeitliche Abhängigkeiten. Dem bezüglich der Implementierungsreihenfolge übrigen Entscheidungsspielraum wird mit der Risiko-Wert-Matrix (siehe Abschnitt \ref{sec:risikowertmatrix}) begegnet.
+	
+	\section{Rollenverteilung}
+	Die Rollenverteilung während der Implementierung ergibt sich ebenfalls aus den Festlegungen, die im Bericht zum Meilenstein 1 getroffen wurden. Diese Zuordnung ist allerdings nicht trennscharf, denn zwischen den Themenbereichen gibt es Überschneidungen und Verknüpfungen. Nach Themenbereich geordnet ergibt sich folgende Verteilung:
+	
+	\subsubsection{Backend-Entwicklung}
+	Jörg Sawatzki, Maximilian Hahn
+	
+	\subsubsection{Frontend-Entwicklung}
+	Jörg Sawatzki, Daniel Moch
+	
+	\subsubsection{Qualitätssicherung}
+	Holger Lapenat
 
 	\newpage
 	\chapter{Qualitätsmanagement}
