@@ -309,6 +309,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	
 	\section{Architektur}
+	\label{sec:architektur}
 		QTeams wird als Single Page Application (SPA) umgesetzt, d. h. die grafische Oberfläche der Applikation wird komplett im Webbrowser gerendert (Frontend). Die Kommunikation mit dem zentralen Server (Backend) erfolgt über eine Web-Schnittstelle.
 		
 		Im Folgenden wird die Architektur der zentralen Komponenten beschrieben.
@@ -390,7 +391,52 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	\section{Datenmodell}
 	
-	Das geplante Datenmodell ist in Abbildung \ref{fig:models} in Form eines Klassendiagramms dargestellt, das im Folgenden kurz erläutert wird.
+	Das geplante Datenmodell ist in Abbildung \ref{fig:models} in Form eines Klassendiagramms dargestellt, dessen Elemente im Folgenden kurz erläutert werden. Es handelt sich hierbei um eine aus dem Python-Code generierte grafische Repräsentation des Datenmodells, die allerdings nicht den UML-Standard erfüllt.
+	
+	Jedes Rechteck entspricht dabei einer Klasse, deren Name in der grün hinterlegten Kopfzeile angegeben ist. Unmittelbar darunter sind Attributnamen und -typen angegeben. In Fettschrift sind Attribute dargestellt, die als Schlüssel dienen. In grauer Farbe gedruckt sind optionale Attribute bzw. Attribute, die vom System automatisch gesetzt werden. Die Attribute \textit{created\_{}at} und \textit{updated\_{}at} werden vom System automatisch mit dem Zeitstempel der Erstellung bzw. der letzten Änderung des Objektes versehen.
+	
+	Die Bögen, die einzelne Klassen untereinander verbinden, stellen die Beziehungen zwischen den Entitäten dar. Ist ein Bogen nur an einem Ende mit einem großen schwarzen Punkt versehen, so handelt es sich um eine \textit{1:n}-Beziehung. Enthält der Bogen an beiden Ende große schwarze Punkte, so symbolisiert dies eine \textit{n:m}-Beziehung der Klassen. Die Beschriftung der Bögen enthält zuerst den Attributnamen, über den von der die Beziehung definierenden Klasse auf die andere Klasse zugriffen werden kann. Danach folgt in runden Klammern der Attributname auf Seiten der anderen Klasse.
+	
+	1:n-Beziehungen sind über Fremdschlüssel \textit{(foreign keys)} realisiert, während n:m-Beziehungen zusätzliche Datenbanktabellen benötigen, die an dieser Stelle aus Gründen der Übersichtlichkeit nicht dargestellt werden.
+	
+	Das \textit{User}-Modell repräsentiert einem Benutzer des Systems und wird vom eingebauten Authentifizierungssystem des Django-Frameworks bereitsgestellt. Für weitere Details dazu sei auf die Dokumentation\footnote{https://docs.djangoproject.com/en/3.0/ref/contrib/auth/} verwiesen.
+	
+	Nachfolgend werden die wichtigsten Aspekte der im Diagramm dargestellten Entitäten vorgestellt.
+	
+	\subsection{Team}
+	Die Klasse \textit{Team} ist das Herzstück der Quiz-App. Sie bildet ein Team von Benutzern ab, die zusammen spielen (\textit{members}). Außerdem speichert sie den Benutzer, der das Team erstellt hat (\textit{creator}), enthält einen frei wählbaren Namen (\textit{name}) und wird einem Thema (\textit{topic}) zugeordnet.
+	
+	Das Feld für den Spielmodus (\textit{mode}) kann die Werte \texttt{train} (Trainingsmodus) oder \texttt{competition} (Wettkampf) annehmen.
+	
+	Ein Team befindet sich immer in einem definierten Zustand (\textit{state}):
+	
+	\begin{itemize}
+		\item \texttt{open}: Das Team wurde erstellt und kann noch Mitglieder aufnehmen.
+		\item \texttt{playing}: Das Spiel wurde gestartet. Ein Hinzufügen weiterer Mitglieder ist nicht mehr möglich.
+		\item \texttt{archived}: Das Spiel wurde beendet und das Team ist archiviert.
+	\end{itemize}
+	
+	\subsection{Round}
+	Die Klasse \textit{Round} bildet eine Spielrunde ab. 
+	
+	Die Runde kann sich in folgenden Phasen befinden: 
+	
+	\begin{itemize}
+		\item \texttt{question}: Diese Phase stellt die \textit{Erarbeitungsphase} dar. In dieser Phase erarbeiten die Teammitglieder fachliche Fragen für ihre Mitspieler. 
+		\item \texttt{answer}: In dieser Phase müssen die Spieler die erarbeiteten Fragen beantworten. Das System wählt die jeweils zu bearbeitende Frage zufällig aus und hinterlegt sie im Feld \textit{current\_{}question}.
+		\item \texttt{scoring}: Bei Eintritt in die \textit{Bewertungsphase} haben die Spieler ihre Antworten eingegeben und es erfolgt die Bewertung durch den Fragesteller. Sind noch unbeantwortete Fragen in der Runde vorhanden, so wechselt die Runde wieder in den Zustand \texttt{answer}.
+		
+		\item \texttt{done}: Diese Phase markiert den Abschluss der Runde. Spielern wird abhängig vom gewählten Spielmodus nur eine persönliche oder eine gesamte Statistik der Leistung des Teams angezeigt. 
+	\end{itemize}
+	
+	\subsection{Question}
+	Die Klasse \textit{Question} bildet eine fachliche Frage ab. Sie speichert den Autor (\textit{author}) der Frage, den Fragetext (\textit{question}), das zugehörige Thema (\textit{topic}) und die Musterantwort (\textit{model\_{}answer}. Fragen können nur in einer Runde (\textit{round}) verwendet werden. Übernehmen Spieler eine Frage aus der \textit{Knowledge Base}, so wird eine Kopie erstellt, die vom Nutzer angepasst werden kann.
+	
+	\subsection{Answer}
+	Die Klasse \textit{Answer} enthält die Antwort (\textit{answer}) eines Spielers (\textit{author}) auf eine Frage (\textit{question}). Sie speichert außerdem die durch den Fragesteller vergebene Bewertung (\textit{score}).
+	
+	\subsection{Topic}
+	Die Klasse \textit{Topic} stellt ein fachliches Thema dar. Hier könnte beispielsweise eine Liste der an der IUBH verfügbaren Module hinterlegt werden. Diese Klasse dient lediglich der besseren Strukturierung der Fragen in der \textit{Knowledge Base}.
 	
 	\begin{figure}
 		\centering
@@ -420,6 +466,57 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	\chapter{Qualitätsmanagement}
 	
+	\section{IT-Sicherheit}
+	Da es sich bei der zu entwickelnden App lediglich um einen Prototyp handelt, soll kein umfassendes Konzept zur IT-Sicherheit wie es z.B. das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit dem IT-Grundschutz-Framework vorschlägt. 
+	
+	Im Folgenden werden die für dieses Projekt im Rahmen einer prototypischen Umsetzung relevanten Sicherheitsaspekte beschrieben.
+	
+	\subsection{Verschlüsselte Verbindungen}
+	Alle Verbindungen zwischen Endnutzern (Spielern, Administratoren) und dem System sollen mithilfe von SSL/TLS verschlüsselt werden.
+	
+
+	\subsection{Speicherung von Passwörtern}
+	Passwörter von Nutzern der Anwendung werden ausschließlich verschlüsselt in der Datenbank hinterlegt.
+	
+	\subsection{Sicherheitsrichtlinien für Passwörter}
+	 Das Passwort darf nicht zu ähnlich zu anderen persönlichen Informationen (Vorname, Nachname, E-Mail, Benutzername) sein.
+    Das Passwort muss mindestens 8 Zeichen enthalten.
+    Das Passwort darf nicht komplett aus Ziffern bestehen.	
+    
+    \subsection{Kapselung der Datenbankzugriffe}
+    Um Angriffe auf das Datenbanksystem z.B. in Form von \textit{SQL-Injections} zu verhindern, soll der Zugriff auf die Datenbank nur über den entsprechend gekapselten \textit{Object Relational Mapper (ORM)} erfolgen.
+	
+	\subsection{Zugang zum Server}
+	Der Wartungszugang zum Server soll ausschließlich verschlüsselt über das SSH-Protokoll erfolgen. Zur Authentifizierung sollen ausschließlich RSA-Schlüssel verwendet werden können.
+	
+	\subsection{Prinzip der geringsten Privilegien}
+	Das System soll so gestaltet werden, dass jeder Nutzer nur genau so viele Privilegien erhält, wie er für seine Arbeit mit dem System benötigt.
+	
+	\section{Konstruktives Qualitätsmanagement}
+	Das konstruktive Qualitätsmanagement setzt sich aus organisatorischen, technischen und zwischenmenschlichen Maßnahmen zusammen, die im Folgenden erläutert werden.
+	
+	\subsection{Organisatorische Maßnahmen}
+	\begin{itemize}
+		\item Mit dem in diesem Bericht dargestellten Dokumentationskonzept existiert ein Template für die zu erstellenden Dokumentationsartefakte.
+		\item Die im Abschnitt \ref{sec:architektur} detaillierte Architektur dient als verbindliche Richtlinie für die Entwickler.
+	\end{itemize}		
+	
+	\subsection{Technische Maßnahmen}
+	\begin{itemize}
+		\item User Stories sind zentrales Tool zur Verwaltung der Anforderungen.
+		\item Zur Priorisierung von Aufgaben werden nach Bedarf die Wert-Risiko-Matrix oder die MoSCoW-Methode eingesetzt. 
+		\item Alle Entwickler benutzen mit Visual Studio Code dieselbe Entwicklungsumgebung.
+		\item Modellierungssprachen (UML, BPMN) werden verbindlich festgelegt.
+		\item Mit Python (Backend) und JavaScript (Frontend) werden die eingesetzten Programmiersprachen vorgegeben.
+		\item Git wird als zentrales Werkzeug zur Quellcode-Verwaltung vorgegeben.
+		\item Redmine ist verbindliches Projektmanagement-Tool.
+	\end{itemize}
+	
+	\subsection{Zwischenmenschliche Maßnahmen}
+	\begin{itemize}
+		\item Es findet regelmäßige und intensive Kommunikation statt.
+		\item Mithilfe von \textit{Pair Programming} unterstützen sich die Teammitglieder gegenseitig.
+	\end{itemize}		
 	
 	\printglossaries
 	\newpage	
