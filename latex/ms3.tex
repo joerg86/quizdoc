@@ -223,7 +223,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 			\midrule
 			Systemstruktur & Die Komponenten und die Schnittstellen der Anwendung werden in einem Überblick dargestellt. & \Gls{uml}-cod \\
 			Daten & Das technische Datenmodell mit den Entitätstypen, den zugehörigen Attributen und den Beziehungen untereinander wird dargestellt.  & \Gls{uml}-cld \\
-			\Gls{gui} & Die in der grafischen Benutzeroberfläche möglichen Zustände und die erlaubten Übergänge zwischen diesen werden dargestellt. Die visuelle Gestaltung der GUI (z.B. in Form von grafischen Mockups) wird hier nicht dargestellt. & \Gls{uml}-sm\\
+			\Gls{gui} & Die in der grafischen Benutzeroberfläche möglichen Zustände und die erlaubten Übergänge zwischen diesen werden dargestellt. Die visuelle Gestaltung der GUI (\zB in Form von grafischen Mockups) wird hier nicht dargestellt. & \Gls{uml}-sm\\
 			Komponenten & Bei Bedarf werden einzelne Komponenten des Systems detaillierter dargestellt. & \Gls{uml}-cod \\
 			Zeit & Bei Bedarf werden einzelne Aufrufbeziehungen zwischen Komponenten detailliert dargestellt. & \Gls{uml}-sqd \\
 			\bottomrule
@@ -294,7 +294,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\section{Implementierungsprozess}
 	Wie der gesamte Softwareentwicklungsprozess wird auch die Implementierung agil durchgeführt. Die Definition der Rahmenbedingungen wurde bereits im Bericht zu Meilenstein 1 in Abschnitt 3.5 dargelegt.
 	
-	Im ersten Schritt der Implementierung wird die Grobstruktur des Systems erarbeitet. Die Reihenfolge der zu erstellenden Softwareartefakte ergibt sich einerseits durch die strukturellen Abhängigkeitsbeziehungen. Damit ist z.B. die Abhängigkeit des Backends von den im Frontend gewonnen Daten gemeint.\footnote{Auf die Erstellung von Dummies oder Treibern wird in diesem Projekt verzichtet.} Andererseits ergeben sich durch den fachlichen Prozess zeitliche Abhängigkeiten. Dem bezüglich der Implementierungsreihenfolge übrigen Entscheidungsspielraum wird mit der Risiko-Wert-Matrix (siehe Abschnitt \ref{sec:risikowertmatrix}) begegnet.
+	Im ersten Schritt der Implementierung wird die Grobstruktur des Systems erarbeitet. Die Reihenfolge der zu erstellenden Softwareartefakte ergibt sich einerseits durch die strukturellen Abhängigkeitsbeziehungen. Damit ist \zB die Abhängigkeit des Backends von den im Frontend gewonnen Daten gemeint.\footnote{Auf die Erstellung von Dummies oder Treibern wird in diesem Projekt verzichtet.} Andererseits ergeben sich durch den fachlichen Prozess zeitliche Abhängigkeiten. Dem bezüglich der Implementierungsreihenfolge übrigen Entscheidungsspielraum wird mit der Risiko-Wert-Matrix (siehe Abschnitt \ref{sec:risikowertmatrix}) begegnet.
 	
 	\subsection{Vorgehensmodell}
 	
@@ -478,7 +478,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\chapter{Qualitätsmanagement}
 	
 	\section{Qualitätsziele}
-	Im Folgenden werden die für das Projekt festgelegten Qualitätsziele anhand der in der Norm ISO/IEC 9126 beschriebenen sechs Qualitätskriterien skizziert.
+	Im Folgenden werden die für das Projekt festgelegten Qualitätsziele anhand der in der Norm\linebreak ISO/IEC~9126 beschriebenen sechs Qualitätskriterien skizziert.
 	
 	Die formulierten Qualitätsziele dienen zunächst als grobe Handlungsmaxime bei der Entwicklung einzelner Artefakte und werden bei Bedarf verfeinert.
 	
@@ -486,7 +486,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	\begin{itemize}
 		\item Die Quiz-App soll den im Abschnitt \ref{sec:process} dargestellten fachlichen Prozess korrekt abbilden.
-		\item Das System soll gegenüber Bedrohungen von innen und außen gesichert sein (siehe Abschnitt \ref{sec:itsicherheit}).		
+		\item Das System soll gegenüber Bedrohungen von innen und außen gesichert sein (siehe Abschnitt~\ref{sec:itsicherheit}).		
 	\end{itemize}
 	
 	\subsection{Benutzbarkeit}
@@ -515,14 +515,14 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	\subsection{Zuverlässigkeit}
 	\begin{itemize}
-		\item Das System wird lediglich prototypisch umgesetzt, daher ist nur ein geringer Reifegrade gefordert.
+		\item Das System wird lediglich prototypisch umgesetzt, daher ist nur ein geringer Reifegrad gefordert.
 		\item Das System soll fehlerhafte Eingaben abfangen können.
 	\end{itemize}
 	
 	\section{IT-Sicherheit}
 	\label{sec:itsicherheit}
 	
-	Da es sich bei der zu entwickelnden App lediglich um einen Prototyp handelt, soll kein umfassendes Konzept zur IT-Sicherheit wie es z.B. das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit dem IT-Grundschutz-Framework vorschlägt, umgesetzt werden.
+	Da es sich bei der zu entwickelnden App lediglich um einen Prototyp handelt, soll kein umfassendes Konzept zur IT-Sicherheit, wie es \zB das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit dem IT-Grundschutz-Framework vorschlägt, umgesetzt werden.
 	
 	Im Folgenden werden die für dieses Projekt im Rahmen einer prototypischen Umsetzung relevanten Sicherheitsaspekte beschrieben.
 	
@@ -539,7 +539,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
     Das Passwort darf nicht komplett aus Ziffern bestehen.	
     
     \subsection{Kapselung der Datenbankzugriffe}
-    Um Angriffe auf das Datenbanksystem z.B. in Form von \textit{SQL-Injections} zu verhindern, soll der Zugriff auf die Datenbank nur über den entsprechend gekapselten \textit{Object Relational Mapper (ORM)} erfolgen.
+    Um Angriffe auf das Datenbanksystem \zB in Form von \textit{SQL-Injections} zu verhindern, soll der Zugriff auf die Datenbank nur über den entsprechend gekapselten \textit{Object Relational Mapper (ORM)} erfolgen.
 	
 	\subsection{Zugang zum Server}
 	Der Wartungszugang zum Server soll ausschließlich verschlüsselt über das SSH-Protokoll erfolgen. Zur Authentifizierung sollen ausschließlich RSA-Schlüssel verwendet werden können.
@@ -559,7 +559,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\subsection{Technische Maßnahmen}
 	\begin{itemize}
 		\item User Stories sind zentrales Tool zur Verwaltung der Anforderungen.
-		\item Zur Priorisierung von Aufgaben werden nach Bedarf die Wert-Risiko-Matrix oder die MoSCoW-Methode eingesetzt. 
+		\item Zur Priorisierung von Aufgaben werden nach Bedarf die Risiko-Wert-Matrix oder die MoSCoW-Methode eingesetzt. 
 		\item Alle Entwickler benutzen mit Visual Studio Code dieselbe Entwicklungsumgebung.
 		\item Modellierungssprachen (\Gls{uml}, \Gls{bpmn}) werden verbindlich festgelegt.
 		\item Mit Python (Backend) und JavaScript (Frontend) werden die eingesetzten Programmiersprachen vorgegeben.
