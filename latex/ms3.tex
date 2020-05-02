@@ -306,6 +306,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	
 	\section{Architektur}
+	\label{sec:architektur}
 		QTeams wird als Single Page Application (SPA) umgesetzt, d. h. die grafische Oberfläche der Applikation wird komplett im Webbrowser gerendert (Frontend). Die Kommunikation mit dem zentralen Server (Backend) erfolgt über eine Web-Schnittstelle.
 		
 		Im Folgenden wird die Architektur der zentralen Komponenten beschrieben.
@@ -443,6 +444,31 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\subsection{Prinzip der geringsten Privilegien}
 	Das System soll so gestaltet werden, dass jeder Nutzer nur genau so viele Privilegien erhält, wie er für seine Arbeit mit dem System benötigt.
 	
+	\section{Konstruktives Qualitätsmanagement}
+	Das konstruktive Qualitätsmanagement setzt sich aus organisatorischen, technischen und zwischenmenschlichen Maßnahmen zusammen, die im Folgenden erläutert werden.
+	
+	\subsection{Organisatorische Maßnahmen}
+	\begin{itemize}
+		\item Mit dem in diesem Bericht dargestellten Dokumentationskonzept existiert ein Template für die zu erstellenden Dokumentationsartefakte.
+		\item Die im Abschnitt \ref{sec:architektur} detaillierte Architektur dient als verbindliche Richtlinie für die Entwickler.
+	\end{itemize}		
+	
+	\subsection{Technische Maßnahmen}
+	\begin{itemize}
+		\item User Stories sind zentrales Tool zur Verwaltung der Anforderungen.
+		\item Zur Priorisierung von Aufgaben werden nach Bedarf die Wert-Risiko-Matrix oder die MoSCoW-Methode eingesetzt. 
+		\item Alle Entwickler benutzen mit Visual Studio Code dieselbe Entwicklungsumgebung.
+		\item Modellierungssprachen (UML, BPMN) werden verbindlich festgelegt.
+		\item Mit Python (Backend) und JavaScript (Frontend) werden die eingesetzten Programmiersprachen vorgegeben.
+		\item Git wird als zentrales Werkzeug zur Quellcode-Verwaltung vorgegeben.
+		\item Redmine ist verbindliches Projektmanagement-Tool.
+	\end{itemize}
+	
+	\subsection{Zwischenmenschliche Maßnahmen}
+	\begin{itemize}
+		\item Es findet regelmäßige und intensive Kommunikation statt.
+		\item Mithilfe von \textit{Pair Programming} unterstützen sich die Teammitglieder gegenseitig.
+	\end{itemize}		
 	
 	\printglossaries
 	\newpage	
