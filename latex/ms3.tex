@@ -344,6 +344,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	Details zur Anbindung an das Backend wurden bereits im Abschnitt \ref{subsec:backend} beschrieben.
 
 	\section{Prozessbeschreibung}
+	\label{sec:process}
 	
 	Abbildung \ref{fig:bpmn} auf Seite \pageref{fig:bpmn} visualisiert den zu implementierenden Spielablauf mithilfe eines BPMN-Diagramms. Das Diagramm zeigt den Prozess für einen Spieler und die Interaktionen mit den anderen Spielern des Q-Teams. Der Prozess der anderen Spieler wird hier lediglich als Black-Box gezeigt (Pool \textit{TEAM} auf der linken Seite), da die Prozesse identisch sind. Die Kommunikation zwischen den Spielern geschieht ausschließlich mittels Nachrichten, mit denen Datenobjekte assoziert sein können.
 	
@@ -476,7 +477,51 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	\chapter{Qualitätsmanagement}
 	
+	\section{Qualitätsziele}
+	Im Folgenden werden die für das Projekt festgelegten Qualitätsziele anhand der in der Norm ISO/IEC 9126 beschriebenen sechs Qualitätskriterien skizziert.
+	
+	Die formulierten Qualitätsziele dienen zunächst als grobe Handlungsmaxime und werden bei Bedarf verfeinert.
+	
+	\subsection{Funktionalität}
+	
+	\begin{itemize}
+		\item Die Quiz-App soll den im Abschnitt \ref{sec:process} dargestellten fachlichen Prozess korrekt abbilden.
+		\item Das System soll gegenüber Bedrohungen von innen und außen gesichert sein (siehe Abschnitt \ref{sec:itsicherheit}).		
+	\end{itemize}
+	
+	\subsection{Benutzbarkeit}
+	\begin{itemize}
+		\item Die Bedienung des Systems soll leicht erlernbar und möglichst intuitiv verständlich sein.
+		\item Die Oberfläche soll simpel und ansprechend gestaltet sein.
+	\end{itemize}
+	
+	\subsection{Änderbarkeit}
+	\begin{itemize}
+		\item Der Prototyp soll einfach erweiterbar sein und zu einem späteren Zeitpunkt zu einem ausgereiften Produkt ausgebaut werden können.
+		\item Die Grundfunktionen des Systems sollen einfach getestet werden können.
+	\end{itemize}
+	
+	\subsection{Effizienz}
+	\begin{itemize}
+		\item Mit Serverressourcen soll schonend umgegangen werden.
+		\item Da es sich um eine interaktive Anwendung handelt, sollten Antwortzeiten des Systems niedrig gehalten werden.
+	\end{itemize}
+	
+	\subsection{Übertragbarkeit}
+	\begin{itemize}
+		\item Das System soll einfach und unkompliziert bei einem Hosting-Provider installiert werden können.
+		\item Das System soll einfach in die Anwendungslandschaft einer Hochschule integrierbar sein.
+\end{itemize}		
+
+	\subsection{Zuverlässigkeit}
+	\begin{itemize}
+		\item Das System wird lediglich prototypisch umgesetzt, daher ist nur ein geringer Reifegrade gefordert.
+		\item Das System soll fehlerhafte Eingaben abfangen können.
+	\end{itemize}
+	
 	\section{IT-Sicherheit}
+	\label{sec:itsicherheit}
+	
 	Da es sich bei der zu entwickelnden App lediglich um einen Prototyp handelt, soll kein umfassendes Konzept zur IT-Sicherheit wie es z.B. das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit dem IT-Grundschutz-Framework vorschlägt, umgesetzt werden.
 	
 	Im Folgenden werden die für dieses Projekt im Rahmen einer prototypischen Umsetzung relevanten Sicherheitsaspekte beschrieben.
