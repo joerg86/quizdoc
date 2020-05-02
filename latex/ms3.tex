@@ -116,6 +116,20 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	}
 }
 
+\newglossaryentry{ssltls}
+{
+	name={SSL/TLS},
+	description={Secure Socket Layer / Transport Layer Security. Verfahren zur Verschlüsselung von Netzwerkverbindungen.
+	}
+}
+
+\newglossaryentry{ssh}
+{
+	name={SSH},
+	description={Secure Shell. Verschlüsseltes Netzwerkprotokoll zum Konsolenzugriff auf Serversysteme.
+	}
+}
+
 \subject{Meilensteinbericht}
 \title{Meilenstein 3}
 \subtitle{Dokumentationskonzept bereitgestellt}
@@ -542,7 +556,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	Im Folgenden werden die für dieses Projekt im Rahmen einer prototypischen Umsetzung relevanten Sicherheitsaspekte beschrieben.
 	
 	\subsection{Verschlüsselte Verbindungen}
-	Alle Verbindungen zwischen Endnutzern (Spielern, Administratoren) und dem System sollen mithilfe von SSL/TLS verschlüsselt werden.
+	Alle Verbindungen zwischen Endnutzern (Spielern, Administratoren) und dem System sollen mithilfe von \Gls{ssltls} verschlüsselt werden.
 	
 
 	\subsection{Speicherung von Passwörtern}
@@ -557,7 +571,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
     Um Angriffe auf das Datenbanksystem \zB in Form von \textit{SQL-Injections} zu verhindern, soll der Zugriff auf die Datenbank nur über den entsprechend gekapselten \textit{Object Relational Mapper (ORM)} erfolgen.
 	
 	\subsection{Zugang zum Server}
-	Der Wartungszugang zum Server soll ausschließlich verschlüsselt über das SSH-Protokoll erfolgen. Zur Authentifizierung sollen ausschließlich RSA-Schlüssel verwendet werden können.
+	Der Wartungszugang zum Server soll ausschließlich verschlüsselt über das \Gls{ssh}-Protokoll erfolgen. Zur Authentifizierung sollen ausschließlich RSA-Schlüssel verwendet werden können.
 	
 	\subsection{Prinzip der geringsten Privilegien}
 	Das System soll so gestaltet werden, dass jeder Nutzer nur genau so viele Privilegien erhält, wie er für seine Arbeit mit dem System benötigt.
@@ -588,12 +602,15 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 		\item Mithilfe von \textit{Pair Programming} unterstützen sich die Teammitglieder gegenseitig.
 	\end{itemize}		
 	
-\section{Review-Verfahren}	
+\section{Statische Qualitätssicherung}
+Im Rahmen der statischen Qualitätssicherung wird in diesem Projekt auf Review-Verfahren und die statische Codeanalyse zurückgegriffen, die in den folgenden Abschnitten beschrieben werden. 
+	
+\subsection{Review-Verfahren}	
 Ein Review ist ein Verfahren zur statischen Analyse eines Prüflings. Die Prüfung wird durch einen oder mehrere Gutachter manuell durchgeführt. In diesem Projekt werden zentrale Ergebnisartefakte ausschließlich teamintern gereviewt. Die Entscheidung darüber ob und wie ein Artefakt gereviewt wird, bestimmt sich in erster Linie danach, wie groß der Einfluss des Artefakts auf die weitere Softwareentwicklung ist. Für Artefakte, die ein Teil des auszuliefernden Softwareproduktes sind, ist hier der Wertanteil dieses Artefakts am Gesamtprodukt entscheidend. Dies soll an einem Beispiel verdeutlicht werden: Der fachliche Prozess steht am Anfang der Softwareentwicklung. Er ist maßgeblicher Anforderungsträger an das zu entwickelnde Produkt. Hier ist es wichtig, dass alle Teammitglieder ein gemeinsames Verständnis von diesem Prozess haben und alle ihre jeweiligen Erfahrung und ihr Wissen eingebracht haben, um die Qualität des Prozesses sicherzustellen. Ein gründlicher Review der Prozessbeschreibung ist also erforderlich, wie sich später zeigen wird, ist in diesem Fall ein Walkthrough durchzuführen. 
 
 Typische Review-Techniken sind die Stellungnahme, der Walkthrough und die Inspektion. Unter Berücksichtigung der Rahmenbedingungen dieses Projekts ist eine Inspektion nicht gerechtfertigt und wird deshalb nicht durchgeführt. Je nach Ausprägung der oben geschilderten Entscheidungsfaktoren entscheidet das Team also, ob eine Stellungnahme oder ein Walkthrough durchgeführt wird.
 
-\subsection{Stellungnahme}
+\subsubsection{Stellungnahme}
 Abbildung \ref{fig:stellungnahme} visualisiert den Prozess einer Stellungnahme. 
 	\begin{figure}
 		\centering
@@ -603,7 +620,7 @@ Abbildung \ref{fig:stellungnahme} visualisiert den Prozess einer Stellungnahme.
 	\end{figure}
 Zunächst wählt der Autor einen Gutachter. In diesem Projekt wird grundsätzlich nur durch einen Gutachter geprüft. Die Aufgabenschwerpunkte, die jedem Teammitglied im Bericht zu Meilenstein 1 zugewiesen wurden, entscheiden dabei über den jeweiligen Gutachter, denn es finden sich zu den meisten Themengebieten zwei Teammitglieder. Zusammen mit dem Gutachter konfiguriert der Autor den Review, \dash sie stimmen sich über den Umfang, die Dauer und den Schwerpunkt des Reviews ab. Der Gutachter führt daraufhin die individuelle Begutachtung des Prüflings durch. Danach werden die Fragen zum Prüfling und die identifizierten Mängel gemeinsam diskutiert. Hiermit endet der Prozess für den Gutachter. Der Autor überarbeitet noch den Prüfling und der Review-Prozess ist abgeschlossen. Eine Dokumentation über die Stellungnahme findet in diesem Projekt nicht statt.
 
-\subsection{Walkthrough}
+\subsubsection{Walkthrough}
 Abbildung \ref{fig:walkthrough} stellt den Ablauf eines Walkthroughs dar.
 	\begin{figure}
 		\centering
@@ -612,6 +629,9 @@ Abbildung \ref{fig:walkthrough} stellt den Ablauf eines Walkthroughs dar.
 		\label{fig:walkthrough}
 	\end{figure}
 Das Team entscheidet über die Durchführung eines Walkthroughs bei einem Artefakt. Teilnehmer sind der Autor, der gleichzeitig als Moderator fungiert, und alle anderen Teammitglieder. Die anderen Teammitglieder sind die Gutachter, die den Prüfling begutachten. Nach der Entscheidung für einen Walkthrough konfiguriert der Autor den Review. Dabei stimmt er den Termin mit dem Team ab und legt die Prüfziele fest. Sind bereits Akzeptanzkriterien festgelegt, werden diese genutzt. Die Prüfziele und der Prüfling werden an die Teammitglieder übermittelt. Daraufhin arbeitet jeder Gutachter individuell den Prüfling durch und dokumentiert für sich Fragen und identifizierte Mängel. In der Review-Sitzung wird der Prüfling dann gemeinsam durchgearbeitet und alle Fragen und Mängel werden diskutiert. Der Autor überarbeitet zuletzt den Prüfling und der Review-Prozess ist abgeschlossen. Ein Review-Bericht wird grundsätzlich nicht angefertigt.
+
+\subsection{Statische Codeanalyse}
+Die Werkzeuge \textit{JSLint} und \textit{Pylint} werden im Projekt zur statischen Codeanalyse verwendet. Sie können in die Entwicklungsumgebung integriert werden und liefern dem Entwickler Hinweise zu Programmierkonventionen und fördern eine leserliche Code-Struktur.
 	
 \section{Testfallerstellung}
 	Aufgrund der begrenzten zeitlichen und personellen Ressourcen und dem prototypischen Charakter des Projektes soll mit nur wenigen Testfällen versucht werden, eine möglichst weitreichende Testabdeckung der wesentlichen fachlichen Funktionen zu erreichen.
