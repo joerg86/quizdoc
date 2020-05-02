@@ -417,6 +417,32 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	\chapter{Qualitätsmanagement}
 	
+	\section{IT-Sicherheit}
+	Da es sich bei der zu entwickelnden App lediglich um einen Prototyp handelt, soll kein umfassendes Konzept zur IT-Sicherheit wie es z.B. das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit dem IT-Grundschutz-Framework vorschlägt. 
+	
+	Im Folgenden werden die für dieses Projekt im Rahmen einer prototypischen Umsetzung relevanten Sicherheitsaspekte beschrieben.
+	
+	\subsection{Verschlüsselte Verbindungen}
+	Alle Verbindungen zwischen Endnutzern (Spielern, Administratoren) und dem System sollen mithilfe von SSL/TLS verschlüsselt werden.
+	
+
+	\subsection{Speicherung von Passwörtern}
+	Passwörter von Nutzern der Anwendung werden ausschließlich verschlüsselt in der Datenbank hinterlegt.
+	
+	\subsection{Sicherheitsrichtlinien für Passwörter}
+	 Das Passwort darf nicht zu ähnlich zu anderen persönlichen Informationen (Vorname, Nachname, E-Mail, Benutzername) sein.
+    Das Passwort muss mindestens 8 Zeichen enthalten.
+    Das Passwort darf nicht komplett aus Ziffern bestehen.	
+    
+    \subsection{Kapselung der Datenbankzugriffe}
+    Um Angriffe auf das Datenbanksystem z.B. in Form von \textit{SQL-Injections} zu verhindern, soll der Zugriff auf die Datenbank nur über den entsprechend gekapselten \textit{Object Relational Mapper (ORM)} erfolgen.
+	
+	\subsection{Zugang zum Server}
+	Der Wartungszugang zum Server soll ausschließlich verschlüsselt über das SSH-Protokoll erfolgen. Zur Authentifizierung sollen ausschließlich RSA-Schlüssel verwendet werden können.
+	
+	\subsection{Prinzip der geringsten Privilegien}
+	Das System soll so gestaltet werden, dass jeder Nutzer nur genau so viele Privilegien erhält, wie er für seine Arbeit mit dem System benötigt.
+	
 	
 	\printglossaries
 	\newpage	
