@@ -342,7 +342,52 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	\section{Datenmodell}
 	
-	Das geplante Datenmodell ist in Abbildung \ref{fig:models} in Form eines Klassendiagramms dargestellt, das im Folgenden kurz erläutert wird.
+	Das geplante Datenmodell ist in Abbildung \ref{fig:models} in Form eines Klassendiagramms dargestellt, dessen Elemente im Folgenden kurz erläutert werden. Es handelt sich hierbei um eine aus dem Python-Code generierte grafische Repräsentation des Datenmodells, die allerdings nicht den UML-Standard erfüllt.
+	
+	Jedes Rechteck entspricht dabei einer Klasse, deren Name in der grün hinterlegten Kopfzeile angegeben ist. Unmittelbar darunter sind Attributnamen und -typen angegeben. In Fettschrift sind Attribute dargestellt, die als Schlüssel dienen. In grauer Farbe gedruckt sind optionale Attribute bzw. Attribute, die vom System automatisch gesetzt werden. Die Attribute \textit{created\_{}at} und \textit{updated\_{}at} werden vom System automatisch mit dem Zeitstempel der Erstellung bzw. der letzten Änderung des Objektes versehen.
+	
+	Die Bögen, die einzelne Klassen untereinander verbinden, stellen die Beziehungen zwischen den Entitäten dar. Ist ein Bogen nur an einem Ende mit einem großen schwarzen Punkt versehen, so handelt es sich um eine \textit{1:n}-Beziehung. Enthält der Bogen an beiden Ende große schwarze Punkte, so symbolisiert dies eine \textit{n:m}-Beziehung der Klassen. Die Beschriftung der Bögen enthält zuerst den Attributnamen, über den von der die Beziehung definierenden Klasse auf die andere Klasse zugriffen werden kann. Danach folgt in runden Klammern der Attributname auf Seiten der anderen Klasse.
+	
+	1:n-Beziehungen sind über Fremdschlüssel \textit{(foreign keys)} realisiert, während n:m-Beziehungen zusätzliche Datenbanktabellen benötigen, die an dieser Stelle aus Gründen der Übersichtlichkeit nicht dargestellt werden.
+	
+	Das \textit{User}-Modell repräsentiert einem Benutzer des Systems und wird vom eingebauten Authentifizierungssystem des Django-Frameworks bereitsgestellt. Für weitere Details dazu sei auf die Dokumentation\footnote{https://docs.djangoproject.com/en/3.0/ref/contrib/auth/} verwiesen.
+	
+	Nachfolgend werden die wichtigsten Aspekte der im Diagramm dargestellten Entitäten vorgestellt.
+	
+	\subsection{Team}
+	Die Klasse \textit{Team} ist das Herzstück der Quiz-App. Sie bildet ein Team von Benutzern ab, die zusammen spielen (\textit{members}). Außerdem speichert sie den Benutzer, der das Team erstellt hat (\textit{creator}), enthält einen frei wählbaren Namen (\textit{name}) und wird einem Thema (\textit{topic}) zugeordnet.
+	
+	Das Feld für den Spielmodus (\textit{mode}) kann die Werte \texttt{train} (Trainingsmodus) oder \texttt{competition} (Wettkampf) annehmen.
+	
+	Ein Team befindet sich immer in einem definierten Zustand (\textit{state}):
+	
+	\begin{itemize}
+		\item \texttt{open}: Das Team wurde erstellt und kann noch Mitglieder aufnehmen.
+		\item \texttt{playing}: Das Spiel wurde gestartet. Ein Hinzufügen weiterer Mitglieder ist nicht mehr möglich.
+		\item \texttt{archived}: Das Spiel wurde beendet und das Team ist archiviert.
+	\end{itemize}
+	
+	\subsection{Round}
+	Die Klasse \textit{Round} bildet eine Spielrunde ab. 
+	
+	Die Runde kann sich in folgenden Phasen befinden: 
+	
+	\begin{itemize}
+		\item \texttt{question}: Diese Phase stellt die \textit{Erarbeitungsphase} dar. In dieser Phase erarbeiten die Teammitglieder fachliche Fragen für ihre Mitspieler. 
+		\item \texttt{answer}: In dieser Phase müssen die Spieler die erarbeiteten Fragen beantworten. Das System wählt die jeweils zu bearbeitende Frage zufällig aus und hinterlegt sie im Feld \textit{current\_{}question}.
+		\item \texttt{scoring}: Bei Eintritt in die \textit{Bewertungsphase} haben die Spieler ihre Antworten eingegeben und es erfolgt die Bewertung durch den Fragesteller. Sind noch unbeantwortete Fragen in der Runde vorhanden, so wechselt die Runde wieder in den Zustand \texttt{answer}.
+		
+		\item \texttt{done}: Diese Phase markiert den Abschluss der Runde. Spielern wird abhängig vom gewählten Spielmodus nur eine persönliche oder eine gesamte Statistik der Leistung des Teams angezeigt. 
+	\end{itemize}
+	
+	\subsection{Question}
+	Die Klasse \textit{Question} bildet eine fachliche Frage ab. Sie speichert den Autor (\textit{author}) der Frage, den Fragetext (\textit{question}), das zugehörige Thema (\textit{topic}) und die Musterantwort (\textit{model\_{}answer}. Fragen können nur in einer Runde (\textit{round}) verwendet werden. Übernehmen Spieler eine Frage aus der \textit{Knowledge Base}, so wird eine Kopie erstellt, die vom Nutzer angepasst werden kann.
+	
+	\subsection{Answer}
+	Die Klasse \textit{Answer} enthält die Antwort (\textit{answer}) eines Spielers (\textit{author}) auf eine Frage (\textit{question}). Sie speichert außerdem die durch den Fragesteller vergebene Bewertung (\textit{score}).
+	
+	\subsection{Topic}
+	Die Klasse \textit{Topic} stellt ein fachliches Thema dar. Hier könnte beispielsweise eine Liste der an der IUBH verfügbaren Module hinterlegt werden. Diese Klasse dient lediglich der besseren Strukturierung der Fragen in der \textit{Knowledge Base}.
 	
 	\begin{figure}
 		\centering
