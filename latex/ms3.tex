@@ -320,7 +320,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	\section{Architektur}
 	\label{sec:architektur}
-		QTeams wird als Single Page Application (SPA) umgesetzt, d. h. die grafische Oberfläche der Applikation wird komplett im Webbrowser gerendert (Frontend). Die Kommunikation mit dem zentralen Server (Backend) erfolgt über eine Web-Schnittstelle.
+		Q-Teams wird als Single Page Application (SPA) umgesetzt, d. h. die grafische Oberfläche der Applikation wird komplett im Webbrowser gerendert (Frontend). Die Kommunikation mit dem zentralen Server (Backend) erfolgt über eine Web-Schnittstelle.
 		
 		Im Folgenden wird die Architektur der zentralen Komponenten beschrieben.
 		
@@ -332,9 +332,9 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	Zur Anbindung des Frontends stellt der Server eine GraphQL-Schnittstelle bereit. GraphQL\footnote{https://graphql.org/} ist eine von Facebook entwickelte schemabasierte Abfragesprache. Im Gegensatz zu klassischen REST-APIs erlaubt GraphQL dem Client genau festzulegen, welche Datenfelder und -beziehungen vom Server zurück geliefert werden, so dass das Entwerfen benutzerdefinierter Query-Parameter nicht mehr nötig ist. Darüber hinaus wird mithilfe des GraphQL-Schemas bereits auf dem Client verhindert werden, dass fehlerhafte Anfragen formuliert werden.
 	
-	GraphQL ermöglicht es mit \textit{Subscriptions} einem Client, sich über Ereignisee benachrichtigen zu lassen. Dieser Mechanismus ist mit den von mobilen Geräten bekannten Push-Benachrichtigungen vergleichbar. QTeams verwendet Subscriptions, um den Spielablauf auf den Clients aller beteiligten Spieler zu synchronisieren. Technisch realisiert wird dies über eine WebSocket-Verbindung.
+	GraphQL ermöglicht es mit \textit{Subscriptions} einem Client, sich über Ereignisee benachrichtigen zu lassen. Dieser Mechanismus ist mit den von mobilen Geräten bekannten Push-Benachrichtigungen vergleichbar. Q-Teams verwendet Subscriptions, um den Spielablauf auf den Clients aller beteiligten Spieler zu synchronisieren. Technisch realisiert wird dies über eine WebSocket-Verbindung.
 
-	Der Backend-Server stellt außerdem eine serverseitig gerenderte Web-Oberfläche zur Administration der QTeams-Instanz bereit. Diese basiert auf der angepassten Django-Administrationsoberfläche.
+	Der Backend-Server stellt außerdem eine serverseitig gerenderte Web-Oberfläche zur Administration der Q-Teams-Instanz bereit. Diese basiert auf der angepassten Django-Administrationsoberfläche.
 	
 	\subsection{Frontend}
 	Das Frontend stellt die grafische Oberfläche dar, mit der die Spieler interagieren. Sie wird im Webbrowser ausgeführt und wird dementsprechend in der Programmiersprache JavaScript implementiert.
