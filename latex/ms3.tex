@@ -518,6 +518,31 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 		\item Mithilfe von \textit{Pair Programming} unterstützen sich die Teammitglieder gegenseitig.
 	\end{itemize}		
 	
+\section{Review-Verfahren}	
+Ein Review ist ein statisches manuelles Prüfverfahren zur Analyse eines Prüflings. In diesem Projekt werden zentrale Ergebnisartefakte teamintern gereviewt. Die Entscheidung darüber ob und wie ein Artefakt gereviewt wird, bestimmt sich in erster Linie danach, wie groß der Einfluss des Artefakts auf die weitere Softwareentwicklung ist. Für Artefakte, die ein Teil des auszuliefernden Softwareproduktes sind, ist hier der Wertanteil dieses Artefakts am Gesamtprodukt entscheidend. Dies soll an einem Beispiel verdeutlicht werden: Der fachliche Prozess steht am Anfang der Softwareentwicklung. Er ist maßgeblicher Anforderungsträger an das zu entwickelnde Produkt. Hier ist es wichtig, dass alle Teammitglieder ein gemeinsames Verständnis von dem Prozess haben und alle ihre jeweiligen Erfahrung und ihr Wissen eingebracht haben, um die Qualität des Prozesses sicherzustellen. Ein gründlicher Review der Prozessbeschreibung ist also erforderlich. 
+
+Typische Review-Techniken sind die Stellungnahme, der Walkthrough und die Inspektion. Unter Berücksichtigung der Rahmenbedingungen dieses Projekts ist eine Inspektion nicht gerechtfertigt und wird deshalb nicht durchgeführt. Je nach Ausprägung der oben geschilderten Entscheidungsfaktoren entscheidet das Team also, ob eine Stellungnahme oder ein Walkthrough durchgeführt.
+
+\subsection{Stellungnahme}
+Abbildung \ref{fig:stellungnahme} visualisiert den Prozess einer Stellungnahme. 
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{stellungnahme.png}
+		\caption{Ablauf einer Stellungnahme}
+		\label{fig:stellungnahme}
+	\end{figure}
+Zunächst wählt der Autor einen Gutachter, es wird grundsätzlich nur durch einen Gutachter geprüft. Die Aufgabenschwerpunkte, die jedem Teammitglied im Bericht zum Meilenstein 1 zugewiesen wurden, entscheiden dabei über den jeweiligen Gutachter, denn es finden sich zu den meisten Themengebieten zwei Teammitglieder. Zusammen mit dem Gutachter konfiguriert der Autor den Review, \dash sie stimmen sich über den Umfang, die Dauer und den Schwerpunkt des Reviews ab. Der Gutachter führt daraufhin die individuelle Begutachtung des Prüflings durch. Danach werden die Fragen zum Prüfling und die identifizierten Mängel gemeinsam diskutiert. Hiermit endet der Prozess für den Gutachter. Der Autor überarbeitet noch den Prüfling und der gesamte Review-Prozess ist abgeschlossen. Eine Dokumentation über Stellungnahmen findet in diesem Projekt nicht statt.
+
+\subsection{Walkthrough}
+Abbildung \ref{fig:walkthrough} stellt den Ablauf eines Walkthroughs dar.
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{walkthrough.png}
+		\caption{Ablauf eines Walkthroughs}
+		\label{fig:walkthrough}
+	\end{figure}
+Das Team entscheidet über die Durchführung eines Walkthroughs bei einem Artefakt. Teilnehmer sind der Autor, der gleichzeitig als Moderator fungiert, und alle anderen Teammitglieder, die den Prüfling begutachten. Nach der Entscheidung konfiguriert der Autor den Review. Dabei stimmt er den Termin mit dem Team ab und legt die Prüfziele fest. Sind bereits Akzeptanzkriterien festgelegt, werden diese genutzt. Die Prüfziele und der Prüfling werden an die Teammitglieder übermittelt. Daraufhin arbeitet jeder Gutachter individuell den Prüfling durch und dokumentiert Fragen und identifizierte Mängel. In der Review-Sitzung wird der Prüfling dann gemeinsam durchgearbeitet und alle Fragen und Mängel werden diskutiert. Der Autor überprüft zuletzt den Prüfling, der Review-Prozess ist damit abgeschloseen. Ein Review-Bericht wird grundsätzlich nicht angefertigt.
+	
 	\printglossaries
 	\newpage	
 	\printbibliography[heading=bibnumbered,title=Literaturverzeichnis]
