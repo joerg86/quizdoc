@@ -27,12 +27,15 @@ citecolor = black]{hyperref}
 \usepackage[cache=false]{minted}
 \renewcommand{\listoflistingscaption}{Verzeichnis der Code-Listings}
 \usepackage[table]{xcolor} % Zum Ändern der Farben in Tabellen
+\usepackage{xspace}
 
 \usepackage{csquotes}
 \usepackage[backend=biber, style=apa]{biblatex}
 \addbibresource{quellen.bib}
 
 \renewcommand{\familydefault}{\sfdefault}
+\newcommand{\zB}{\mbox{z.\,B.}\xspace}
+\newcommand{\dash}{\mbox{d.\,h.}\xspace}
 
 \RedeclareSectionCommand[
 beforeskip = 3pt,
@@ -172,7 +175,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\section{Aufgabenliste}
 	Die Gesamtheit der Aufgaben, die durch das Team zu erledigen sind, werden in der Aufgabenliste geführt. Alle Aufgaben werden als Ticket im System Redmine geführt. Die zu pflegenden Informationen jedes Tickets sind in Tabelle \ref{tab:tickets} dargestellt. 
 	
-	Für die Implementierung werden nur die User Stories als Tickets angelegt, die bereits im Bericht zum Meilenstein 1 vorgestellt wurden (\cite{MS1}, S. 5f). Die weitere Verfeinerung der User Stories und die Ableitung der Aufgaben findet im GitHub Issue Tracker statt. Das heißt, dass die Implementierung nur sehr grob in Redmine abgebildet ist. Dieser Schnitt wird vollzogen, um den direkten Bezug der Implementierungsaufgaben zum Quellcode herstellen zu können. Da auch die Anzahl der in Redmine anfallenden Tickets deutlich reduziert wird, hilft dieses Vorgehen außerdem dabei, den Gesamtüberblick über das Projekt nicht zu verlieren.
+	Für die Implementierung werden nur die User Stories als Tickets angelegt, die bereits im Bericht zum Meilenstein 1 vorgestellt wurden. Die weitere Verfeinerung der User Stories und die Ableitung der Aufgaben findet im GitHub Issue Tracker statt. Das heißt, dass die Implementierung nur sehr grob in Redmine abgebildet ist. Dieser Schnitt wird vollzogen, um den direkten Bezug der Implementierungsaufgaben zum Quellcode herstellen zu können. Da auch die Anzahl der in Redmine anfallenden Tickets deutlich reduziert wird, hilft dieses Vorgehen außerdem dabei, den Gesamtüberblick über das Projekt nicht zu verlieren.
 	\begin{table}
 		\centering
 		\begin{tabularx}{\textwidth}{lX}
@@ -331,14 +334,59 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	\section{Prozessbeschreibung}
 	
-	Abbildung \ref{fig:bpmn} visualisiert den zu implementierenden Spielablauf mithilfe eines BPMN-Diagramms.
+	Abbildung \ref{fig:bpmn} auf Seite \pageref{fig:bpmn} visualisiert den zu implementierenden Spielablauf mithilfe eines BPMN-Diagramms. Das Diagramm zeigt den Prozess für einen Spieler und die Interaktionen mit den anderen Spielern des Q-Teams. Der Prozess der anderen Spieler wird hier lediglich als Black-Box gezeigt (Pool \textit{TEAM} auf der linken Seite), da die Prozesse identisch sind. Die Kommunikation zwischen den Spielern geschieht ausschließlich mittels Nachrichten, denen Datenobjekte assoziert sein können.
+	
+	Wie bereits im Lösungsansatz\footnote{Abschnitt 3.2 im Bericht zum Meilenstein 1} beschrieben, hat jede Spielrunde sechs Phasen, die im Diagramm als Gruppen dargestellt sind. Es gibt drei Datenspeicher, die mindestens für die Dauer einer Runde bestehen: der \textit{Katalog der Runde} (grün), die \textit{Statistik} (blau) und die \textit{Knowledge Base} (grau).
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=\textwidth]{bpmn.pdf}
+		\includegraphics[width=\textwidth]{bpmn.png}
 		\caption{Prozessbeschreibung des Spielablaufs}
 		\label{fig:bpmn}
 	\end{figure}	 
+
+	
+	\subsection{Beginn des Spiels}
+	\label{subsec:beginndesspiels}
+	Der Spieler startet sein Spiel in der Phase \textit{Beginn des Spiels}. Entweder gründet der Spieler ein Q-Team und benachrichtigt die anderen Spieler darüber, oder er wird von einem anderen Spieler benachrichtigt und tritt einem Q-Team bei. 
+	Die Ausgestaltung der beiden genannten Aktivitäten ist für den Gesamtablauf nicht relevant. Sind alle Spieler dem Q-Team beigetreten und haben ihre Bereitschaft signalisiert, geht das Spiel in die nächste Phase über. Hier ist auch der Einstiegspunkt für eine weitere Runde (siehe Abschnitt \nameref{subsec:schlussphase}).
+	
+	\subsection{Erarbeitungsphase}
+	\label{subsec:erarbeitungsphase}
+	In der Erarbeitungsphase erstellt jeder Spieler eine Frage und die dazugehörige Musterantwort. Die Knowledge Base, \dash die Gesamtheit der bisher gespeicherten Fragen und Musterantworten, kann bei dieser Aktivität als Inspiration genutzt werden. Die durch den Spieler erstellte Frage und Antwort werden in der Knowledge Base und im Katalog der Runde gespeichert. Haben dies alle Spieler abgeschlossen, wird der nächste \nameref{subsec:phasenuebergang} geprüft.
+	
+	\subsection{Phasenübergang}
+	\label{subsec:phasenuebergang}
+	Aus der \nameref{subsec:erarbeitungsphase} oder der \nameref{subsec:klaerungsphase} kommend, wird geprüft, ob noch Fragen im Katalog der Runde vorhanden sind, die bisher noch nicht an das Q-Team gestellt wurden. Ist dies der Fall, geht das Spiel in die \nameref{subsec:fragephase} über, sonst geht das Spiel in die \nameref{subsec:schlussphase} über.
+	
+	\subsection{Fragephase}
+	\label{subsec:fragephase}
+	In der Fragephase wird aus dem Katalog der Runde eine Frage zufällig gewählt, die dem Q-Team gestellt wird. Jede Frage wird nur einmal gestellt. Ist der Spieler der Fragesteller, der gewählten Frage, geht das Spiel in die \nameref{subsec:bewertungsphase} über. Wurde die Frage nicht vom Spieler erstellt, beantwortet er diese und sendet die Antwort an den Fragesteller und speichert sie im Katalog der Runde. Dann geht das Spiel in die \nameref{subsec:bewertungsphase} über.
+	
+	\subsection{Bewertungsphase}
+	\label{subsec:bewertungsphase}
+	Als Fragesteller hat der Spieler die Antworten der anderen Spieler zu bewerten. Diese Aktivität findet sequentiell mehrfach statt. Der Spieler empfängt die Antwort eines Spielers und bewertet diese in den Stufen
+	\begin{itemize}
+	\item richtig (3 Punkte),
+	\item teilweise richtig (1 Punkt) oder
+	\item falsch (0 Punkte).
+	\end{itemize}
+	Die Bewertung sendet er an den entsprechenden Spieler und speichert sie außerdem in der Statistik ab.
+	
+	Hat der Spieler hingegen die Frage beantwortet, erhält er aus dem Katalog der Runde die Musterantwort und die Antworten der anderen Spieler zur Auswertung. Hat der Fragesteller die Antwort bewertet, erhält der Spieler auch die Bewertung.
+	
+	Wurden alle Antworten durch den Fragesteller bewertet, geht das Spiel in die \nameref{subsec:klaerungsphase} über.
+	
+	\subsection{Klärungsphase}
+	\label{subsec:klaerungsphase}
+	Die Antworten und Bewertungen werden zwischem dem Spieler und dem Rest des Q-Teams geklärt. Ist das Q-Team wieder bereit wird der nächste \nameref{subsec:phasenuebergang} geprüft.
+	
+	\subsection{Schlussphase}
+	\label{subsec:schlussphase}
+	In der Schlussphase kann der Spieler noch einmal alle Fragen und Antworten aus dem Katalog der Runde  und seine persönliche Statistik auswerten. Im Wettkampfmodus kann der Spieler auch die Statistik der anderen Spieler des Q-Teams auswerten.
+	
+	Das Q-Team kann sich nun entschließen, eine weitere Runde zu spielen. Das Spiel startet dann am Ende der Phase \nameref{subsec:beginndesspiels}. Ansonsten endet das Spiel an dieser Stelle.
+	 
 	
 	\section{Datenmodell}
 	
