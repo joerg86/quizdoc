@@ -170,7 +170,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	Im Verlauf des Projektes werden verschiedene Dokumente erstellt und gepflegt. Diese unterstützen das Projektmanagement oder informieren Stakeholder über den Status bestimmter Aspekte des Projekts.
 	
-	Der Aufbau des Risikoregisters ist bereits im Bericht zum Meilenstein 1 definiert worden. Die weiteren Dokumente werden im Folgenden definiert.
+	Der Aufbau des Risikoregisters ist bereits im Bericht zu Meilenstein 1 festgelegt worden. Die weiteren Dokumente werden im Folgenden definiert.
 	
 	\section{Aufgabenliste}
 	Die Gesamtheit der Aufgaben, die durch das Team zu erledigen sind, werden in der Aufgabenliste geführt. Alle Aufgaben werden als Ticket im System Redmine geführt. Die zu pflegenden Informationen jedes Tickets sind in Tabelle \ref{tab:tickets} dargestellt. 
@@ -197,7 +197,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\end{table}	
 	
 	\section{Sprint Backlog}
-	Die Tickets, die im folgenden Sprint bearbeitet werden sollen, werden mit \textit{High} oder \textit{Urgent} priorisiert. Um ein Ticket als besonders dringend zu kennzeichnen, kann die höhere der beiden Priorisierungen genutzt werden, grundsätzlich wird hier jedoch die Priorität \textit{High} genutzt. Die Menge dieser Tickets bildet den Sprint Backlog, ein seperates Dokument wird nicht gepflegt. Der Lebenszyklus eines Tickets wird in Abbildung \ref{fig:ticketlebenszyklus} dargestellt. Während der Sprintplanung und während des Sprints werden die Tickets des Sprint Backlogs an die Teammitglieder zur Bearbeitung zugewiesen. Nach der Bearbeitung wird dem Team ein Ergebnisentwurf zur Verfügung gestellt wird. Das Team führt nun die festgelegten Qualitätssicherungsmaßnahmen durch, falls diese nicht bereits Bestandteil des vorherigen Bearbeitungsprozesses waren. Das Ergebnis wird anschließend freigegeben oder es werden Änderungen eingearbeitet. Die fertig bearbeiteten Tickets werden nicht gelöscht, sondern verbleiben als geschlossene Tickets in der Anforderungsliste.
+	Die Tickets, die im folgenden Sprint bearbeitet werden sollen, werden mit \textit{High} oder \textit{Urgent} priorisiert. Um ein Ticket als besonders dringend zu kennzeichnen, kann die höhere der beiden Priorisierungen genutzt werden, grundsätzlich wird hier jedoch die Priorität \textit{High} genutzt. Die Menge dieser Tickets bildet den Sprint Backlog, ein seperates Dokument wird nicht gepflegt. Der Lebenszyklus eines Tickets wird in Abbildung \ref{fig:ticketlebenszyklus} dargestellt. Während der Sprintplanung und während des Sprints werden die Tickets des Sprint Backlogs an die Teammitglieder zur Bearbeitung zugewiesen. Nach der Bearbeitung wird dem Team ein Ergebnisentwurf zur Verfügung gestellt wird. Das Team führt nun die festgelegten Qualitätssicherungsmaßnahmen durch, falls diese nicht bereits Bestandteil des vorherigen Bearbeitungsprozesses waren. Das Ergebnis wird anschließend freigegeben oder es werden Änderungen eingearbeitet. Die fertig bearbeiteten Tickets werden nicht gelöscht, sondern verbleiben als geschlossene Tickets in der Aufgabenliste.
 	\begin{figure}
 		\includegraphics[width=\textwidth]{Ticketlebenszyklus}
 		\caption{Lebenszyklus eines Tickets}
@@ -209,7 +209,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	Das ausgelieferte Softwareprodukt wird in der Ergebnisdokumentation beschrieben. Nachfolgend werden die einzelnen Aspekte dieser Dokumentation vorgestellt.
 	
 	\subsection{Funktionsbeschreibung}
-	Der in der Anwendung umgesetzte Geschäftsprozess wird aus der Sicht eines Nutzers mit der \Gls{bpmn} dargestellt. Es werden die unterstützten Fachfunktionen benannt und in den Gesamtkontext gebracht. Die wichtigsten Fachfunktionen werden detailliert beschrieben.
+	Der in der Anwendung umgesetzte Geschäftsprozess wird aus der Sicht eines Nutzers mit der \textit{Business Process Model and Notation (\Gls{bpmn})} dargestellt. Es werden die unterstützten Fachfunktionen benannt und in den Gesamtkontext gebracht. Die wichtigsten Fachfunktionen werden detailliert beschrieben.
 			
 	\subsection{Softwarearchitektur}
 	\label{subsec:softwarearchitektur}
@@ -223,7 +223,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 			\midrule
 			Systemstruktur & Die Komponenten und die Schnittstellen der Anwendung werden in einem Überblick dargestellt. & \Gls{uml}-cod \\
 			Daten & Das technische Datenmodell mit den Entitätstypen, den zugehörigen Attributen und den Beziehungen untereinander wird dargestellt.  & \Gls{uml}-cld \\
-			\Gls{gui} & Die in der grafischen Benutzeroberfläche möglichen Zustände und die erlaubten Übergänge zwischen diesen werden dargestellt. Die visuelle Gestaltung der GUI (z.B. in Form von Screenshots) wird hier nicht dargestellt. & \Gls{uml}-sm\\
+			\Gls{gui} & Die in der grafischen Benutzeroberfläche möglichen Zustände und die erlaubten Übergänge zwischen diesen werden dargestellt. Die visuelle Gestaltung der GUI (z.B. in Form von grafischen Mockups) wird hier nicht dargestellt. & \Gls{uml}-sm\\
 			Komponenten & Bei Bedarf werden einzelne Komponenten des Systems detaillierter dargestellt. & \Gls{uml}-cod \\
 			Zeit & Bei Bedarf werden einzelne Aufrufbeziehungen zwischen Komponenten detailliert dargestellt. & \Gls{uml}-sqd \\
 			\bottomrule
@@ -243,9 +243,9 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 			\midrule
 			Anforderungen & Die während des Projektzeitraums umgesetzten Anforderungen werden dargestellt. Zu jeder Anforderung wird der Erfüllungsgrad der Akzeptanzkriterien dargelegt. Nicht umgesetzte Anforderungen werden aufgelistet. \\
 			Qualitätsziele & Die Erfüllung der Qualitätsziele und die durchgeführten Maßnahmen zur Qualitätssicherung werden zusammenfassend dargestellt. \\
-			Benutzerhandbuch & Der Benutzer wird über die bestimmungsgemäße Nutzung der Anwendung informiert. Das Benutzerhandbuch wird in deutscher Sprache verfasst sein. \\
+			Benutzerhandbuch & Der Benutzer wird über die bestimmungsgemäße Nutzung der Anwendung informiert. Das Benutzerhandbuch wird in deutscher Sprache verfasst. \\
 			Administration & Die Tätigkeiten zur Administration der Anwendung werden in einem Handbuch beschrieben. \\
-			Inbetriebnahme & Die erforderlichen Schritte zur Installation und Inbetriebnahme auf einem anderen System werden beschrieben. \\
+			Inbetriebnahme & Die erforderlichen Schritte zur Installation und Inbetriebnahme werden beschrieben. \\
 			\bottomrule
 		\end{tabularx}
 		\caption{Anhang der Ergebnisdokumentation}
@@ -253,7 +253,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\end{table}
 	
 	\section{Projektdokumentation}
-	Eine Projektdokumentation informiert abschließend über den gesamten Verlauf des Projektes. Da zu diesem Projekt ein abschließender Projektbericht erstellt wird, beschränkt sich die hier zu erstellende Projektdokumentation auf die Darstellung des Entwicklungsfortschritts auf der Zeitachse. Dazu werden jeweils die Ergebnisse der Sprints zusammengefasst. Die Projektdokumentation soll dem Auftraggeber dazu dienen, die Arbeitsleistung des Projektteams ex post bewerten zu können.
+	Eine Projektdokumentation informiert abschließend über den gesamten Verlauf des Projektes. Da zu diesem Projekt ein abschließender Projektbericht erstellt wird, beschränkt sich die hier zu erstellende Projektdokumentation auf die Darstellung des Entwicklungsfortschritts auf der Zeitachse. Dazu werden jeweils die Ergebnisse der Sprints zusammengefasst. Die Projektdokumentation soll dem Auftraggeber dazu dienen, die Arbeitsleistung des Projektteams \textit{ex post} bewerten zu können.
 	 
 	\section{Testprotokoll}
 	\label{sec:testproto}
@@ -298,10 +298,10 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	\subsection{Vorgehensmodell}
 	
-	Die Implementierung des Projekts angelehnt an \textit{Scrum} in Sprint-Zyklen. Detaillierte Ausführungen zu Ablauf und Ausgestaltung der Sprints finden sich im Bericht zu Meilenstein 1 in Abschnitt 3.5.3. 
+	Die Implementierung des Projekts erfolgt angelehnt an \textit{Scrum} in Sprint-Zyklen. Detaillierte Ausführungen zu Ablauf und Ausgestaltung der Sprints finden sich im Bericht zu Meilenstein 1 in Abschnitt 3.5.3. 
 	
 	\subsection{Rollenverteilung}
-	Die Rollenverteilung während der Implementierung ergibt sich ebenfalls aus den Festlegungen, die im Bericht zum Meilenstein 1 getroffen wurden. Diese Zuordnung ist allerdings nicht trennscharf, denn zwischen den Themenbereichen gibt es Überschneidungen und Verknüpfungen. 
+	Die Rollenverteilung während der Implementierung ergibt sich ebenfalls aus den Festlegungen, die im Bericht zu Meilenstein 1 getroffen wurden. Diese Zuordnung ist allerdings nicht trennscharf, denn zwischen den Themenbereichen gibt es Überschneidungen und Verknüpfungen. 
 	
 	An dieser Stelle werden kurz die Tätigkeitsschwerpunkte der Mitglieder des Projektteams in Bezug auf den Implementierungsprozess dargestellt.
 	
@@ -320,7 +320,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	\section{Architektur}
 	\label{sec:architektur}
-		Q-Teams wird als Single Page Application (SPA) umgesetzt, d. h. die grafische Oberfläche der Applikation wird komplett im Webbrowser gerendert (Frontend). Die Kommunikation mit dem zentralen Server (Backend) erfolgt über eine Web-Schnittstelle.
+		Q-Teams wird als \textit{Single Page Application (SPA)} umgesetzt, d. h. die grafische Oberfläche der Applikation wird komplett im Webbrowser gerendert (Frontend). Die Kommunikation mit dem zentralen Server (Backend) erfolgt über eine Web-Schnittstelle.
 		
 		Im Folgenden wird die Architektur der zentralen Komponenten beschrieben.
 		
@@ -330,7 +330,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	Das Django-Framework abstrahiert über einen Object Relational Mapper (ORM) den Datenbankzugriff, so dass verschiedene relationale Datenbanken ohne Anpassung des Programmcodes verwendet werden können. Da es sich bei diesem Projekt lediglich um einen Prototyp handelt, wird das SQLite-Backend gewählt. SQLite ist ein dateibasiertes Datenbanksystem, das ohne einen Datenbankserver auskommt und sich deshalb schnell und unkompliziert integrieren lässt.
 	
-	Zur Anbindung des Frontends stellt der Server eine GraphQL-Schnittstelle bereit. GraphQL\footnote{https://graphql.org/} ist eine von Facebook entwickelte schemabasierte Abfragesprache. Im Gegensatz zu klassischen REST-APIs erlaubt GraphQL dem Client genau festzulegen, welche Datenfelder und -beziehungen vom Server zurück geliefert werden, so dass das Entwerfen benutzerdefinierter Query-Parameter nicht mehr nötig ist. Darüber hinaus wird mithilfe des GraphQL-Schemas bereits auf dem Client verhindert werden, dass fehlerhafte Anfragen formuliert werden.
+	Zur Anbindung des Frontends stellt der Server eine GraphQL-Schnittstelle bereit. GraphQL\footnote{https://graphql.org/} ist eine von Facebook entwickelte schemabasierte Abfragesprache. Im Gegensatz zu klassischen REST-APIs erlaubt GraphQL dem Client genau festzulegen, welche Datenfelder und -beziehungen vom Server zurück geliefert werden, so dass das Entwerfen benutzerdefinierter Query-Parameter nicht mehr nötig ist. Darüber hinaus wird mithilfe des GraphQL-Schemas bereits auf dem Client verhindert, dass fehlerhafte Anfragen formuliert werden können.
 	
 	GraphQL ermöglicht es mit \textit{Subscriptions} einem Client, sich über Ereignisee benachrichtigen zu lassen. Dieser Mechanismus ist mit den von mobilen Geräten bekannten Push-Benachrichtigungen vergleichbar. Q-Teams verwendet Subscriptions, um den Spielablauf auf den Clients aller beteiligten Spieler zu synchronisieren. Technisch realisiert wird dies über eine WebSocket-Verbindung.
 
@@ -345,7 +345,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 	\section{Prozessbeschreibung}
 	
-	Abbildung \ref{fig:bpmn} auf Seite \pageref{fig:bpmn} visualisiert den zu implementierenden Spielablauf mithilfe eines BPMN-Diagramms. Das Diagramm zeigt den Prozess für einen Spieler und die Interaktionen mit den anderen Spielern des Q-Teams. Der Prozess der anderen Spieler wird hier lediglich als Black-Box gezeigt (Pool \textit{TEAM} auf der linken Seite), da die Prozesse identisch sind. Die Kommunikation zwischen den Spielern geschieht ausschließlich mittels Nachrichten, denen Datenobjekte assoziert sein können.
+	Abbildung \ref{fig:bpmn} auf Seite \pageref{fig:bpmn} visualisiert den zu implementierenden Spielablauf mithilfe eines BPMN-Diagramms. Das Diagramm zeigt den Prozess für einen Spieler und die Interaktionen mit den anderen Spielern des Q-Teams. Der Prozess der anderen Spieler wird hier lediglich als Black-Box gezeigt (Pool \textit{TEAM} auf der linken Seite), da die Prozesse identisch sind. Die Kommunikation zwischen den Spielern geschieht ausschließlich mittels Nachrichten, mit denen Datenobjekte assoziert sein können.
 	
 	Wie bereits im Lösungsansatz\footnote{Abschnitt 3.2 im Bericht zum Meilenstein 1} beschrieben, hat jede Spielrunde sechs Phasen, die im Diagramm als Gruppen dargestellt sind. Es gibt drei Datenspeicher, die mindestens für die Dauer einer Runde bestehen: der \textit{Katalog der Runde} (grün), die \textit{Statistik} (blau) und die \textit{Knowledge Base} (grau).
 	
@@ -372,7 +372,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	\subsection{Fragephase}
 	\label{subsec:fragephase}
-	In der Fragephase wird aus dem Katalog der Runde eine Frage zufällig gewählt, die dem Q-Team gestellt wird. Jede Frage wird nur einmal gestellt. Ist der Spieler der Fragesteller, der gewählten Frage, geht das Spiel in die \nameref{subsec:bewertungsphase} über. Wurde die Frage nicht vom Spieler erstellt, beantwortet er diese und sendet die Antwort an den Fragesteller und speichert sie im Katalog der Runde. Dann geht das Spiel in die \nameref{subsec:bewertungsphase} über.
+	In der Fragephase wird aus dem Katalog der Runde eine Frage zufällig gewählt, die dem Q-Team gestellt wird. Jede Frage wird nur einmal gestellt. Ist der Spieler der Fragesteller der gewählten Frage, geht das Spiel in die \nameref{subsec:bewertungsphase} über. Wurde die Frage nicht vom Spieler erstellt, beantwortet er diese und sendet die Antwort an den Fragesteller und speichert sie im Katalog der Runde. Dann geht das Spiel in die \nameref{subsec:bewertungsphase} über.
 	
 	\subsection{Bewertungsphase}
 	\label{subsec:bewertungsphase}
@@ -396,12 +396,12 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\label{subsec:schlussphase}
 	In der Schlussphase kann der Spieler noch einmal alle Fragen und Antworten aus dem Katalog der Runde  und seine persönliche Statistik auswerten. Im Wettkampfmodus kann der Spieler auch die Statistik der anderen Spieler des Q-Teams auswerten.
 	
-	Das Q-Team kann sich nun entschließen, eine weitere Runde zu spielen. Das Spiel startet dann am Ende der Phase \nameref{subsec:beginndesspiels}. Ansonsten endet das Spiel an dieser Stelle.
+	Das Q-Team kann sich nun entschließen, eine weitere Runde zu spielen. Das Spiel startet dann am Ende der Phase \textit{\nameref{subsec:beginndesspiels}}. Ansonsten endet das Spiel an dieser Stelle.
 	 
 	
 	\section{Datenmodell}
 	
-	Das geplante Datenmodell ist in Abbildung \ref{fig:models} in Form eines Klassendiagramms dargestellt, dessen Elemente im Folgenden kurz erläutert werden. Es handelt sich hierbei um eine aus dem Python-Code generierte grafische Repräsentation des Datenmodells, die allerdings nicht den UML-Standard erfüllt.
+	Das geplante Datenmodell ist in Abbildung \ref{fig:models} in Form eines Klassendiagramms dargestellt, dessen Elemente im Folgenden kurz erläutert werden. Es handelt sich dabei um eine aus dem Python-Code generierte grafische Repräsentation des Datenmodells, die allerdings nicht den UML-Standard erfüllt.
 	
 	Jedes Rechteck entspricht dabei einer Klasse, deren Name in der grün hinterlegten Kopfzeile angegeben ist. Unmittelbar darunter sind Attributnamen und -typen angegeben. In Fettschrift sind Attribute dargestellt, die als Schlüssel dienen. In grauer Farbe gedruckt sind optionale Attribute bzw. Attribute, die vom System automatisch gesetzt werden. Die Attribute \textit{created\_{}at} und \textit{updated\_{}at} werden vom System automatisch mit dem Zeitstempel der Erstellung bzw. der letzten Änderung des Objektes versehen.
 	
@@ -409,7 +409,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	
 	1:n-Beziehungen sind über Fremdschlüssel \textit{(foreign keys)} realisiert, während n:m-Beziehungen zusätzliche Datenbanktabellen benötigen, die an dieser Stelle aus Gründen der Übersichtlichkeit nicht dargestellt werden.
 	
-	Das \textit{User}-Modell repräsentiert einem Benutzer des Systems und wird vom eingebauten Authentifizierungssystem des Django-Frameworks bereitsgestellt. Für weitere Details dazu sei auf die Dokumentation\footnote{https://docs.djangoproject.com/en/3.0/ref/contrib/auth/} verwiesen.
+	Das \textit{User}-Modell repräsentiert einem Benutzer des Systems und wird vom eingebauten Authentifizierungssystem des Django-Frameworks bereitgestellt. Für weitere Details dazu sei auf die Dokumentation\footnote{https://docs.djangoproject.com/en/3.0/ref/contrib/auth/} verwiesen.
 	
 	Nachfolgend werden die wichtigsten Aspekte der im Diagramm dargestellten Entitäten vorgestellt.
 	
@@ -477,7 +477,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\chapter{Qualitätsmanagement}
 	
 	\section{IT-Sicherheit}
-	Da es sich bei der zu entwickelnden App lediglich um einen Prototyp handelt, soll kein umfassendes Konzept zur IT-Sicherheit wie es z.B. das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit dem IT-Grundschutz-Framework vorschlägt umgesetzt werden.
+	Da es sich bei der zu entwickelnden App lediglich um einen Prototyp handelt, soll kein umfassendes Konzept zur IT-Sicherheit wie es z.B. das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit dem IT-Grundschutz-Framework vorschlägt, umgesetzt werden.
 	
 	Im Folgenden werden die für dieses Projekt im Rahmen einer prototypischen Umsetzung relevanten Sicherheitsaspekte beschrieben.
 	
@@ -516,7 +516,7 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 		\item User Stories sind zentrales Tool zur Verwaltung der Anforderungen.
 		\item Zur Priorisierung von Aufgaben werden nach Bedarf die Wert-Risiko-Matrix oder die MoSCoW-Methode eingesetzt. 
 		\item Alle Entwickler benutzen mit Visual Studio Code dieselbe Entwicklungsumgebung.
-		\item Modellierungssprachen (UML, BPMN) werden verbindlich festgelegt.
+		\item Modellierungssprachen (\Gls{uml}, \Gls{bpmn}) werden verbindlich festgelegt.
 		\item Mit Python (Backend) und JavaScript (Frontend) werden die eingesetzten Programmiersprachen vorgegeben.
 		\item Git wird als zentrales Werkzeug zur Quellcode-Verwaltung vorgegeben.
 		\item Redmine ist verbindliches Projektmanagement-Tool.
