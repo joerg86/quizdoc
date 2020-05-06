@@ -1,0 +1,220 @@
+\documentclass[a4paper,11pt,listof=numbered,glossary=totoc,parskip=half,toc=bib]{scrreprt}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage[colorlinks,
+pdfpagelabels,
+pdfstartview = FitH,
+bookmarksopen = true,
+bookmarksnumbered = true,
+linkcolor = black,
+plainpages = false,
+hypertexnames = false,
+citecolor = black]{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[automake,toc,section=chapter,numberedsection]{glossaries}
+\usepackage{uarial}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{icomma} % Damit im Mathemodus nach einem Komma kein Leerzeichen gesetzt wird
+\usepackage[cache=false]{minted}
+\renewcommand{\listoflistingscaption}{Verzeichnis der Code-Listings}
+\usepackage[table]{xcolor} % Zum Ändern der Farben in Tabellen
+\usepackage{xspace}
+\usepackage{appendix}
+
+\usepackage{csquotes}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{quellen.bib}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\zB}{\mbox{z.\,B.}\xspace}
+\newcommand{\dash}{\mbox{d.\,h.}\xspace}
+
+\RedeclareSectionCommand[
+beforeskip = 3pt,
+afterskip = 3pt]{subsection} %vor subsection 6pt und nach subsection 6pt Abstand
+\RedeclareSectionCommand[
+beforeskip = 1pt,
+afterskip = 1pt]{subsubsection} %vor subsection 6pt und nach subsection 6pt Abstand
+
+
+% Glossar
+\makeglossary
+\newglossaryentry{re}
+{
+	name={Requirements Engineering (RE)},
+	description={Das \textit{Requirements Engineering} bezeichnet die Disziplin der Anforderungsermittlung. Damit ist typischerweise das Ermitteln, Dokumentieren, Prüfen und Abstimmen von funktionalen und nicht-funktionalen Anforderungen gemeint.}
+}
+
+\newglossaryentry{stakeholder}
+{
+	name={Stakeholder},
+	description={\textit{Stakeholder} (dt. Anspruchsgruppen) sind alle Personen, die mit dem zu entwickelnden System konfrontiert sind.
+Der Begriff beschränkt sich nicht nur auf diejenigen, die unmittelbar mit dem System arbeiten, sondern schließt insbesondere den Auftraggeber, das Entwicklerteam oder die mit dem Betrieb des Systems betrauten Personen mit ein.}
+}
+\newglossaryentry{userstory}
+{
+	name={User Story},
+	description={Eine \textit{User Story} ist eine besonders in agilen Projekten weit verbreitete Dokumentationsform im Kontext der Anforderungsermittlung.
+Sie besteht aus einem einfachen Satz, der eine Anforderung aus der Sicht einer definierten Stakeholder-Rolle beschreibt und entspricht immer einem fest vorgegebenen Format:
+\textit{Als [Rolle] möchte ich / wünsche ich mir [Funktion], damit [Begründung].}
+User Stories lassen sich damit auf einfache Karteikarten schreiben, die an ein Whiteboard gepinnt oder auf einem großen Tisch ausgebreitet werden können. Somit lassen sie sich gut in Workshops zur Visualisierung und Priorisierung der Anforderungen nutzen.}
+}
+\newglossaryentry{moscow}
+{
+	name={MoSCoW},
+	description={Die \textit{MoSCoW-Methode} wird im vorliegenden Projekt genutzt, um Anforderungen zu priorisieren.
+\textit{Must have (M)} legt fest, dass die betrachtete Anforderung zwingend umgesetzt werden muss.
+\textit{Should have (S)} bedeutet, dass die Umsetzung wünschenswert, aber nicht kritisch ist.
+\textit{Can have (C)} bezeichnet unkritische Anforderungen, die optional zu einem späteren Zeitpunkt implementiert werden können.
+\textit{Won't have (W)} legt fest, dass die betrachtete Anforderung (aktuell) nicht umgesetzt wird.
+Die Priorisierung von Anforderungen ist nicht endgültig, sondern kann im Projektverlauf angepasst werden.
+	}
+}
+\newglossaryentry{git} 
+{
+	name={Git-Repository},
+	description={GIT ist ein Werkzeug zur Versionskontrolle, dass vor allem zur kollaborativen Quellcode-Verwaltung in Software-Projekten eingesetzt wird, sich aber auch zur Verwaltung und Versionierung von Artefakten der Dokumentation eignet.
+Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das Hosting von Git-Repositories.}
+}
+\newglossaryentry{responsive}
+{
+	name={Responsive Design},
+	description={Ist eine Applikation so gestaltet, dass sie sich an verschiedene Bildschirmgrößen und -ausrichtungen, wie sie beispielsweise bei Smartphones-, Tablets oder Desktop-PCs zu finden sind, anpassen kann, so spricht man von \textit{Responsive Design}.
+	}
+}
+\newglossaryentry{uml}
+{
+	name={UML},
+	description={Die \textit{Unified Modeling Language} ist eine grafische Modellierungssprache zur Analyse, Implementation und zum Design von softwarebasierten Systemen sowie zur Beschreibung von Prozessen. \autocite{UML} Sie wird durch die \textit{Object Management Group} entwickelt. Die Sprache definiert jeweils sieben Struktur- und Verhaltensdiagramme.
+	In diesem Bericht werden folgende Diagrammtypen genutzt: 	\textit{Komponentendiagramm (cod)},\textit{ Klassendiagramm (cld)}, \textit{Zustandsdiagramm (sm)} und \textit{Sequenzdiagramm (sqd)}.
+	}
+}
+\newglossaryentry{bpmn}
+{
+	name={BPMN},
+	description={Die \textit{Business Process Model and Notation} ist ein Standard zur grafischen Spezifikation von Geschäftsprozessen. \autocite{BPMN} 
+	}
+}
+\newglossaryentry{erm}
+{
+	name={ERM},
+	description={Ein \textit{Entity-Relationship-Model} ist ein Modell zur Darstellung von Entitäten und Beziehungen. Der Einsatz von ERM gilt als Standard bei der Datenmodellierung in der Softwareentwicklung.
+	}
+}
+\newglossaryentry{gui}
+{
+	name={GUI},
+	description={Grafische Benutzeroberfläche
+	}
+}
+
+\newglossaryentry{ssltls}
+{
+	name={SSL/TLS},
+	description={Secure Socket Layer / Transport Layer Security. Verfahren zur Verschlüsselung von Netzwerkverbindungen.
+	}
+}
+
+\newglossaryentry{ssh}
+{
+	name={SSH},
+	description={Secure Shell. Verschlüsseltes Netzwerkprotokoll zum Konsolenzugriff auf Serversysteme.
+	}
+}
+
+\subject{Meilensteinbericht}
+\title{Meilenstein 3}
+\subtitle{Dokumentationskonzept bereitgestellt}
+
+\begin{document}
+	\pagenumbering{Roman}
+	\begin{titlepage}
+		
+		\centering
+		\vspace*{2.5cm}
+		{\large\bfseries \par}	
+		{\Huge\bfseries Ergebnisdokumentation\par}
+		{\Large\bfseries  \par}
+
+		{\Large Projekt Q-Teams\par}
+		{\large\today\par}
+		\vspace{0.5cm}
+
+			
+		
+		\includegraphics[scale=0.5]{iubh_logo}
+		
+		IUBH Fernstudium
+		\vspace{0.5cm}
+		
+		\begin{tabular}{lllrl}
+			\toprule
+			\textbf{Gruppe} & \textbf{Nachname} & \textbf{Vorname} & \textbf{Matrikelnr.} & \textbf{Studiengang} \\
+			\midrule
+			Projektleiter & Sawatzki & Jörg & 9186524 & BSc. Informatik \\
+			Mitglied 2 & Hahn & Maximilian & 91710055 & BSc. Wirtschaftsinformatik \\
+			Mitglied 3 & Lapenat & Holger & 3191237 & BSc. Wirtschaftsinformatik \\
+			Mitglied 4 & Moch & Daniel & 91710824 & BSc. Wirtschaftsinformatik \\
+			\bottomrule
+		\end{tabular}	
+	\end{titlepage}
+	
+	
+	\newpage
+	\setcounter{tocdepth}{2}
+	\tableofcontents	
+	\renewcommand \thechapter{\Roman{chapter}}
+	\listoffigures % ABBILDUNGSVERZEICHNIS
+	\printglossaries
+	\newcounter{lastRomanCounter}
+	\setcounter{lastRomanCounter}{\value{chapter}} % Zwischenspeicher der Kapitelnummerierung (römisch)
+	
+	\newpage
+	\renewcommand \thechapter{\arabic{chapter}}
+	\pagenumbering{arabic}	
+	\setcounter{chapter}{0}
+	
+	\chapter{Einleitung}
+	Hier ein Test \cite{Prince2} und \Gls{ssh}.
+	
+	\chapter{Funktionsbeschreibung}
+	
+	\chapter{Softwarearchitektur}
+	\section{Systemstruktur}
+	\section{Daten}
+	\section{GUI}
+	\section{Komponenten}
+	\section{Zeit}
+	
+	
+
+	\setcounter{chapter}{0}
+	
+	
+	
+	% ANHANG
+	\begin{appendices}
+	\renewcommand{\appendixtocname}{Anhang}
+	\renewcommand{\appendixpagename}{Anhang}
+	\appendixpage	
+	\addappheadtotoc
+	\chapter{Anforderungen}	
+	\chapter{Qualitätsziele}
+	\chapter{Benutzerhandbuch}
+	\chapter{Administration}
+	\chapter{Inbetriebnahme}
+	
+	\end{appendices}
+	\newpage	
+	\setcounter{chapter}{\thelastRomanCounter} % Fortsetzen der römischen Kapitelnummerierung
+\renewcommand \thechapter{\Roman{chapter}}	\printbibliography[heading=bibnumbered,title=Literaturverzeichnis]
+
+\end{document}
