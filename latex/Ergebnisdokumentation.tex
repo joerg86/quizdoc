@@ -207,6 +207,139 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\appendixpage	
 	\addappheadtotoc
 	\chapter{Anforderungen}	
+		
+		\section{Funktionale Anforderungen}
+		
+	\subsection{Als Spieler möchte ich mit dem Quizsystem gezielt fachliche Inhalte wiederholen, um mich auf
+Prüfungen vorzubereiten.}
+
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			Kriterien & Erfüllungsgrad \\
+			\midrule
+		Das Thema einer Quizrunde kann vor Beginn festgelegt werden. & \\
+		Die Module der IUBH können als Thema ausgewählt werden. & \\
+		Die Lernzyklen der Module können als Thema ausgewählt werden. & Nicht umgesetzt \\
+			\bottomrule
+		\end{tabularx}		
+		
+		\subsection{Als Spieler möchte ich gegen einen anderen Spieler antreten können, um mich mit ihm zu messen /
+vergleichen.}
+
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			Kriterien & Erfüllungsgrad \\
+			\midrule
+		Das Spiel kann mit anderen Menschen gespielt werden. & \\
+		Es kann ein kompetitiver Spielmodus festgelegt werden. & \\
+		Den Spielern werden ceteris paribus die gleichen Fragen gestellt. & \\		
+		Die Antworten werden mit Punkten bewertet. & \\
+		Den Spielern wird eine Rangliste anhand ihrer Punkte angezeigt. & \\
+			\bottomrule
+		\end{tabularx}	
+		
+		\subsection{Als Spieler möchte ich mit einem anderen Spieler gemeinsam spielen, um mich im Team über Lerninhalte austauschen zu können.}	
+			\begin{tabularx}{\textwidth}{Xr}
+			
+			Kriterien & Erfüllungsgrad \\
+			\midrule
+		Das Spiel kann mit anderen Menschen gespielt werden. & \\
+		Es kann ein Team gebildet werden. & \\
+		Es kann ein kooperativer Spielmodus festgelegt werden. & \\
+			\bottomrule
+		\end{tabularx}	
+		
+		\subsection{Als Spieler möchte ich Fragen und Antworten für andere Spieler hinzufügen und pflegen, um mein
+Wissen weiterzugeben und zu festigen.}
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			Kriterien & Erfüllungsgrad \\
+			\midrule
+		Fragen und Antworten können persistiert werden. & \\
+		Persistierte Fragen und Antworten können angepasst werden. & \\
+		Persistierte Fragen und Antworten können gelöscht werden. & \\
+		Persistierte Fragen und Antworten können angesehen werden. & \\
+		Persistierte Fragen und Antworten können in einer Spielrunde genutzt werden. & \\
+			\bottomrule
+		\end{tabularx}		
+		
+		\subsection{Als Spieler möchte ich Feedback zu meiner Lösung bekommen, um aus Fehlern zu lernen.}
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			Kriterien & Erfüllungsgrad \\
+			\midrule
+			Die Antworten werden bewertet. & \\
+			Dem Spieler wird die Bewertung der Antwort angezeigt. & \\
+			
+			\bottomrule
+		\end{tabularx}	
+		
+		\section{Nicht-funktionale Anforderungen}
+		
+		\subsection{Als Spieler möchte ich das Quiz im Browser spielen können, damit ich es auf verschiedenen
+Plattformen spielen kann und keine Zusatzsoftware installieren muss.}
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			Kriterien & Erfüllungsgrad \\
+			\midrule
+		\textit{Spielen} bedeutet hier den Ablauf einer Spielrunde in den Modi \textit{kompetitiv} und \textit{kooperativ} in einem Team mit 5 Spielern ohne Spielabbrüche durchzuspielen. 	
+		Das Spiel ist mit folgenden Browsern in der Standardinstallation spielbar: & \\
+		Quizrunde mit folgenden Browsern spielen: & \\
+		IE 11.778.18362.0 & \\
+		Firefox 76.0 & \\
+		Edge 81.0.416.68 & \\
+		Chrome 81.0.4044.138 & \\
+			\bottomrule
+		\end{tabularx}	
+			
+		\subsection{Als Auftraggeber wünsche ich mir einen lauffähigen Prototyp, damit ich die mögliche Einsatzfähigkeit in der Praxis evaluieren kann.}
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			Kriterien & Erfüllungsgrad \\
+			\midrule
+			Es kann im Browser Firefox 76.0 in einem Team mit 3 Spielern jeweils eine Spielrunde in den Modi \textit{kompetitiv} und \textit{kooperativ} durchgespielt werden. & \\
+			Es kann im Browser Firefox 76.0 in der Erarbeitungsphase eine Frage mit Antwort persistiert werden. & \\
+			Es können im Browser Firefox 76.0 in der Erarbeitungsphase die bereits persistierten Fragen mit Antworten angezeigt werden. & \\
+			
+			\bottomrule
+		\end{tabularx}	
+				
+		\subsection{Als Auftraggeber / Spieler wünsche ich mir ein Benutzerhandbuch, um mir einen Überblick über
+Aufbau und Funktionen des Systems verschaffen zu können.}
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			Kriterien & Erfüllungsgrad \\
+			\midrule
+		Das Benutzerhandbuch wird dem Auftraggeber zugestellt. & \\
+		Das Benutzerhandbuch steht einem Spieler in dem System zur Verfügung. & \\
+		Jede GUI-Maske wird mit einem Screenshot dargestellt und erläutert. & \\
+		Die Spielregeln werden erklärt. & \\
+			\bottomrule
+		\end{tabularx}	
+		
+		\subsection{Als Auftraggeber / Betreiber wünsche ich mir eine Dokumentation zur Installation und
+Inbetriebnahme, damit ich das Quiz ohne großen Aufwand den Studenten zur Verfügung stellen
+kann.}
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			Kriterien & Erfüllungsgrad \\
+			\midrule
+		Die Dokumentation wird dem Auftraggeber zugestellt. & \\
+		Die Dokumentation steht einem potenziellen Betreiber zur Verfügung. & \\
+		Die Dokumentation beschreibt die notwendige Hardware zur Installation und Inbetriebnahme. & \\
+		Die Dokumentation beschreibt die notwendige Software zur Installation und Inbetriebnahme. & \\
+		Die Dokumentation beschreibt die notwendigen Schritte zur Installation und Inbetriebnahme. & \\
+		Die Dokumentation beschreibt mögliche Fehlerfälle mit den dazugehörigen Lösungen. & \\
+		
+			\bottomrule
+		\end{tabularx}	
+
+		
+			
+		
+		
+		
+	
 	\chapter{Qualitätsziele}
 	\chapter{Benutzerhandbuch}
 	\chapter{Administration}
