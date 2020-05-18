@@ -510,7 +510,90 @@ kann.}
 	
 	\chapter{Qualitätsziele}
 	\chapter{Benutzerhandbuch}
+
 	\chapter{Administration}
+	Das Q-Teams-Projekt ist so konzipiert, dass nahezu keine administrativen Tätigkeiten anfallen.
+	
+	Insbesondere die Benutzerverwaltung muss derzeit noch von einem Administrator durchgeführt werden. Dies entfällt, sobald das System an das Single-Sign-On-System der IUBH angebunden ist.
+	
+	Die Liste der Themen (Modulbezeichnungen und -nummern) wurde über eine Textdatei aus dem Interactive Book Reader der IUBH importiert. Sie kann manuell vom Administrator ergänzt werden.
+
+	Sollen Fragen anderer Nutzer aus der Knowledge Base geändert oder gelöscht werden, so ist dies ebenfalls über die Administration. 	
+		
+	\section{Anmeldung und Übersichtsseite}
+	Die Administrationsoberfläche von Q-Teams ist unter der Adresse  \url{https://api.qteams.team/admin}	erreichbar. Nach dem Login mit einem Administratorkonto präsentiert sich die in Abbildung \ref{fig:admin} dargestellte Übersichtsseite der Django-Verwaltung.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\textwidth]{admin}
+		\caption{Administrationsoberfläche}
+		\label{fig:admin}
+	\end{figure}
+	
+	Im Bereich \textit{Authentifizierung und Autorisierung} können Benutzer und Benutzergruppen verwaltet werden. Die Benutzergruppen werden derzeit im Projekt nicht verwendet.
+	
+	Im Bereich \textit{Q-Teams-Backend} finden sich die fachlichen Entitäten des Quizsystems. In der Regel ist hier keine manuelle Intervention erforderlich. Im Folgenden werden daher nur die Bereiche \textit{Fragen} und \textit{Themen} kurz beschrieben. 
+	
+	\section{Benutzerverwaltung}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{benutzer}
+		\caption{Übersichtsseite der Benutzerverwaltung}
+		\label{fig:benutzer}
+	\end{figure}
+	
+	Die Benutzerverwaltung ist erreichbar über den Link \textit{Benutzer} im Abschnitt \textit{Authentifizierung und Autorisierung} der Übersichtsseite.
+	
+	Abbildung \ref{fig:benutzer} zeigt die Übersichtsseite der Benutzerverwaltung.
+	
+	Über den Button \textit{Benutzer hinzufügen} kann ein neuer Benutzer erstellt werden. Zunächst muss dabei ein Benutzername und ein sicheres Passwort vergeben werden, das verschlüsselt in der Datenbank abgespeichert wird -- vgl. dazu Abbildung \ref{fig:neuerbenutzer}.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{neuerbenutzer}
+		\caption{Anlegen eines Benutzers}
+		\label{fig:neuerbenutzer}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{editbenutzer}
+		\caption{Benutzerkonto bearbeiten}
+		\label{fig:editbenutzer}
+	\end{figure}
+	
+	Sind Passwort und Benutzername vergeben, so öffnet sich die Seite \textit{Benutzer bearbeiten}, die später auch über einen Klick auf den Benutzernamen in der Tabelle der Übersichtsseite aufgerufen werden kann.
+	
+	Über die Seite \textit{Benutzer bearbeiten} (siehe Abbildung \ref{fig:editbenutzer} müssen mindestens Vorname und Nachname gesetzt werden, damit der Benutzer im Quiz korrekt angezeigt werden kann.
+	
+	Soll der Benutzer administrative Tätigkeiten ausführen können, so muss bei \textit{Mitarbeiter-Status} und \textit{Administrator-Status} ein Häkchen gesetzt werden -- andernfalls kann er lediglich das Quiz spielen, sich jedoch nicht in der Verwaltung einloggen.
+	
+	Das Entfernen eines Benutzerkontos kann über den Button \textit{Löschen} auf der Seite \textit{Benutzer bearbeiten} oder alternativ auf der Übersichtsseite erfolgen.
+	
+	\section{Themenverwaltung}
+	Über den Link \textit{Themen} im Bereich \textit{Q-Teams-Backend} können neue Module hinzugefügt oder vorhandene aktualisiert bzw. gelöscht werden. Die Bedienung funktioniert analog zur Benutzerverwaltung.
+	
+	Abbildung \ref{fig:editthema} zeigt beispielhaft das Editieren eines Themas.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{editthema}
+		\caption{Ändern eines Themas}
+		\label{fig:editthema}
+	\end{figure}
+	
+	\section{Fragenverwaltung}
+	In der Regel verwalten die Benutzer ihre Fragen selbstständig und es ist kein Eingreifen erforderlich. Sollte dennoch einmal der Fragenkatalog aufgeräumt werden müssen, so ist dies über den Link \textit{Fragen} im Bereich \textit{Q-Teams-Backend} problemlos möglich. 
+	
+	Abbildung \ref{fig:editfrage} zeigt beispielhaft das Editieren einer Frage.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{editfrage}
+		\caption{Ändern einer Frage}
+		\label{fig:editfrage}
+	\end{figure}
 	
 	\chapter{Installation und Inbetriebnahme}
 	
