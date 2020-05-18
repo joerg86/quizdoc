@@ -267,12 +267,65 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 		\item Das mit dem \textit{Django-Framework} entwickelte Backend implementiert die Spiellogik und steuert den Benutzerzugriff. Es greift über den Object Relational Mapper (ORM) auf die Datenbank zu.
 		\item Der \textit{Daphne Application Server} stellt die Laufzeitumgebung für das Django-Backend bereit. Er kommuniziert mit dem Backend über das Asynchronous Server Gateway Interface (ASGI), einem Standard zur Server-Anbindung asynchroner Python-Web-Apps.
 		\item Der vom Hoster Uberspace bereitgestellte Apache-Webserver bindet als Reverse Proxy das Backend an das öffentliche Internet an. Er kommuniziert über HTTPS bzw. verschlüsselte WebSockets (WSS) mit dem Application Server und stellt statische Assets (HTML, CSS, JS, Bilder) direkt aus dem Dateisystem zur Verfügung.
-		\item 
+		\item Das React-Frontend wird über HTTPS vom Server geladen und im Browser ausgeführt. Es kommuniziert per GraphQL mit dem Backend und nutzt dabei sowohl das HTTPS-, als auch das WSS-Protokoll.
 	\end{itemize}
 	
 	
 	\section{Daten}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{models_final}
+		\caption{Finale Datenbankstruktur}
+		\label{fig:database}
+	\end{figure}
+
+	Abbildung \ref{fig:database} zeigt die finale Datenbankstruktur der Applikation.
+	
+	Die bereits im Bericht zu Meilenstein 3 vorgestellte Grundstruktur ist deutlich zu erkennen, allerdings wurde das Modell im Verlauf des erkenntnisgetriebenen Entwicklungsprozesses weiter verfeinert und angepasst.
+	
+		\subsection{Team}
+	Die Klasse \textit{Team} ist das Herzstück der Quiz-App. Sie bildet ein Team von Benutzern ab, die zusammen spielen. Außerdem speichert sie den Benutzer, der das Team erstellt hat (\textit{creator}), enthält einen frei wählbaren Namen (\textit{name}) und wird einem Thema (\textit{topic}) zugeordnet.
+	
+	Das Feld für den Spielmodus (\textit{mode}) kann die Werte \texttt{train} (Trainingsmodus) oder \texttt{competition} (Wettkampf) annehmen.
+	
+	Ein Team befindet sich immer in einem definierten Zustand (\textit{state}):
+	
+	\begin{itemize}
+		\item \texttt{open}: Das Team wurde erstellt und kann Mitglieder aufnehmen.
+		\item \texttt{question}: Diese Phase stellt die \textit{Erarbeitungsphase} dar. In dieser Phase erarbeiten die Teammitglieder fachliche Fragen für ihre Mitspieler. 
+		\item \texttt{answer}: In dieser Phase müssen die Spieler die erarbeiteten Fragen beantworten. Das System wählt die jeweils zu bearbeitende Frage zufällig aus und hinterlegt sie im Feld \textit{current\_{}question}.
+		\item \texttt{scoring}: Bei Eintritt in die \textit{Bewertungsphase} haben die Spieler ihre Antworten eingegeben und es erfolgt die Bewertung durch den Fragesteller. Sind noch unbeantwortete Fragen in der Runde vorhanden, so wechselt die Runde wieder in den Zustand \texttt{answer}.
+		
+		\item \texttt{done}: Diese Phase markiert den Abschluss der Runde. Spielern wird abhängig vom gewählten Spielmodus nur eine persönliche oder eine gesamte Statistik der Leistung des Teams angezeigt. In dieser Phase können Mitglieder hinzugefügt oder entfernt werden und der Modus gewechselt werden. Das Team wechselt ausgehend von dieser Phase wieder in die Phase \textit{question}, falls eine neue Runde gespielt werden soll.
+		
+	\end{itemize}
+	
+	\subsection{Membership}
+	Die Klasse \textit{Membership} bildet die Mitgliedschaft eines Benutzers (\textit{user}) in einem Team \textit{team} ab.
+	Die Attribute \textit{right}, \textit{wrong} und \textit{partial} speichern die Anzahl der Fragen, die der Nutzer in der aktuellen Runde richtig, falsch bzw. teilweise richtig beantwortet hat. 
+	
+	\subsection{Question}
+	Die Klasse \textit{Question} bildet eine fachliche Frage ab. Sie speichert den Autor (\textit{author}) der Frage, den Fragetext (\textit{question}), das zugehörige Thema (\textit{topic}), die Musterantwort (\textit{model\_{}answer}) und eine Referenz auf das Team.
+	
+	\subsection{Answer}
+	Die Klasse \textit{Answer} enthält die Antwort (\textit{answer}) eines Spielers (\textit{author}) auf eine Frage (\textit{question}). Sie speichert außerdem die durch den Fragesteller vergebene Bewertung (\textit{score}).
+	
+	\subsection{Topic}
+	Die Klasse \textit{Topic} stellt ein fachliches Thema dar. Hier wurde beispielhaft eine Liste der an der IUBH verfügbaren Module hinterlegt werden. Das Attribut \textit{name} speichert die Kursbezeichnung, das Attribut \textit{code} den Modulcode. Diese Klasse dient der besseren Strukturierung der Fragen in der \textit{Knowledge Base}.
+
+	\subsection{User}
+	Die Klasse \textit{User} entspricht dem unveränderten Benutzermodell des Django-Frameworks. Details dazu finden sich in der Django-Dokumentation\footnote{https://docs.djangoproject.com/en/3.0/ref/contrib/auth/}.	
+	
 	\section{GUI}
+	
+	Die grafische Oberfläche gliedert sich in drei Bereiche:
+	
+	\begin{enumerate}
+		\item \textit{Home} ist die Landing Page des Q-Teams-Projektes. Sie stellt mithilfe des Projektvideos das Konzept vor.
+		\item Im Bereich \textit{Spielen} können Teams erstellt werden und das Quiz gespielt werden.
+		\item Die \textit{Knowledge Base} stellt den Zugang zu bereits gespielten Fragen aller Spieler bereit und dient als Inspiration für eigene fachliche Fragen.
+	\end{enumerate}
 	
 	
 
