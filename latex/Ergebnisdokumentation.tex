@@ -183,9 +183,50 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\setcounter{chapter}{0}
 	
 	\chapter{Einleitung}
-	Hier ein Test \cite{Prince2} und \Gls{ssh}.
 	
 	\chapter{Funktionsbeschreibung}
+	Mit dem Prototyp ist das Spielen Spielern im Wettkampf- und Trainingsmodus möglich. Der Spielablauf des Protoyps ist in Abbildung \ref{fig:bpmn} gezeigt. 
+	Die Darstellung zeigt exemplarisch den Ablauf für einen Spieler des Teams. Das Spiel kann mit zwei oder mehr Spielern gespielt werden. 
+		
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{bpmn_IST.png}
+		\caption{Der Spielablauf}
+		\label{fig:bpmn}
+	\end{figure}
+	
+	\section{Beginn des Spiels}
+	Ein Spieler gründet ein Q-Team und legt dabei Teamnamen und Thema dauerhaft fest. Er wird zum Teamleiter. Der Teamname ist frei wählbar. Das Thema ist eines der Module der IUBH, diese sind mit Kennung und Namen gespeichert (\zB \textit{IGIS01 Grundlagen der industriellen Softwaretechnik}). 
+	Wird mit einem bereits bestehenden Team eine weitere Runde gespielt, ist hier der Einstiegspunkt für die weitere Runde.
+	An diesem Punkt kann der Teamleiter Spieler hinzufügen.
+	Zuletzt legt er fest, ob im Wettkampf- oder im Trainingsmodus gespielt werden soll und startet die Runde.
+	Im Wettkampfmodus sind die Statistiken der Mitspieler für jeden jederzeit sichtbar (\dash die Anzahl an richtig, teilweise richtig und falsch beantworteten Fragen, sowie die Punktzahl). Im Trainingsmodus ist lediglich die eigene Statistik sichtbar. Die Statistik ist in den weiteren Phasen jederzeit sichtbar und wird zu Beginn einer Runde zurückgesetzt.
+	
+	Mitspieler, die einem Team hinzugefügt wurden rufen lediglich das Team auf und warten auf den Start durch den Teamleiter.
+	
+	\section{Erarbeitungsphase}
+	In der Erarbeitungsphase erstellt jeder Spieler eine Frage und die dazugehörige Musterantwort. Die
+Knowledge Base, d. h. die Gesamtheit der bisher gespeicherten Fragen und Musterantworten, kann
+bei dieser Aktivität als Inspiration genutzt werden. Die durch den Spieler erstellte Frage und Antwort
+werden in der Knowledge Base und im Katalog der Runde gespeichert. 
+Parallel zum Erstellen einer Frage können die Spieler die bereits in der Knowledge Base gespeicherten Fragen nach Thema sortiert durchsuchen.
+Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase automatisch.
+
+	\section{Fragephase}
+	Es wird automatisch die nächste noch nicht beantwortete Frage gewählt. Der Fragesteller hat in dieser Phase keine Aufgabe. Alle anderen Spieler beantworten die Frage und speichern ihre Antwort ab. Jede Antwort wird im Katalog der Runde abgespeichert. Sind alle Antworten gespeichert geht das Spiel automatisch in die Bewertungsphase über.
+	
+	\section{Bewertungsphase}
+	Des Spielern werden nun die Frage, die Musterantwort und alle Spielerantworten angezeigt. Der Fragesteller nimmt nun die Bewertung der Spielerantworten vor und vergibt somit die Punkte (richtig 3 Punkte, teilweise richtig 1 Punkt, falsch 0 Punkte). Die Mitspieler sehen die Bewertungen der Fragestellers sofort. Sollte also Klärungsbedarf bestehen, können sich die Spieler noch in dieser Phase austauschen. Erst nachdem der Fragesteller die Bewertungsphase abschließt, werden die Bewertungen gespeichert, vorher kann der Fragesteller diese ändern. Ist die Phase abgeschlossen, wird geprüft, ob noch nicht beantwortete Fragen im Katalog der Runde vorhanden sind. Ist dies der Fall schließt sich nun eine weitere Fragephase an, sonst geht das Spiel in die Schlussphase über.
+	
+	\section{Schlussphase}
+	In dieser Phase wird weiterhin die Statistik der Runde gezeigt. Der Teamleiter kann nun eine weitere Runde vorbereiten und starten oder das Spiel beenden.
+	
+	\section{Das Q-Team}
+	Nachdem das Q-Team gegründet wurde besteht es nur aus dem Teamleiter. Sobald der Teamleiter mindestens einen weiteren Spieler zum Team hinzugefügt hat, ist das Team spielbereit. Zu Beginn des Spiels und in der Schlussphase kann der Teamleiter Spieler hinzufügen und entfernen, außerdem können die Spieler das Team verlassen.
+	
+	Die Rolle des Teamleiters kann nicht wechseln, \dash der Teamleiter kann das Team erst als letzter Spieler verlassen, das Team wird in diesem Fall gelöscht.
+	
+	Das Team besteht über eine Runde hinaus. Nur der Teamleiter kann durch Verlassen des Teams dieses löschen.
 	
 	\chapter{Softwarearchitektur}
 	\section{Systemstruktur}
