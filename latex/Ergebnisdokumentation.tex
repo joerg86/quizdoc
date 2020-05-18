@@ -511,7 +511,103 @@ kann.}
 	\chapter{Qualitätsziele}
 	\chapter{Benutzerhandbuch}
 	\chapter{Administration}
-	\chapter{Inbetriebnahme}
+	
+	\chapter{Installation und Inbetriebnahme}
+	
+	\section{Frontend}
+	
+	Das Frontend besteht aus statischen HTML-, CSS- und JS-Dateien, die von einem beliebigen Webserver bereitgestellt werden können.
+	Es wird vorausgesetzt, dass der grundlegende Umgang mit dem Versionskontrollsystem Git bekannt ist.
+	
+	Mit folgendem Befehl kann der Quellcode ausgecheckt und in das Quellcode-Verzeichnis gewechselt werden:		
+	\begin{minted}{bash}
+git clone https://github.com/joerg86/quiz_frontend.git
+cd quiz_frontend
+	\end{minted}
+	
+	Nun muss lediglich das Unterverzeichnis \texttt{build} auf einen Webserver kopiert werden. Wichtig dabei ist, dass der Webserver alle URLs außerhalb des Pfades \texttt{/static} auf die Datei \texttt{index.html} umleitet, da das URL-Routing clientseitig abläuft.
+	
+	Dies kann bei Apache beispielsweise mti dem Modul \textit{mod\_{}rewrite} und einer \textit{.htacces}-Datei geschen, die in Listing \ref{lst:rewrite} beispielhaft dargestellt ist:
+	\begin{listing}
+	\begin{minted}{apacheconf}
+RewriteEngine On
+RewriteBase /
+RewriteCond "\%{HTTP_HOST}" "^qteams.team\$" 
+RewriteRule "^static/(.*)\$" "qteams.team/static/\$1" [END]
+RewriteCond "\%{HTTP_HOST}" "^qteams.team\$" 
+RewriteRule "^(.*)\$" "qteams.team/index.html" [END]
+	\end{minted}
+		\caption{.htaccess-Datei für das Frontend}
+		\label{lst:rewrite}
+	\end{listing}
+	
+	Sollen weitere Anpassungen vorgenommen werden, z.B. die API-URL des Backend-Servers geändert werden (Standardeinstellung ist \texttt{api.qteams.team}), so muss zunächst die Datei \texttt{dotenv.production} angepasst und die URLs entsprechend verändert werden.
+	
+	Um die Änderungen zu übernehmen, muss das Projekt neu kompiliert werden. Dazu wird eine NodeJS-Umgebung\footnote{https://nodejs.org} und der Paketmanager Yarn\footnote{https://yarnpkg.com/} installiert werden.
+	
+	Danach kann das Projekt mit dem Befehl \mintinline{bash}{yarn build} neu übersetzt und der \texttt{build}-Ordner auf den Webserver kopiert werden.
+	
+	\section{Backend}
+	Für die Installation und Inbetriebnahme des Backends wird ein Python-Interpreter in der Version 3.7 oder höher benötigt und Grundkenntnisse im Umgang mit virtuellen Python-Umgebungen und dem Paketmanager \textit{pip} vorausgesetzt.
+	
+	Mit folgendem Befehl kann der Quellcode ausgecheckt und in das Quellcode-Verzeichnis gewechselt werden:		
+	\begin{minted}{bash}
+git clone https://github.com/joerg86/quiz_backend.git
+cd quiz_backend
+	\end{minted}
+	
+	Nun muss eine virtuelle Python-Umgebung erstellt und die für das Projekt benötigten Python-Bibliotheken installiert werden:
+	\begin{minted}{bash}
+virtualenv env -p python3
+source env/bin/activate
+pip install -r requirements.txt
+	\end{minted}
+	
+	Das Projekt verwendet standardmäßig das Datenbanksystem \textit{SQLite}. Soll ein anderes Datenbanksystem (z.\,B. MySQL oder PostgreSQL) verwendet werden, so muss an dieser Stelle ein entsprechender Datenbankserver eingerichtet werden und der Zugang in der Datei \texttt{qteams/settings.py} konfiguriert werden -- näheres dazu findet sich in der Django-Dokumentation\footnote{https://docs.djangoproject.com/en/3.0/ref/databases/}. Für die Einrichtung von SQLite sind keine weiteren Schritte erforderlich.
+	
+	Mit folgenden Befehlen wird die Datenbank vorbereitet und die statischen Assets bereitgestellt:
+	
+	\begin{minted}{bash}
+python manage.py migrate
+python manage.py collectstatic
+	\end{minted}
+	
+	Nun kann ein Administratorkonto erstellt werden:
+	
+	\begin{minted}{bash}
+python manage.py createsuperuser
+	\end{minted}
+	
+	An dieser Stelle ist die Applikation fertig eingerichtet. Sie kann nun über den Daphne-Applicaton-Server\footnote{https://github.com/django/daphne} zur Verfügung gestellt werden. 
+	
+	Daphne wurde bereits zusammen mit den anderen Python-Abhängigkeiten installiert und kann gestartet werden mit:
+	
+	\begin{minted}{bash}
+daphne -s api.qteams.team qteams.asgi:application
+	\end{minted}
+	
+	Die Backend-API ist dann über \texttt{http://localhost:8000} erreichbar, die Administrationsoberfäche unter \texttt{http://localhost:8000/admin/}.
+	
+	Es empfiehlt sich, den Dienst über ein Prozesskontrollsystem wie \textit{Supervisor}\footnote{http://supervisord.org/} zu verwalten. Listing \ref{lst:supervisor} zeigt eine beispielhafte Konfiguration dafür.
+	
+	\begin{listing}
+		\begin{minted}{ini}
+[program:quiz]
+command=/home/joergs/quiz_backend/env/bin/daphne -s api.qteams.team qteams.asgi:application
+autostart=true
+autorestart=true
+stderr_logfile = ~/quiz_backend/logs/err.log
+stdout_logfile = ~/quiz_backend/logs/out.log
+stopsignal=INT
+environment=PYTHONPATH=/home/joergs/quiz_backend/
+		\end{minted}
+		\caption{Beispielhafte Supervisor-Konfigurationsdatei}
+		\label{lst:supervisor}
+	\end{listing}
+	
+	Weiterhin empfiehlt es sich, vor den Daphne-Server zur Absicherung einen Webserver wie NGINX oder Apache als Reverse Proxy zu schalten. Dazu sei auf die Dokumentation des entsprechenden Webservers verwiesen.
+	
+
 	
 	\end{appendices}
 	\newpage	
