@@ -492,12 +492,11 @@ kann.}
 			
 			Kriterien & Erfüllungsgrad \\
 			\midrule
-		Die Dokumentation wird dem Auftraggeber zugestellt. & \\
-		Die Dokumentation steht einem potenziellen Betreiber zur Verfügung. & \\
-		Die Dokumentation beschreibt die notwendige Hardware zur Installation und Inbetriebnahme. & \\
-		Die Dokumentation beschreibt die notwendige Software zur Installation und Inbetriebnahme. & \\
-		Die Dokumentation beschreibt die notwendigen Schritte zur Installation und Inbetriebnahme. & \\
-		Die Dokumentation beschreibt mögliche Fehlerfälle mit den dazugehörigen Lösungen. & \\
+		Die Dokumentation wird dem Auftraggeber zugestellt. & Voll umgesetzt \\
+		Die Dokumentation steht einem potenziellen Betreiber zur Verfügung. & Voll umgesetzt \\
+		Die Dokumentation beschreibt die notwendige Hardware zur Installation und Inbetriebnahme. & Voll umgesetzt \\
+		Die Dokumentation beschreibt die notwendige Software zur Installation und Inbetriebnahme. & Voll umgesetzt \\
+		Die Dokumentation beschreibt die notwendigen Schritte zur Installation und Inbetriebnahme. & Voll umgesetzt \\
 		
 			\bottomrule
 		\end{tabularx}	
@@ -596,6 +595,7 @@ kann.}
 	\end{figure}
 	
 	\chapter{Installation und Inbetriebnahme}
+	Für die Installation wird ein linuxbasiertes Serversystem benötigt. Die Installation und Inbetriebnahme des Frontends und des Backends werden in den folgenden Abschnitten separat beschrieben.
 	
 	\section{Frontend}
 	
@@ -669,7 +669,7 @@ python manage.py createsuperuser
 daphne -s api.qteams.team qteams.asgi:application
 	\end{minted}
 	
-	Die Backend-API ist dann über \texttt{http://localhost:8000} erreichbar, die Administrationsoberfäche unter \texttt{http://localhost:8000/admin/}.
+	Die Backend-API ist dann über \texttt{http://localhost:8000} erreichbar, die Administrationsoberfäche über \texttt{http://localhost:8000/admin/}.
 	
 	Es empfiehlt sich, den Dienst über ein Prozesskontrollsystem wie \textit{Supervisor}\footnote{http://supervisord.org/} zu verwalten. Listing \ref{lst:supervisor} zeigt eine beispielhafte Konfiguration dafür.
 	
