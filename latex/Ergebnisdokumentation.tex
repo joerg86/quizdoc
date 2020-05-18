@@ -319,15 +319,50 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 	
 	\section{GUI}
 	
-	Die grafische Oberfläche gliedert sich in drei Bereiche:
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{gui.png}
+		\caption{GUI-Masken und Übergänge}
+		\label{fig:gui}
+	\end{figure}
 	
-	\begin{enumerate}
-		\item \textit{Home} ist die Landing Page des Q-Teams-Projektes. Sie stellt mithilfe des Projektvideos das Konzept vor.
-		\item Im Bereich \textit{Spielen} können Teams erstellt werden und das Quiz gespielt werden.
-		\item Die \textit{Knowledge Base} stellt den Zugang zu bereits gespielten Fragen aller Spieler bereit und dient als Inspiration für eigene fachliche Fragen.
-	\end{enumerate}
+	Dieser Abschnitt beschreibt in Kürze den Aufbau und das Zusammenspiel der GUI-Masken der App. Für weitere Details sei auf das Benutzerhandbuch verwiesen.
+	
+	Das Zusammenspiel der GUI-Masken in der App ist in Abbildung \ref{fig:gui} schemenhaft dargestellt. Die mit Sternchen (*) markierten Masken sind über die Navigation der App direkt erreichbar und somit kann ein Wechsel zur entsprechenden GUI-Maske über einen Klick auf den Link von jeder beliebigen Stelle der App ausgelöst werden -- diese Übergänge wurden aus Gründen der Übersichtlichkeit in der Grafik nicht eingezeichnet.
+	
+	Auch die Masken für Login und Logout werden an dieser Stelle ausgelassen.
+	
+	Die grafische Oberfläche gliedert sich in drei Hauptbereiche:
+		
+	\subsection{Home}
+	Der Bereich \textit{Home} ist die Landing Page des Q-Teams-Projektes. Sie stellt mithilfe des Projektvideos das Konzept vor.
+
+	\subsection{Spielen}
+	Im Bereich \textit{Spielen} findet sich eine Übersicht über die Teams, in denen der Benutzer Mitglied ist. Darüber hinaus kann er an dieser Stelle eigene Teams erstellen.
+	
+	Hat er ein Team erstellt oder wählt eines aus, so gelangt er zur Maske \textit{Teamspiel}
+	
+	\subsubsection{Teamspiel}	
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{ablauf}
+		\caption{Phasen des Spiels}
+		\label{fig:phasen}
+	\end{figure}
+		
+	Diese Seite ist der Kern der Applikation, denn dort findet das eigentliche Quiz statt. Abhängig von der jeweiligen Phase des Spiels sind an dieser Stelle verschiedene Funktionen verfügbar. Ablauf und Funktionen sind in Abbildung \ref{fig:phasen} skizziert.
 	
 	
+	\subsection{Knowledge Base}
+	Die \textit{Knowledge Base} stellt den Zugang zu bereits gespielten Fragen aller Spieler bereit und dient als Inspiration für eigene fachliche Fragen.
+	
+	Auf der Übersichtsseite der Knowledge Base kann der Nutzer einen Suchbegriff eingeben oder ein Thema wählen. Sodann gelangt er auf die Seite \textit{Knowledge Base Browser}.
+	
+	\subsubsection{Knowledge Base Browser}
+	Diese Seite gibt das Suchergebnis mit den gefundenen Fragen und Musterantworten aus und bietet weitere Filtermöglichkeiten.
+	
+	Ist der aktuelle Nutzer auch der Autor einer Frage, so hat er die Möglichkeit, diese zu editieren oder zu löschen. Nach einem Klick auf den entsprechenden Button gelangt er dazu auf die Seite \textit{Frage editieren} bzw. \textit{Frage löschen}.
 
 	\setcounter{chapter}{0}
 	
