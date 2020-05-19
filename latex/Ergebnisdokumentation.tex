@@ -233,7 +233,7 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 	\section{Systemstruktur}
 		\subsection{Backend}
 	\label{subsec:backend}
-	Das serverseitige Backend übernimmt die Datenhaltung sowie die fachliche Anwendungslogik und stellt die Schnittstelle zum Frontend bereit. Es wurde in der Programmiersprache Python mit dem Django-Framework\footnote{https://www.djangoproject.com/} implementiert. Django ist ein auf einer \frqq{}Model View Controller (MVC)\flqq{}-Architektur basierendes Framework für datenbankgestützte Web-Applikationen.
+	Das serverseitige Backend\footnote{https://api.qteams.team} übernimmt die Datenhaltung sowie die fachliche Anwendungslogik und stellt die Schnittstelle zum Frontend bereit. Es wurde in der Programmiersprache Python mit dem Django-Framework\footnote{https://www.djangoproject.com/} implementiert. Django ist ein auf einer \frqq{}Model View Controller (MVC)\flqq{}-Architektur basierendes Framework für datenbankgestützte Web-Applikationen.
 	
 	Das Django-Framework abstrahiert über einen Object Relational Mapper (ORM) den Datenbankzugriff, so dass verschiedene relationale Datenbanken ohne Anpassung des Programmcodes verwendet werden können. Da es sich bei diesem Projekt lediglich um einen Prototyp handelt, wurde das SQLite-Backend gewählt. SQLite\footnote{https://sqlite.org} ist ein dateibasiertes Datenbanksystem, das ohne einen Datenbankserver auskommt und sich deshalb schnell und unkompliziert integrieren lässt.
 	
@@ -244,7 +244,7 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 	Der Backend-Server stellt außerdem eine serverseitig gerenderte Web-Oberfläche zur Administration der Q-Teams-Instanz bereit. Diese basiert auf der angepassten Django-Administrationsoberfläche.
 	
 	\subsection{Frontend}
-	Das Frontend stellt die grafische Oberfläche dar, mit der die Spieler interagieren. Sie wird im Webbrowser ausgeführt und wurde dementsprechend in TypeScript implementiert. TypeScript ergänzt JavaScript um statische Typprüfung. Damit können typbedingte Fehler, die sonst oft erst zur Laufzeit sichtbar werden, schon während des Kompiliervorgangs erkannt und beseitigt werden. 
+	Das Frontend\footnote{https://qteams.team} stellt die grafische Oberfläche dar, mit der die Spieler interagieren. Sie wird im Webbrowser ausgeführt und wurde dementsprechend in TypeScript implementiert. TypeScript ergänzt JavaScript um statische Typprüfung. Damit können typbedingte Fehler, die sonst oft erst zur Laufzeit sichtbar werden, schon während des Kompiliervorgangs erkannt und beseitigt werden. 
 	
 	 Für die Umsetzung der \Gls{gui}-Komponenten kam das React-Framework\footnote{https://reactjs.com} zum Einsatz. React ist ein von Facebook veröffentlichtes, deklaratives und komponentenorientiertes Framework zur schnellen Entwicklung von clientseitig gerenderten Benutzerschnittstellen. Für die Kommunikation mit dem Backend per GraphQL kommt \textit{Relay}\footnote{https://relay.dev/} zum Einsatz.
 	
@@ -508,6 +508,59 @@ kann.}
 		
 	
 	\chapter{Qualitätsziele}
+	\label{chap:qziele}
+	
+	Im Bericht zu Meilenstein 3 wurden bereits Qualitätsziele festgelegt. Diese werden an dieser Stelle wieder aufgegriffen und deren Umsetzung beschrieben.
+	
+	\section{Funktionalität}
+	
+	\subsection{Die Quiz-App soll den im Abschnitt \ref{sec:process} dargestellten fachlichen Prozess korrekt abbilden.}
+	Der fachliche Prozess konnte wie geplant in der Applikation abgebildet werden.	
+	
+	\subsection{Das System soll gegenüber Bedrohungen von innen und außen gesichert sein.} 
+	Der Zugriff auf das System ist ausschließlich verschlüsselt per HTTPS / WSS und SSH möglich. Benutzerkennwörter müssen die in Meilenstein 3 definierten Kennwortrichtlinien erfüllen. Die Speicherung der Kennwörter in der Datenbank erfolgt in verschlüsselter Form. Alle Datenbankzugriffe werden über den Object Relational Mapper (ORM) gekapselt. Benutzer erhalten nur die Zugriffsrechte, die zum Spielen des Quiz zwingend benötigt werden.
+	
+	\section{Benutzbarkeit}
+	\subsection{Die Bedienung des Systems soll leicht erlernbar und möglichst intuitiv verständlich sein.}
+	Die Bedienung des Systems ist so gestaletet, dass sie weitestgehend selbsterklärend ist. Das Projektvideo wurde auf der Startseite integriert, so dass Nutzer sich vor dem Spielbeginn mit dem Spielprinzip vertraut machen können. Auch ein Benutzerhandbuch steht bereit.
+	\subsection{Die Oberfläche soll simpel und ansprechend gestaltet sein}
+		Die Gestaltung der Oberfläche wurde an das Corporate Design der IUBH angelehnt, so dass für Studierende ein Wiedererkennungswert und eine Vertrautheit geschaffen wird. Die Dialogflüsse wurden klar und einfach strukturiert. Systemfunktionen sind immer über einen eindeutigen Weg zugänglich -- Redundanzen wurden vermieden.
+		
+	
+	\section{Änderbarkeit}
+	
+	\subsection{Der Prototyp soll einfach erweiterbar sein und zu einem späteren Zeitpunkt zu einem ausgereiften Produkt ausgebaut werden können.}
+	Mit React und Django wurden weit verbreitete Standard-Technologien eingesetzt, die mit ihrem modularen und komponentenbasierten Ansatz eine einfache Weiterentwicklung -- auch durch neu hinzukommende Entwickler -- gewährleisten. Der Quellcode ist kommentiert, die API-Dokumentation ist direkt über den interaktiven GraphQL-Endpoint\footnote{https://api.qteams.team} zugänglich, Datenmodell und Prozesse wurden in diesem Bericht dokumentiert.
+	
+		\subsection{Die Grundfunktionen des Systems sollen einfach getestet werden können.}
+		Ein Quiz-Durchlauf kann mithilfe von zwei Browsern und zwei Demo-Benutzerkonten innerhalb weniger Minuten simuliert werden.
+		
+	
+	\section{Effizienz}
+		\subsection{Mit Serverressourcen soll schonend umgegangen werden.}
+		Datenbankzugriffe wurden grundlegend optimiert: Es werden Indizes verwendet und wenn erforderlich datenbankseitige Aggregation. Ein ausführliches Profiling der Datenbankzugriffe findet allerdings im Kontext der prototypischen Umsetzung nicht weiter statt.		
+		
+		\subsection{Da es sich um eine interaktive Anwendung handelt, sollten Antwortzeiten des Systems niedrig gehalten werden.}
+		Im exemplarischen manuellen Test lag die Antwortzeit der API in der Regel unter 100 ms. Ein nach subjektivem Ermessen verzögerungsfreies Arbeiten mit dem System ist möglich. 
+	
+	\section{Übertragbarkeit}
+
+	\subsection{Das System soll einfach und unkompliziert bei einem Hosting-Provider installiert werden können.}
+	Das System wurde beispielhaft beim Hosting Provider \textit{Uberspace} eingerichtet -- es lässt sich jedoch auch bei jedem beliebigen anderen Anbieter betreiben. Dies können Clouddienste wie z.B. Heroku, Netlify oder EC2 oder auch klassische Hoster wie Strato oder Hetzner sein.
+	
+	
+	\subsection{Das System soll einfach in die Anwendungslandschaft einer Hochschule integrierbar sein.}
+	Die modularen Komponenten zur Authentifizierung und Autorisierung sind einfach austausch- und erweiterbar, so dass eine Integration in die Anwendungslandschaft einer Hochschule über ein Single-Sign-On-System (z.B. via OAuth) problemlos möglich ist. 
+
+	Auch Schnittstellen zum automatisierten Import von Modulbezeichnungen und -nummern (Themen) sind vorbereitet.	
+	
+	\section{Zuverlässigkeit}
+	\subsection{Das System wird lediglich prototypisch umgesetzt, daher ist nur ein geringer Reifegrad gefordert.}
+	Auf aufwändige automatisierte Tests wurde aufgrund der prototypischen Umsetzung und der begrenzten Ressourcen verzichtet. Mit ausführlichen, manuellen Tests auf verschiedenen Plattformen konnte aber sichergestellt werden, dass das System grundlegend funktioniert und ein einem Prototyp angemessener Reifegrad erreicht wurde.
+
+	\subsection{Das System soll fehlerhafte Eingaben abfangen können.}
+	GraphQL-API und ORM validieren alle Benutzereingaben und prüfen, ob die notwendigen Zugriffsrechte gegeben sind. Darüber hinaus werden Eingaben zusätzlich auch vom Frontend geprüft. Damit soll ein unvorhersehbares Verhalten durch schadhafte Eingaben vermieden werden.
+	
 	\chapter{Benutzerhandbuch}
 
 	\chapter{Administration}
