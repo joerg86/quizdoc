@@ -173,7 +173,6 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\tableofcontents	
 	\renewcommand \thechapter{\Roman{chapter}}
 	\listoffigures % ABBILDUNGSVERZEICHNIS
-	\printglossaries
 	\newcounter{lastRomanCounter}
 	\setcounter{lastRomanCounter}{\value{chapter}} % Zwischenspeicher der Kapitelnummerierung (römisch)
 	
@@ -185,10 +184,10 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\chapter{Einleitung}
 	Der vorliegende Bericht gibt einen Überblick über das im Verlauf des Projektes erstellte Softwaresystem und die weiteren Artefakte. Dabei werden die bereits in den vorherigen Meilensteinberichten beschriebenen Konzepte wieder aufgegriffen und deren konkrete Umsetzung in Form eines Ergebnisberichts beschrieben. Aufgrund der erkenntnisgetriebenen Natur des Softwareprozesses haben sich Planabweichungen ergeben.
 	
-	Zunächst wird das Spielprinzip aufgegriffen und dessen Implementierung beschrieben. Danach folgt ein Überblick über die Komponenten, Schnittstellen und Datenstrukturen des Systems. Im Anhang befindet sich ein Überblick zum Umssetzungsgrad der fachlichen und nicht-fachlichen Anforderungen und der Qualitätsziele. Ebenfalls im Anhang verortet sind Benutzerhandbuch, das Handbuch für Administratoren und die Anleitung zur Installation- und Inbetriebnahme.
+	Zunächst wird das Spielprinzip aufgegriffen und dessen Implementierung beschrieben. Danach folgt ein Überblick über die Komponenten, Schnittstellen und Datenstrukturen des Systems. Im Anhang befindet sich ein Überblick zum Umsetzungsgrad der fachlichen und nicht-fachlichen Anforderungen und der Qualitätsziele. Ebenfalls im Anhang verortet sind Benutzerhandbuch, das Handbuch für Administratoren und die Anleitung zur Installation und Inbetriebnahme.
 	
 	\chapter{Funktionsbeschreibung}
-	Mit dem Prototyp ist das Spielen Spielern im Wettkampf- und Trainingsmodus möglich. Der Spielablauf des Protoyps ist in Abbildung \ref{fig:bpmn} gezeigt. 
+	Mit dem Prototyp ist das Spielen im Wettkampf- und Trainingsmodus möglich. Der Spielablauf des Prototyps ist in Abbildung \ref{fig:bpmn} gezeigt. 
 	Die Darstellung zeigt exemplarisch den Ablauf für einen Spieler des Teams. Das Spiel kann mit zwei oder mehr Spielern gespielt werden. 
 		
 	\begin{figure}
@@ -199,18 +198,18 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\end{figure}
 	
 	\section{Beginn des Spiels}
-	Ein Spieler gründet ein Q-Team und legt dabei Teamnamen und Thema dauerhaft fest. Er wird zum Teamleiter. Der Teamname ist frei wählbar. Das Thema ist eines der Module der IUBH, diese sind mit Kennung und Namen gespeichert (\zB \textit{IGIS01 Grundlagen der industriellen Softwaretechnik}). 
+	Ein Spieler gründet ein Q-Team und legt dabei Teamnamen und Thema dauerhaft fest. Er wird zum Teamleiter. Der Teamname ist frei wählbar. Das Thema ist eines der Module der IUBH. Diese sind mit Kennung und Namen gespeichert (\zB \textit{IGIS01 Grundlagen der industriellen Softwaretechnik}). 
 	Wird mit einem bereits bestehenden Team eine weitere Runde gespielt, ist hier der Einstiegspunkt für die weitere Runde.
 	An diesem Punkt kann der Teamleiter Spieler hinzufügen.
 	Zuletzt legt er fest, ob im Wettkampf- oder im Trainingsmodus gespielt werden soll und startet die Runde.
-	Im Wettkampfmodus sind die Statistiken der Mitspieler für jeden jederzeit sichtbar (\dash die Anzahl an richtig, teilweise richtig und falsch beantworteten Fragen, sowie die Punktzahl). Im Trainingsmodus ist lediglich die eigene Statistik sichtbar. Die Statistik ist in den weiteren Phasen jederzeit sichtbar und wird zu Beginn einer Runde zurückgesetzt.
+	Im Wettkampfmodus sind die Statistiken der Mitspieler für jeden jederzeit sichtbar (\dash die Anzahl an richtig, teilweise richtig und falsch beantworteten Fragen sowie die Punktzahl). Im Trainingsmodus ist lediglich die eigene Statistik sichtbar. Die Statistik ist in den weiteren Phasen jederzeit sichtbar und wird zu Beginn einer Runde zurückgesetzt.
 	
 	Mitspieler, die einem Team hinzugefügt wurden rufen lediglich das Team auf und warten auf den Start durch den Teamleiter.
 	
 	\section{Erarbeitungsphase}
 	In der Erarbeitungsphase erstellt jeder Spieler eine Frage und die dazugehörige Musterantwort. Die
-Knowledge Base, d. h. die Gesamtheit der bisher gespeicherten Fragen und Musterantworten, kann
-bei dieser Aktivität als Inspiration genutzt werden. Die durch den Spieler erstellte Frage und Antwort
+Knowledge Base, d.\,h. die Gesamtheit der bisher gespeicherten Fragen und Musterantworten, kann
+bei dieser Aktivität als Inspiration genutzt werden. Die durch den Spieler erstellte Frage und die zugehörige Musterantwort
 werden in der Knowledge Base und im Katalog der Runde gespeichert. 
 Parallel zum Erstellen einer Frage können die Spieler die bereits in der Knowledge Base gespeicherten Fragen nach Thema sortiert durchsuchen.
 Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase automatisch.
@@ -225,7 +224,7 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 	In dieser Phase wird weiterhin die Statistik der Runde gezeigt. Der Teamleiter kann nun eine weitere Runde vorbereiten und starten oder das Spiel beenden.
 	
 	\section{Das Q-Team}
-	Nachdem das Q-Team gegründet wurde besteht es nur aus dem Teamleiter. Sobald der Teamleiter mindestens einen weiteren Spieler zum Team hinzugefügt hat, ist das Team spielbereit. Zu Beginn des Spiels und in der Schlussphase kann der Teamleiter Spieler hinzufügen und entfernen, außerdem können die Spieler das Team verlassen.
+	Nachdem das Q-Team gegründet wurde, besteht es nur aus dem Teamleiter. Sobald der Teamleiter mindestens einen weiteren Spieler zum Team hinzugefügt hat, ist das Team spielbereit. Zu Beginn des Spiels und in der Schlussphase kann der Teamleiter Spieler hinzufügen und entfernen, außerdem können die Spieler das Team verlassen.
 	
 	Die Rolle des Teamleiters kann nicht wechseln, \dash der Teamleiter kann das Team erst als letzter Spieler verlassen, das Team wird in diesem Fall gelöscht.
 	
@@ -268,7 +267,7 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 		\item Die \textit{SQLite}-Datenbank stellt die Datenhaltung dar. Sie speichert die fachlichen Entitäten und Beziehungen in Tabellen.
 		\item Das mit dem \textit{Django-Framework} entwickelte Backend implementiert die Spiellogik und steuert den Benutzerzugriff. Es greift über den Object Relational Mapper (ORM) auf die Datenbank zu.
 		\item Der \textit{Daphne Application Server} stellt die Laufzeitumgebung für das Django-Backend bereit. Er kommuniziert mit dem Backend über das Asynchronous Server Gateway Interface (ASGI), einem Standard zur Server-Anbindung asynchroner Python-Web-Apps.
-		\item Der vom Hoster Uberspace bereitgestellte Apache-Webserver bindet als Reverse Proxy das Backend an das öffentliche Internet an. Er kommuniziert über HTTPS bzw. verschlüsselte WebSockets (WSS) mit dem Application Server und stellt statische Assets (HTML, CSS, JS, Bilder) direkt aus dem Dateisystem zur Verfügung.
+		\item Der vom Hoster Uberspace bereitgestellte Apache-Webserver bindet als Reverse Proxy das Backend an das öffentliche Internet an. Er kommuniziert über HTTPS bzw. verschlüsselte WebSockets (WSS) mit dem Application Server und stellt statische Assets (HTML, CSS, JS, Grafiken) direkt aus dem Dateisystem zur Verfügung.
 		\item Das React-Frontend wird über HTTPS vom Server geladen und im Browser ausgeführt. Es kommuniziert per GraphQL mit dem Backend und nutzt dabei sowohl das HTTPS-, als auch das WSS-Protokoll.
 	\end{itemize}
 	
@@ -304,7 +303,7 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 	\end{itemize}
 	
 	\subsection{Membership}
-	Die Klasse \textit{Membership} bildet die Mitgliedschaft eines Benutzers (\textit{user}) in einem Team \textit{team} ab.
+	Die Klasse \textit{Membership} bildet die Mitgliedschaft eines Benutzers (\textit{user}) in einem Team (\textit{team}) ab.
 	Die Attribute \textit{right}, \textit{wrong} und \textit{partial} speichern die Anzahl der Fragen, die der Nutzer in der aktuellen Runde richtig, falsch bzw. teilweise richtig beantwortet hat. 
 	
 	\subsection{Question}
@@ -314,7 +313,7 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 	Die Klasse \textit{Answer} enthält die Antwort (\textit{answer}) eines Spielers (\textit{author}) auf eine Frage (\textit{question}). Sie speichert außerdem die durch den Fragesteller vergebene Bewertung (\textit{score}).
 	
 	\subsection{Topic}
-	Die Klasse \textit{Topic} stellt ein fachliches Thema dar. Hier wurde beispielhaft eine Liste der an der IUBH verfügbaren Module hinterlegt werden. Das Attribut \textit{name} speichert die Kursbezeichnung, das Attribut \textit{code} den Modulcode. Diese Klasse dient der besseren Strukturierung der Fragen in der \textit{Knowledge Base}.
+	Die Klasse \textit{Topic} stellt ein fachliches Thema dar. Hier wurde beispielhaft eine Liste der an der IUBH verfügbaren Module hinterlegt. Das Attribut \textit{name} speichert die Kursbezeichnung, das Attribut \textit{code} den Modulcode. Diese Klasse dient der besseren Strukturierung der Fragen in der \textit{Knowledge Base}.
 
 	\subsection{User}
 	Die Klasse \textit{User} entspricht dem unveränderten Benutzermodell des Django-Frameworks. Details dazu finden sich in der Django-Dokumentation\footnote{https://docs.djangoproject.com/en/3.0/ref/contrib/auth/}.	
@@ -342,7 +341,7 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 	\subsection{Spielen}
 	Im Bereich \textit{Spielen} findet sich eine Übersicht über die Teams, in denen der Benutzer Mitglied ist. Darüber hinaus kann er an dieser Stelle eigene Teams erstellen.
 	
-	Hat er ein Team erstellt oder wählt eines aus, so gelangt er zur Maske \textit{Teamspiel}
+	Hat er ein Team erstellt oder wählt eines aus, so gelangt er zur Maske \textit{Teamspiel}.
 	
 	\subsubsection{Teamspiel}	
 
@@ -480,15 +479,14 @@ Aufbau und Funktionen des Systems verschaffen zu können.}
 			
 			Kriterien & Erfüllungsgrad \\
 			\midrule
-		Das Benutzerhandbuch wird dem Auftraggeber zugestellt. & \\
-		Das Benutzerhandbuch steht einem Spieler in dem System zur Verfügung. & \\
-		Jede GUI-Maske wird mit einem Screenshot dargestellt und erläutert. & \\
-		Die Spielregeln werden erklärt. & \\
+		Das Benutzerhandbuch wird dem Auftraggeber zugestellt. & Voll umgesetzt\\
+		Jede GUI-Maske wird mit einem Screenshot dargestellt und erläutert. & Voll umgesetzt\\
+		Die Spielregeln werden erklärt. & Voll umgesetzt\\
 			\bottomrule
 		\end{tabularx}	
 		
 		\subsection{Als Auftraggeber / Betreiber wünsche ich mir eine Dokumentation zur Installation und
-Inbetriebnahme, damit ich das Quiz ohne großen Aufwand den Studenten zur Verfügung stellen
+Inbetriebnahme, damit ich das Quiz ohne großen Aufwand den Studierenden zur Verfügung stellen
 kann.}
 		\begin{tabularx}{\textwidth}{Xr}
 			
@@ -516,7 +514,7 @@ kann.}
 	
 	\section{Funktionalität}
 	
-	\subsection{Die Quiz-App soll den im Abschnitt \ref{sec:process} dargestellten fachlichen Prozess korrekt abbilden.}
+	\subsection{Die Quiz-App soll den fachlichen Prozess korrekt abbilden.}
 	Der fachliche Prozess konnte wie geplant in der Applikation abgebildet werden.	
 	
 	\subsection{Das System soll gegenüber Bedrohungen von innen und außen gesichert sein.} 
@@ -524,7 +522,7 @@ kann.}
 	
 	\section{Benutzbarkeit}
 	\subsection{Die Bedienung des Systems soll leicht erlernbar und möglichst intuitiv verständlich sein.}
-	Die Bedienung des Systems ist so gestaletet, dass sie weitestgehend selbsterklärend ist. Das Projektvideo wurde auf der Startseite integriert, so dass Nutzer sich vor dem Spielbeginn mit dem Spielprinzip vertraut machen können. Auch ein Benutzerhandbuch steht bereit.
+	Die Bedienung des Systems ist so gestaltet, dass sie weitestgehend selbsterklärend ist. Das Projektvideo wurde auf der Startseite integriert, so dass Nutzer sich vor dem Spielbeginn mit dem Spielprinzip vertraut machen können. Auch ein Benutzerhandbuch steht bereit.
 	\subsection{Die Oberfläche soll simpel und ansprechend gestaltet sein}
 		Die Gestaltung der Oberfläche wurde an das Corporate Design der IUBH angelehnt, so dass für Studierende ein Wiedererkennungswert und eine Vertrautheit geschaffen wird. Die Dialogflüsse wurden klar und einfach strukturiert. Systemfunktionen sind immer über einen eindeutigen Weg zugänglich -- Redundanzen wurden vermieden.
 		
@@ -561,15 +559,15 @@ kann.}
 	Auf aufwändige automatisierte Tests wurde aufgrund der prototypischen Umsetzung und der begrenzten Ressourcen verzichtet. Mit ausführlichen, manuellen Tests auf verschiedenen Plattformen konnte aber sichergestellt werden, dass das System grundlegend funktioniert und ein einem Prototyp angemessener Reifegrad erreicht wurde.
 
 	\subsection{Das System soll fehlerhafte Eingaben abfangen können.}
-	GraphQL-API und ORM validieren alle Benutzereingaben und prüfen, ob die notwendigen Zugriffsrechte gegeben sind. Darüber hinaus werden Eingaben zusätzlich auch vom Frontend geprüft. Damit soll ein unvorhersehbares Verhalten durch schadhafte Eingaben vermieden werden.
+	GraphQL-API und ORM validieren alle Benutzereingaben und prüfen, ob die notwendigen Zugriffsrechte gegeben sind. Darüber hinaus werden Eingaben zusätzlich auch vom Frontend geprüft. Damit soll ein unvorhersehbares Verhalten des Systems durch schadhafte Eingaben vermieden werden.
 	
 	\chapter{Benutzerhandbuch}
 
-	Wir freuen uns, dass du dich entschieden hast Q-Teams auszuprobieren. In diesem Benutzerhandbuch zeigen wir dir, wie Q-Teams aussieht und wie du es nutzen kannst! Dazu zeigen wir dir einfachen Schritten, wie du deine erste Runde Q-Teams spielen kannst und wie du die Knowledge Base nutzt. Auf den Screenshots sind die wichtigsten Dinge farbig hervorgehoben: Eine purpurne Markierung zeigt eine Interaktionsmöglichkeit, hier musst du klicken oder tippen. Eine türkise Markierung weist dich auf wichtige Informationen hin.
+	Wir freuen uns, dass du dich entschieden hast Q-Teams auszuprobieren. In diesem Benutzerhandbuch zeigen wir dir, wie Q-Teams aussieht und wie du es nutzen kannst! Dazu zeigen wir dir in einfachen Schritten, wie du deine erste Runde Q-Teams spielen kannst und wie du die Knowledge Base nutzt. Auf den Screenshots sind die wichtigsten Dinge farbig hervorgehoben: Eine purpurne Markierung zeigt eine Interaktionsmöglichkeit, hier musst du klicken oder tippen. Eine türkise Markierung weist dich auf wichtige Informationen hin.
 	\newpage
 	\section*{Schritt 1: Q-Teams starten}
 	
-	Um Q-Teams zu starten, rufe die Adresse https://qteams.team/ in deinem Browser auf. Am besten benutzt du einen aktuellen Firefox- oder Chrome-Browser auf deinem PC, aber auch mit anderen Browsern oder auf dem Smartphone kannst du Q-Teams nutzen.
+	Um Q-Teams zu starten, rufe die Adresse \url{https://qteams.team} in deinem Browser auf. Am besten benutzt du einen aktuellen Firefox- oder Chrome-Browser auf deinem PC, aber auch mit anderen Browsern oder auf dem Smartphone kannst du Q-Teams nutzen.
 	
 	Nun sollte dich der Home-Bildschirm von Q-Teams begrüßen, siehe Abbildung \ref{fig:guide_home}. In unserem Projektvideo stellen wir dir Q-Teams vor. Du kannst das Video mit deinen Kommilitonen teilen, um sie zu überzeugen, mit dir in einem Q-Team zu lernen! In der Top-Leiste findest du jetzt nur den Home-Button und den Login-Button. Bist du eingeloggt, findest du hier zusätzlich die wichtigsten Funktionalitäten wieder: Spielen und Knowledge Base. Also, drücke auf den Login-Button, um dich einzuloggen!
 	
@@ -582,7 +580,7 @@ kann.}
 	\newpage
 	\section*{Schritt 2: Einloggen}
 	
-	Das Einloggen geht ganz einfach mit Benutzernamen und Passwort, die dir durch die IUBH zur Verfügung gestellt wurde. Die entsprechende Login-Maske in Abbildung \ref{fig:guide_login} ist dementsprechend einfach gehalten. Solltest du noch keine Login-Daten erhalten haben, wende dich an einen der Administratoren.
+	Das Einloggen geht ganz einfach mit Benutzernamen und Passwort, die dir durch die IUBH zur Verfügung gestellt wurden. Die entsprechende Login-Maske in Abbildung \ref{fig:guide_login} ist dementsprechend einfach gehalten. Solltest du noch keine Login-Daten erhalten haben, wende dich an einen der Administratoren.
 	
 	\begin{figure}[h!]
 		\centering
@@ -594,7 +592,7 @@ kann.}
 	\newpage
 	\section*{Schritt 3: Q-Team gründen oder beitreten}
 	
-	Sobald du dich erfolgreich eingeloggt hast, siehst du den Spielen-Bildschirm aus Abbildung \ref{fig:guide_spielen}. Mit Hilfe der Eingabefelder in der unteren Hälfte kannst du nun ein neues Team gründen. Du musst lediglich den Teamnamen und das Thema des Teams festlegen. Als Thema wählst du eins der Module der IUBH. Alle Module der IUBH sind mit ihrer Kennung und ihrem Namen gespeichert (\zB IGIS01 Grundlagen der industriellen Softwaretechnik), so findest du mühelos dein passendes Thema. Hast du Namen und Thema gewählt, musst du nur auf den Team gründen Button drücken\footnote{Der Name und das Thema des Teams lassen sich anschließend nicht mehr ändern} und deine erste Runde Q-Teams startet automatisch. Bevor es damit weitergeht, zeigen wir dir, wie du mit einem bestehenden Team spielen kannst.
+	Sobald du dich erfolgreich eingeloggt hast, siehst du den Spielen-Bildschirm aus Abbildung \ref{fig:guide_spielen}. Mit Hilfe der Eingabefelder in der unteren Hälfte kannst du nun ein neues Team gründen. Du musst lediglich den Teamnamen und das Thema des Teams festlegen. Als Thema wählst du eins der Module der IUBH. Alle Module der IUBH sind mit ihrer Kennung und ihrem Namen gespeichert (\zB IGIS01 Grundlagen der industriellen Softwaretechnik). So findest du mühelos dein passendes Thema. Hast du Namen und Thema gewählt, musst du nur auf den \textit{Team gründen} Button drücken\footnote{Der Name und das Thema des Teams lassen sich anschließend nicht mehr ändern.} und deine erste Runde Q-Teams startet automatisch. Bevor es damit weitergeht, zeigen wir dir, wie du mit einem bestehenden Team spielen kannst.
 	
 	In der oberen Hälfte des Spielen-Bildschirms werden dir alle Teams gezeigt, bei denen du Mitglied bist. Gezeigt werden der Teamname, das Thema des Teams und der Teamleiter\footnote{Der Spieler, der das Team gegründet hat.}. Durch Klicken auf den Teamnamen trittst du der aktuellen Runde in diesem Team bei.
 	
@@ -608,9 +606,9 @@ kann.}
 	\newpage
 	\section*{Schritt 4: Eine Runde Q-Teams beginnen}
 	
-	Ein neues Q-Team startet immer in der Phase Beginn des Spiels. Als Teamleiter sieht das wie in Abbildung \ref{fig:guide_beginn_nichtbereit} aus. Auf der linken Seite werden alle Teammitglieder aufgelistet. Zu jedem Spieler werden der Vorname und Name, sowie der Benutzername gezeigt. Der Teamleiter ist besonders mit dem Schild-Icon gekennzeichnet. Zu deinem eigenen Namen und, je nach Spielmodus auch den anderen Spielern, werden die Anzahl der richtig/teilweise richtig/falsch beantworteten Fragen und der Punktestand angezeigt.
+	Ein neues Q-Team startet immer in der Phase \textit{Beginn des Spiels}. Als Teamleiter sieht das wie in Abbildung \ref{fig:guide_beginn_nichtbereit} aus. Auf der linken Seite werden alle Teammitglieder aufgelistet. Zu jedem Spieler werden der Vorname und Name, sowie der Benutzername gezeigt. Der Teamleiter ist besonders mit dem Schild-Icon gekennzeichnet. Zu deinem eigenen Namen und, je nach Spielmodus auch den anderen Spielern, werden die Anzahl der richtig/teilweise richtig/falsch beantworteten Fragen und der Punktestand angezeigt.
 	
-	Als Teamleiter kannst du, solange du alleine im Team bist, das Team verlassen und somit wieder löschen. Um spielen zu können müssen mindestens zwei Spieler im Team sein. Dazu fügst du Mitglieder durch Eingabe des Namens\footnote{Kombination aus Vorname und Name oder einfach der Benutzername} zum Team hinzu. Hier kannst du außerdem zwischen dem Trainings- und Wettkampfmodus umschalten.
+	Als Teamleiter kannst du, solange du alleine im Team bist, das Team verlassen und somit wieder löschen. Um spielen zu können müssen mindestens zwei Spieler im Team sein. Dazu fügst du Mitglieder durch Eingabe des Benutzernamens zum Team hinzu. Hier kannst du außerdem zwischen dem Trainings- und Wettkampfmodus umschalten.
 	
 	\begin{figure}[h!]
 		\centering
@@ -632,14 +630,14 @@ kann.}
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\textwidth]{UserGuide/Rundenbeginn_Spieler.png}
-		\caption{Die Phase Beginn des Spiels aus Sicht eines Mitspielers}
+		\caption{Die Phase \textit{Beginn des Spiels} aus Sicht eines Mitspielers}
 		\label{fig:guide_beginn_spieler}
 	\end{figure}
 	
 	\newpage
 	\section*{Schritt 5: Die Frage erarbeiten}	
 		
-	Hast du oder der Teamleiter	 die Runde gestartet, startet die Erarbeitungsphase wie in Abbildung \ref{fig:guide_erarbeitungsphase}. Hier bist du das erste Mal richtig gefordert: Du musst dir eine Frage mit passender Musterantwort zum Thema ausdenken und in die Eingabefelder eintragen. Solltest du Schwierigkeiten haben, kannst du die Knowledge Base aufrufen\footnote{Entweder kannst du die Knowledge in einem anderen Browsertab/-fenster aufrufen oder auch im gleichen. Um dann zum Spiel zurückzukehren, drücke in der Top-Leiste auf Spielen und tritt dann dem entsprechenden Team wieder bei.} und bereits gespeicherte Fragen als Inspiration nutzen. Bist du mit Frage und Antwort zufrieden, speichere diese durch Klicken auf den Button Frage speichern. 
+	Hast du oder der Teamleiter	 die Runde gestartet, startet die Erarbeitungsphase wie in Abbildung \ref{fig:guide_erarbeitungsphase}. Hier bist du das erste Mal richtig gefordert: Du musst dir eine Frage mit passender Musterantwort zum Thema ausdenken und in die Eingabefelder eintragen. Solltest du Schwierigkeiten haben, kannst du die Knowledge Base aufrufen\footnote{Entweder kannst du die Knowledge in einem anderen Browsertab/-fenster aufrufen oder auch im gleichen. Um dann zum Spiel zurückzukehren, drücke in der Top-Leiste auf Spielen und tritt dann dem entsprechenden Team wieder bei.} und bereits gespeicherte Fragen als Inspiration nutzen. Bist du mit Frage und Antwort zufrieden, speichere diese durch Klicken auf den Button \textit{Frage speichern}. 
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\textwidth]{UserGuide/Erarbeitungsphase.png}
@@ -647,7 +645,7 @@ kann.}
 		\label{fig:guide_erarbeitungsphase}
 	\end{figure}	
 	
-	Alle anderen Spieler des Teams erstellen parallel zu dir die Frage und Antwort, solltest du schneller sein, gelangst du erstmal auf den Warten-Bildschirm aus Abbildung \ref{fig:guide_erarbeitungsphase_warten}. Haben alle Spieler ihre Frage gespeichert beginnt die erste Fragephase.
+	Alle anderen Spieler des Teams erstellen parallel zu dir die Frage und Antwort, solltest du schneller sein, gelangst du erstmal auf den Warten-Bildschirm aus Abbildung \ref{fig:guide_erarbeitungsphase_warten}. Haben alle Spieler ihre Frage gespeichert, beginnt die erste Fragephase.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\textwidth]{UserGuide/Erarbeitungsphase_warten.png}
@@ -658,7 +656,7 @@ kann.}
 	\newpage
 	\section*{Schritt 6: Die Frage eines Mitspielers beantworten}
 	
-	Hast du die Frage eines Mitspielers zu beantworten, wird dir der Bildschirm aus Abbildung \ref{fig:guide_fragephase} angezeigt. Oben findest du die entsprechende Frage und den Namen des Fragestellers. Nun musst du deine Antwort zur Frage eingeben und anschließend deine Antwort, durch Klicken auf den Button, absenden. Sobald alle Mitspieler die Frage beantwortet und abgesendet haben, geht es zur Bewertungsphase.	
+	Hast du die Frage eines Mitspielers zu beantworten, wird dir der Bildschirm aus Abbildung \ref{fig:guide_fragephase} angezeigt. Oben findest du die entsprechende Frage und den Namen des Fragestellers. Nun musst du deine Antwort zur Frage eingeben und anschließend deine Antwort durch Klicken auf den Button absenden. Sobald alle Mitspieler die Frage beantwortet und abgesendet haben, geht es zur Bewertungsphase.	
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\textwidth]{UserGuide/Fragephase_beantworten.png}
@@ -666,7 +664,7 @@ kann.}
 		\label{fig:guide_fragephase}
 	\end{figure}
 	
-	Während die anderen Spieler seine Frage beantworten, kann der Fragesteller sich entspannen und auf die Bewertungsphase warten. Solange wird im Abbildung \ref{fig:guide_fragephase_warten} angezeigt.
+	Während die anderen Spieler deine Frage beantworten, kann der Fragesteller sich entspannen und auf die Bewertungsphase warten. Während der Wartezeit wird der Bildschirm im Abbildung \ref{fig:guide_fragephase_warten} angezeigt.
 	
 	\begin{figure}[h!]
 		\centering
@@ -679,7 +677,7 @@ kann.}
 	\section*{Schritt 7: Die Antworten der Mitspieler bewerten}
 					
 	Sobald alle anderen Spieler deine Frage beantwortet haben musst du deren Antworten bewerten. Dazu wird dir der Bewertungsbildschirm angezeigt, siehe Abbildung \ref{fig:guide_bewertungsphase}.
-	Ganz oben werden dir die Frage mit der passenden Musterantwort angezeigt. Darunter sind die Antworten deiner Mitspieler aufgelistet. Jede Antwort musst du nun mit richtig/teilweise richtig/falsch bewerten. Durch Klicken auf den Button Bewertungsphase abschließen, werden deine Bewertungen gespeichert und die nächste Fragephase wird gestartet. Wurden bereits alle Fragen beantwortet, ist diese Runde anschließend beendet und ihr startet wieder in der Phase Beginn des Spiels.
+	Ganz oben wird dir die Frage mit der passenden Musterantwort angezeigt. Darunter sind die Antworten deiner Mitspieler aufgelistet. Jede Antwort musst du nun mit richtig/teilweise richtig/falsch bewerten. Durch Klicken auf den Button \textit{Bewertungsphase abschließen} werden deine Bewertungen gespeichert und die nächste Fragephase wird gestartet. Wurden bereits alle Fragen beantwortet, ist diese Runde anschließend beendet und ihr startet wieder in der Phase \textit{Beginn des Spiels}.
 	
 	Die antwortenden Spieler sehen die Bewertungen des Fragestellers sofort und können, solange die Phase noch nicht abgeschlossen wurde, noch um eine bessere Bewertung feilschen.
 	
@@ -702,7 +700,7 @@ kann.}
 		\label{fig:guide_kb_start}
 	\end{figure}	
 	
-	Die Fragen werden dir dann wie in Abbildung \ref{fig:guide_kb} angezeigt. Alle Fragen, die deinen Suchkriterien entsprechen, werden aufgelistet. Zu jeder Frage wird auch der Ersteller angezeigt, an ihn kannst du durch klicken auf den Briefumschlag-Button eine Nachricht schicken. Solltest du einen Fehler in der Frage gefunden haben oder Verbesserungsvorschläge haben, benachrichtige den Ersteller!
+	Die Fragen werden dir dann wie in Abbildung \ref{fig:guide_kb} angezeigt. Alle Fragen, die deinen Suchkriterien entsprechen, werden aufgelistet. Zu jeder Frage wird auch der Ersteller angezeigt, an ihn kannst du durch Klicken auf den Briefumschlag-Button eine Nachricht schicken. Solltest du einen Fehler in der Frage gefunden haben oder Verbesserungsvorschläge haben, benachrichtige den Ersteller!
 	
 	\begin{figure}[h!]
 		\centering
@@ -711,7 +709,7 @@ kann.}
 		\label{fig:guide_kb}
 	\end{figure}	
 	
-	Auch auf diesem Bildschirm kannst du deine Suchkriterien angeben, \dash Suchbegriff(e) oder Thema. Außerdem hast du die Möglichkeit nach eigenen Fragen zu filtern, dazu klicke auf den Button Meine Fragen. Deine eigene Fragen kannst du ändern oder auch löschen, siehe Abbildung \ref{fig:guide_kb_eigene}.
+	Auch auf diesem Bildschirm kannst du deine Suchkriterien angeben, \dash Suchbegriff(e) oder Thema. Außerdem hast du die Möglichkeit nach eigenen Fragen zu filtern, dazu klicke auf den Button \textit{Meine Fragen}. Deine eigene Fragen kannst du ändern oder auch löschen, siehe Abbildung \ref{fig:guide_kb_eigene}.
 		
 	\begin{figure}[h!]
 		\centering
@@ -723,13 +721,13 @@ kann.}
 	
 
 	\chapter{Administration}
-	Das Q-Teams-Projekt ist so konzipiert, dass nahezu keine administrativen Tätigkeiten anfallen.
+	Das Q-Teams-Projekt ist so konzipiert, dass nahezu keine administrativen Tätigkeiten erforderlich sind.
 	
-	Insbesondere die Benutzerverwaltung muss derzeit noch von einem Administrator durchgeführt werden. Dies entfällt, sobald das System an das Single-Sign-On-System der IUBH angebunden ist.
+	Insbesondere die Benutzerverwaltung muss jedoch derzeit noch von einem Administrator durchgeführt werden. Dies entfällt, sobald das System an das Single-Sign-On-System der IUBH angebunden ist.
 	
 	Die Liste der Themen (Modulbezeichnungen und -nummern) wurde über eine Textdatei aus dem Interactive Book Reader der IUBH importiert. Sie kann manuell vom Administrator ergänzt werden.
 
-	Sollen Fragen anderer Nutzer aus der Knowledge Base geändert oder gelöscht werden, so ist dies ebenfalls über die Administration. 	
+	Sollen Fragen anderer Nutzer aus der Knowledge Base geändert oder gelöscht werden, so ist dies ebenfalls über die Administrationsoberfläche möglich. 	
 		
 	\section{Anmeldung und Übersichtsseite}
 	Die Administrationsoberfläche von Q-Teams ist unter der Adresse  \url{https://api.qteams.team/admin}	erreichbar. Nach dem Login mit einem Administratorkonto präsentiert sich die in Abbildung \ref{fig:admin} dargestellte Übersichtsseite der Django-Verwaltung.
@@ -776,9 +774,9 @@ kann.}
 	
 	Sind Passwort und Benutzername vergeben, so öffnet sich die Seite \textit{Benutzer bearbeiten}, die später auch über einen Klick auf den Benutzernamen in der Tabelle der Übersichtsseite aufgerufen werden kann.
 	
-	Über die Seite \textit{Benutzer bearbeiten} (siehe Abbildung \ref{fig:editbenutzer} müssen mindestens Vorname und Nachname gesetzt werden, damit der Benutzer im Quiz korrekt angezeigt werden kann.
+	Über die Seite \textit{Benutzer bearbeiten} (siehe Abbildung \ref{fig:editbenutzer}) müssen mindestens Vorname und Nachname gesetzt werden, damit der Benutzer im Quiz korrekt angezeigt werden kann.
 	
-	Soll der Benutzer administrative Tätigkeiten ausführen können, so muss bei \textit{Mitarbeiter-Status} und \textit{Administrator-Status} ein Häkchen gesetzt werden -- andernfalls kann er lediglich das Quiz spielen, sich jedoch nicht in der Verwaltung einloggen.
+	Soll der Benutzer administrative Tätigkeiten ausführen können, so muss bei \textit{Mitarbeiter-Status} und \textit{Administrator-Status} ein Häkchen gesetzt werden -- andernfalls kann er lediglich das Quiz spielen, sich jedoch nicht in der Verwaltung anmelden.
 	
 	Das Entfernen eines Benutzerkontos kann über den Button \textit{Löschen} auf der Seite \textit{Benutzer bearbeiten} oder alternativ auf der Übersichtsseite erfolgen.
 	
@@ -822,7 +820,7 @@ cd quiz_frontend
 	
 	Nun muss lediglich das Unterverzeichnis \texttt{build} auf einen Webserver kopiert werden. Wichtig dabei ist, dass der Webserver alle URLs außerhalb des Pfades \texttt{/static} auf die Datei \texttt{index.html} umleitet, da das URL-Routing clientseitig abläuft.
 	
-	Dies kann bei Apache beispielsweise mti dem Modul \textit{mod\_{}rewrite} und einer \textit{.htacces}-Datei geschen, die in Listing \ref{lst:rewrite} beispielhaft dargestellt ist:
+	Dies kann bei Apache beispielsweise mit dem Modul \textit{mod\_{}rewrite} und einer \textit{.htacces}-Datei geschehen, die in Listing \ref{lst:rewrite} beispielhaft dargestellt ist:
 	\begin{listing}
 	\begin{minted}{apacheconf}
 RewriteEngine On
@@ -838,9 +836,9 @@ RewriteRule "^(.*)\$" "qteams.team/index.html" [END]
 	
 	Sollen weitere Anpassungen vorgenommen werden, z.B. die API-URL des Backend-Servers geändert werden (Standardeinstellung ist \texttt{api.qteams.team}), so muss zunächst die Datei \texttt{dotenv.production} angepasst und die URLs entsprechend verändert werden.
 	
-	Um die Änderungen zu übernehmen, muss das Projekt neu kompiliert werden. Dazu wird eine NodeJS-Umgebung\footnote{https://nodejs.org} und der Paketmanager Yarn\footnote{https://yarnpkg.com/} installiert werden.
+	Um die Änderungen zu übernehmen, muss das Projekt neu kompiliert werden. Dazu muss eine NodeJS-Umgebung\footnote{https://nodejs.org} und der Paketmanager Yarn\footnote{https://yarnpkg.com/} installiert werden.
 	
-	Danach kann das Projekt mit dem Befehl \mintinline{bash}{yarn build} neu übersetzt und der \texttt{build}-Ordner auf den Webserver kopiert werden.
+	Danach kann das Projekt mit den Befehlen \mintinline{bash}{yarn install} und \mintinline{bash}{yarn build} neu übersetzt und der \texttt{build}-Ordner auf den Webserver kopiert werden.
 	
 	\section{Backend}
 	Für die Installation und Inbetriebnahme des Backends wird ein Python-Interpreter in der Version 3.7 oder höher benötigt und Grundkenntnisse im Umgang mit virtuellen Python-Umgebungen und dem Paketmanager \textit{pip} vorausgesetzt.
@@ -873,12 +871,12 @@ python manage.py collectstatic
 python manage.py createsuperuser
 	\end{minted}
 	
-	An dieser Stelle ist die Applikation fertig eingerichtet. Sie kann nun über den Daphne-Applicaton-Server\footnote{https://github.com/django/daphne} zur Verfügung gestellt werden. 
+	An dieser Stelle ist die Applikation fertig eingerichtet. Sie kann nun über den Daphne-Application-Server\footnote{https://github.com/django/daphne} zur Verfügung gestellt werden. 
 	
 	Daphne wurde bereits zusammen mit den anderen Python-Abhängigkeiten installiert und kann gestartet werden mit:
 	
 	\begin{minted}{bash}
-daphne -s api.qteams.team qteams.asgi:application
+daphne qteams.asgi:application
 	\end{minted}
 	
 	Die Backend-API ist dann über \texttt{http://localhost:8000} erreichbar, die Administrationsoberfäche über \texttt{http://localhost:8000/admin/}.
