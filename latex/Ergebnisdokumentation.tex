@@ -234,7 +234,9 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 	\section{Systemstruktur}
 		\subsection{Backend}
 	\label{subsec:backend}
-	Das serverseitige Backend\footnote{https://api.qteams.team} übernimmt die Datenhaltung sowie die fachliche Anwendungslogik und stellt die Schnittstelle zum Frontend bereit. Es wurde in der Programmiersprache Python mit dem Django-Framework\footnote{https://www.djangoproject.com/} implementiert. Django ist ein auf einer \frqq{}Model View Controller (MVC)\flqq{}-Architektur basierendes Framework für datenbankgestützte Web-Applikationen.
+	Das serverseitige Backend\footnote{https://api.qteams.team} übernimmt die Datenhaltung sowie die fachliche Anwendungslogik und stellt die Schnittstelle zum Frontend bereit. Der Quellcode ist öffentlich zugänglich auf GitHub\footnote{https://github.com/joerg86/quiz\_{}backend}.
+	
+	Das Backend wurde in der Programmiersprache Python mit dem Django-Framework\footnote{https://www.djangoproject.com/} implementiert. Django ist ein auf einer \frqq{}Model View Controller (MVC)\flqq{}-Architektur basierendes Framework für datenbankgestützte Web-Applikationen.
 	
 	Das Django-Framework abstrahiert über einen Object Relational Mapper (ORM) den Datenbankzugriff, so dass verschiedene relationale Datenbanken ohne Anpassung des Programmcodes verwendet werden können. Da es sich bei diesem Projekt lediglich um einen Prototyp handelt, wurde das SQLite-Backend gewählt. SQLite\footnote{https://sqlite.org} ist ein dateibasiertes Datenbanksystem, das ohne einen Datenbankserver auskommt und sich deshalb schnell und unkompliziert integrieren lässt.
 	
@@ -245,7 +247,9 @@ Nachdem alle Spieler ihre Frage abgesendet haben, beginnt die erste Fragephase a
 	Der Backend-Server stellt außerdem eine serverseitig gerenderte Web-Oberfläche zur Administration der Q-Teams-Instanz bereit. Diese basiert auf der angepassten Django-Administrationsoberfläche.
 	
 	\subsection{Frontend}
-	Das Frontend\footnote{https://qteams.team} stellt die grafische Oberfläche dar, mit der die Spieler interagieren. Sie wird im Webbrowser ausgeführt und wurde dementsprechend in TypeScript implementiert. TypeScript ergänzt JavaScript um statische Typprüfung. Damit können typbedingte Fehler, die sonst oft erst zur Laufzeit sichtbar werden, schon während des Kompiliervorgangs erkannt und beseitigt werden. 
+	Das Frontend\footnote{https://qteams.team} stellt die grafische Oberfläche dar, mit der die Spieler interagieren. Der Quellcode ist öffentlich zugänglich auf GitHub\footnote{https://github.com/joerg86/quiz\_{}frontend}.
+	
+	Das Frontend wird im Webbrowser ausgeführt und wurde dementsprechend in TypeScript implementiert. TypeScript ergänzt JavaScript um statische Typprüfung. Damit können typbedingte Fehler, die sonst oft erst zur Laufzeit sichtbar werden, schon während des Kompiliervorgangs erkannt und beseitigt werden. 
 	
 	 Für die Umsetzung der \Gls{gui}-Komponenten kam das React-Framework\footnote{https://reactjs.com} zum Einsatz. React ist ein von Facebook veröffentlichtes, deklaratives und komponentenorientiertes Framework zur schnellen Entwicklung von clientseitig gerenderten Benutzerschnittstellen. Für die Kommunikation mit dem Backend per GraphQL kommt \textit{Relay}\footnote{https://relay.dev/} zum Einsatz.
 	
