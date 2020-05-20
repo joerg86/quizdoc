@@ -1,0 +1,437 @@
+\documentclass[a4paper,11pt,listof=numbered,glossary=totoc,parskip=half,toc=bib]{scrreprt}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage[colorlinks,
+pdfpagelabels,
+pdfstartview = FitH,
+bookmarksopen = true,
+bookmarksnumbered = true,
+linkcolor = black,
+plainpages = false,
+hypertexnames = false,
+citecolor = black]{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[automake,toc,section=chapter,numberedsection]{glossaries}
+\usepackage{uarial}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{icomma} % Damit im Mathemodus nach einem Komma kein Leerzeichen gesetzt wird
+\usepackage[cache=false]{minted}
+\renewcommand{\listoflistingscaption}{Verzeichnis der Code-Listings}
+\usepackage[table]{xcolor} % Zum Ändern der Farben in Tabellen
+\usepackage{xspace}
+\usepackage{appendix}
+
+\usepackage{csquotes}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{quellen.bib}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\zB}{\mbox{z.\,B.}\xspace}
+\newcommand{\dash}{\mbox{d.\,h.}\xspace}
+
+\RedeclareSectionCommand[
+beforeskip = 3pt,
+afterskip = 3pt]{subsection} %vor subsection 6pt und nach subsection 6pt Abstand
+\RedeclareSectionCommand[
+beforeskip = 1pt,
+afterskip = 1pt]{subsubsection} %vor subsection 6pt und nach subsection 6pt Abstand
+
+
+% Glossar
+\makeglossary
+\newglossaryentry{re}
+{
+	name={Requirements Engineering (RE)},
+	description={Das \textit{Requirements Engineering} bezeichnet die Disziplin der Anforderungsermittlung. Damit ist typischerweise das Ermitteln, Dokumentieren, Prüfen und Abstimmen von funktionalen und nicht-funktionalen Anforderungen gemeint.}
+}
+
+\newglossaryentry{stakeholder}
+{
+	name={Stakeholder},
+	description={\textit{Stakeholder} (dt. Anspruchsgruppen) sind alle Personen, die mit dem zu entwickelnden System konfrontiert sind.
+Der Begriff beschränkt sich nicht nur auf diejenigen, die unmittelbar mit dem System arbeiten, sondern schließt insbesondere den Auftraggeber, das Entwicklerteam oder die mit dem Betrieb des Systems betrauten Personen mit ein.}
+}
+\newglossaryentry{userstory}
+{
+	name={User Story},
+	description={Eine \textit{User Story} ist eine besonders in agilen Projekten weit verbreitete Dokumentationsform im Kontext der Anforderungsermittlung.
+Sie besteht aus einem einfachen Satz, der eine Anforderung aus der Sicht einer definierten Stakeholder-Rolle beschreibt und entspricht immer einem fest vorgegebenen Format:
+\textit{Als [Rolle] möchte ich / wünsche ich mir [Funktion], damit [Begründung].}
+User Stories lassen sich damit auf einfache Karteikarten schreiben, die an ein Whiteboard gepinnt oder auf einem großen Tisch ausgebreitet werden können. Somit lassen sie sich gut in Workshops zur Visualisierung und Priorisierung der Anforderungen nutzen.}
+}
+\newglossaryentry{moscow}
+{
+	name={MoSCoW},
+	description={Die \textit{MoSCoW-Methode} wird im vorliegenden Projekt genutzt, um Anforderungen zu priorisieren.
+\textit{Must have (M)} legt fest, dass die betrachtete Anforderung zwingend umgesetzt werden muss.
+\textit{Should have (S)} bedeutet, dass die Umsetzung wünschenswert, aber nicht kritisch ist.
+\textit{Can have (C)} bezeichnet unkritische Anforderungen, die optional zu einem späteren Zeitpunkt implementiert werden können.
+\textit{Won't have (W)} legt fest, dass die betrachtete Anforderung (aktuell) nicht umgesetzt wird.
+Die Priorisierung von Anforderungen ist nicht endgültig, sondern kann im Projektverlauf angepasst werden.
+	}
+}
+\newglossaryentry{git} 
+{
+	name={Git-Repository},
+	description={GIT ist ein Werkzeug zur Versionskontrolle, dass vor allem zur kollaborativen Quellcode-Verwaltung in Software-Projekten eingesetzt wird, sich aber auch zur Verwaltung und Versionierung von Artefakten der Dokumentation eignet.
+Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das Hosting von Git-Repositories.}
+}
+\newglossaryentry{responsive}
+{
+	name={Responsive Design},
+	description={Ist eine Applikation so gestaltet, dass sie sich an verschiedene Bildschirmgrößen und -ausrichtungen, wie sie beispielsweise bei Smartphones-, Tablets oder Desktop-PCs zu finden sind, anpassen kann, so spricht man von \textit{Responsive Design}.
+	}
+}
+\newglossaryentry{uml}
+{
+	name={UML},
+	description={Die \textit{Unified Modeling Language} ist eine grafische Modellierungssprache zur Analyse, Implementation und zum Design von softwarebasierten Systemen sowie zur Beschreibung von Prozessen. \autocite{UML} Sie wird durch die \textit{Object Management Group} entwickelt. Die Sprache definiert jeweils sieben Struktur- und Verhaltensdiagramme.
+	In diesem Bericht werden folgende Diagrammtypen genutzt: 	\textit{Komponentendiagramm (cod)},\textit{ Klassendiagramm (cld)}, \textit{Zustandsdiagramm (sm)} und \textit{Sequenzdiagramm (sqd)}.
+	}
+}
+\newglossaryentry{bpmn}
+{
+	name={BPMN},
+	description={Die \textit{Business Process Model and Notation} ist ein Standard zur grafischen Spezifikation von Geschäftsprozessen. \autocite{BPMN} 
+	}
+}
+\newglossaryentry{erm}
+{
+	name={ERM},
+	description={Ein \textit{Entity-Relationship-Model} ist ein Modell zur Darstellung von Entitäten und Beziehungen. Der Einsatz von ERM gilt als Standard bei der Datenmodellierung in der Softwareentwicklung.
+	}
+}
+\newglossaryentry{gui}
+{
+	name={GUI},
+	description={Grafische Benutzeroberfläche
+	}
+}
+
+\newglossaryentry{ssltls}
+{
+	name={SSL/TLS},
+	description={Secure Socket Layer / Transport Layer Security. Verfahren zur Verschlüsselung von Netzwerkverbindungen.
+	}
+}
+
+\newglossaryentry{ssh}
+{
+	name={SSH},
+	description={Secure Shell. Verschlüsseltes Netzwerkprotokoll zum Konsolenzugriff auf Serversysteme.
+	}
+}
+
+
+\subject{Meilensteinbericht}
+\title{Meilenstein 3}
+\subtitle{Dokumentationskonzept bereitgestellt}
+
+\begin{document}
+	\pagenumbering{Roman}
+	\begin{titlepage}
+		
+		\centering
+		\vspace*{2.5cm}
+		{\large\bfseries \par}	
+		{\Huge\bfseries Projektdokumentation\par}
+		{\Large\bfseries Konzeption und prototypische Umsetzung eines kooperativen und kollaborativen Online‐Quizsystems \par}
+
+		{\Large Projekt Q-Teams\par}
+		{\large\today\par}
+		\vspace{0.5cm}
+
+			
+		
+		\includegraphics[scale=0.5]{iubh_logo}
+		
+		IUBH Fernstudium
+		\vspace{0.5cm}
+		
+		\begin{tabular}{lllrl}
+			\toprule
+			\textbf{Gruppe} & \textbf{Nachname} & \textbf{Vorname} & \textbf{Matrikelnr.} & \textbf{Studiengang} \\
+			\midrule
+			Projektleiter & Sawatzki & Jörg & 9186524 & BSc. Informatik \\
+			Mitglied 2 & Hahn & Maximilian & 91710055 & BSc. Wirtschaftsinformatik \\
+			Mitglied 3 & Lapenat & Holger & 3191237 & BSc. Wirtschaftsinformatik \\
+			Mitglied 4 & Moch & Daniel & 91710824 & BSc. Wirtschaftsinformatik \\
+			\bottomrule
+		\end{tabular}	
+	\end{titlepage}
+	
+	
+	\newpage
+	\setcounter{tocdepth}{2}
+	\tableofcontents	
+	\renewcommand \thechapter{\Roman{chapter}}
+	\listoftables
+	\printglossaries
+	\newcounter{lastRomanCounter}
+	\setcounter{lastRomanCounter}{\value{chapter}} % Zwischenspeicher der Kapitelnummerierung (römisch)
+	
+	\newpage
+	\renewcommand \thechapter{\arabic{chapter}}
+	\pagenumbering{arabic}	
+	\setcounter{chapter}{0}
+	
+	\chapter{Einleitung}
+	Die Projektdokumentation als Zusammenfassung des Projektablaufs wird bereits während des Software Engineering Prozess erstellt und dient allen beteiligten Stakeholdern dazu die Arbeit des Projektteams übersichtlich nachvollziehen und bewerten zu können. Hierbei wurde für die Entwicklung bereits zu Projektbeginn das agile Projektmanagement Modell Scrum gewählt, welches den Projektverlauf in einzelne Zyklen (Sprints) aufteilt. Innerhalb dieser werden bereits vorher erarbeitete Anforderungen umgesetzt. 
+	
+	Aufgrund der Orientierung am vorgegebenen Projektleitfaden wurden die dort enthaltenen Meilensteine mit ihren jeweiligen Unteraufgaben als Tickets in das Redmine-System übernommen und dienen so als Anforderungen für die Sprint-Zyklen. Hierbei wurden über den gesamten Projektverlauf fortlaufende Sprints mit einer Dauer von einer Woche vom Projektteam festgelegt. Diese gliedern sich in jeweils 4 Phasen.
+
+\begin{itemize}
+\item Sprint Planung
+\item Sprint Durchführung
+\item Sprint Review
+\item Sprint Retrospektive
+\end{itemize}
+
+
+
+    \chapter{Sprint 1: 13.04. – 19.04.2020}
+    
+    Der Fokus dieses Sprints lag auf der Projektinitialisierung sowie Festlegung von Rahmenbedingungen – dies entspricht den Vorgaben des Meilenstein 1. Tabelle \ref{tab:sprint1} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
+    
+\begin{table}
+    \begin{tabularx}{\textwidth}{lXll}
+			\toprule
+			\textbf{Ticket} & \textbf{Titel} & \textbf{Erledigt} & \textbf{Übernommen} \\
+			\midrule
+		1290	&	Projektvision	&	X	&		\\
+		1278	&	Steckbrief des Teams erstellen	&	X	&		\\
+		\midrule
+		\multicolumn{4}{c}{\textit{Projektauftrag}}\\
+		\midrule
+		Wiki	&	Anforderungen 	&		&		\\
+		1282	&	Userstories sowie Product Backlog erstellen	&	X	&		\\
+		1294	&	UML-Anwendungsfalldiagramm	&	X	&		\\
+		1289	&	Stakeholder Analyse erstellen	&	X	&		\\
+		1288	&	Lösungsansatz (Spielprinzip, regeln, modi verfeinern und dokumentieren)	&	X	&		\\
+		Wiki	&	Annahmen und Beschränkungen	&		&		\\
+		1284	&	Zeitplan Meilensteine	&	X	&		\\
+		1295	&	Projektstruktur und Ablauf	&		&		\\
+		1292	&	Rollen und Verantwortungen	&		&		\\
+		1296	&	Aufgaben und Aufwandsschätzungen	&		&		\\
+		Wiki	&	Aufbau technische Infrastruktur	&		&		\\
+		1287	&	Infrastruktur für Sourcecode-Verwaltung und Issue Tracking einrichten	&	X	&		\\
+		1286	&	Infrastruktur für LaTeX-Dokumente einrichten	&		&		\\
+		1298	&	Uberspace Hosting einrichten	&		&		\\
+		1281	&	Personalmanagement	&		&		\\
+		Wiki	&	Kommunikationsmanagement	&		&		\\
+		Wiki	&	Risikomanagement	&		&		\\
+
+			\bottomrule
+		\end{tabularx}
+\caption{Geplante und erledigte Tickets/Aufgabenpakete im Sprint 1}
+\label{tab:sprint1}
+\end{table}
+    
+    \section{Ergebnis}
+    Während des ersten Sprints konnten bereits einige für das Projekt fundamentale Aktivitäten durchgeführt werden. Der vom Team erstellte Zeitplan für Meilensteine, bereits grob ermittelte Anforderungen in Form von User Stories sowie organisatorische Punkte wie Personalmanagement stellen den Grundpfeiler für das weitere Vorgehen dar. 
+    
+    \section{Schwierigkeiten}
+    Das Team befand sich während dieses Sprints noch in der Findungsphase, deswegen konnte die Velocity noch nicht präzise eingeschätzt werden. Dementsprechend blieben einige geplante Aufgaben unerledigt.
+    
+    \section{Maßnahmen}
+    Der Arbeitsaufwand wurde für die Zukunft vorerst minimiert.  
+    
+    \chapter{Sprint 2: 20.04. – 26.04.2020}
+
+Das Ziel dieses Sprints war die Fertigstellung des ersten und zweiten Meilensteins. Meilenstein 1 umfasst die Projektkonfiguration und -initialisierung. Meilenstein 2 beinhaltet die Konzeption, Erstellung und Lieferung des Projektvideos an den Auftraggeber. Tabelle \ref{tab:sprint2} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
+
+\begin{table}    
+    \begin{tabularx}{\textwidth}{lXll}
+			\toprule
+			\textbf{Ticket} & \textbf{Titel} & \textbf{Erledigt} & \textbf{Übernommen} \\
+			\midrule
+Wiki	&	Annahmen und Beschränkungen	&	X	&	X	\\
+1295	&	Projektstruktur und Ablauf	&	X	&	X	\\
+1292	&	Rollen und Verantwortungen	&	X	&	X	\\
+1296	&	Aufgaben und Aufwandsschätzungen	&	X	&	X	\\
+Wiki	&	Aufbau technische Infrastruktur	&	X	&	X	\\
+1286	&	Infrastruktur für LaTeX-Dokumente einrichten	&	X	&	X	\\
+1298	&	Uberspace Hosting einrichten	&	X	&	X	\\
+Wiki	&	Kommunikationsmanagement	&	X	&	X	\\
+Wiki	&	Risikomanagement	&	X	&	X	\\
+1304	&	Projektvideo Ideensammlung	&	X	&		\\
+1307	&	Projektvideo erstellen	&	X	&		\\
+			\bottomrule
+		\end{tabularx}
+\caption{Geplante und erledigte Tickets/Aufgabenpakete im Sprint 2}
+\label{tab:sprint2}
+\end{table}
+   
+    \section{Ergebnis}
+    Die geplanten Aufgaben konnten termingerecht erledigt werden.
+    
+    \section{Schwierigkeiten}
+    Es traten keine Probleme auf. 
+    
+    \section{Maßnahmen}
+    Das Projektteam musste keine weiteren Maßnahmen veranlassen.
+	    
+    \chapter{Sprint 3: 27.04. – 03.05.2020}
+
+In Sprint 3 galt es den Meilenstein 3 vorzeitig zu erreichen, um Zeit für die Implementierung zu gewinnen. Es sollte das Projekt konfiguriert werden und die Vorgaben für den weiteren Projektverlauf gemacht werden. Aufgrund der kurzen Projektdauer und um den Dokumentationsoverhead zu verringern, sollten hier nicht ausschließlich formale Vorgaben, sondern auch inhaltliche Vorgaben zum Projekt gemacht werden. Tabelle \ref{tab:sprint3} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
+
+\begin{table}    
+    \begin{tabularx}{\textwidth}{lXll}
+			\toprule
+			\textbf{Ticket} & \textbf{Titel} & \textbf{Erledigt} & \textbf{Übernommen} \\
+			\midrule
+1274	&	MS 3: Dokumentationskonzept bereitgestellt	&	X	&		\\
+1305	&	Beschreibung der Projektdokumente	&	X	&		\\
+1303	&	Testprotokoll	&	X	&		\\
+1308	&	Implementierung	&	X	&		\\
+1306	&	Implementierungsprozess	&	X	&		\\
+1302	&	Prozessbeschreibung (fachliche Ebene)	&	X	&		\\
+1283	&	Datenmodell definieren	&	X	&		\\
+1301	&	Qualitätsmanagement	&	X	&		\\
+1300	&	IT-Sicherheit	&	X	&		\\
+1309	&	Konstruktives Qualitätsmanagement	&	X	&		\\
+		\midrule
+		\multicolumn{4}{c}{Backend}\\
+		\midrule
+Wiki	&	Einrichtung des Django-Projekts	&	X	&		\\
+Wiki	&	Erstellung des initialen Datenmodells	&	X	&		\\
+Wiki	&	Administrationsoberfläche	&	X	&		\\
+Wiki	&	Importe der Module aus dem Interactive Book Reader	&	X	&		\\
+
+			\bottomrule
+		\end{tabularx}
+\caption{Geplante und erledigte Tickets/Aufgabenpakete im Sprint 3}
+\label{tab:sprint3}
+\end{table}
+    
+    \section{Ergebnis}
+    Alle geplanten Aufgaben wurden im Sprint abschließend bearbeitet. Meilenstein 3 konnte am Ende des Sprints erreicht werden. Dazu wurde dem Auftraggeber das Dokumentationskonzept bereitgestellt. Des Weiteren konnte bereits mit der Implementierung des Backend begonnen werden. Tabelle \ref{tab:sprint4} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
+    
+    \section{Schwierigkeiten}
+    Es traten keine Probleme auf. 
+    
+    \section{Maßnahmen}
+    Das Projektteam musste keine weiteren Maßnahmen veranlassen.
+    
+    \chapter{Sprint 4: 04.05. – 10.05.2020}
+
+Wesentliches Ziel dieses Sprints war es, das Grundgerüst der Backend-API und des Frontends zu implementieren. Tabelle \ref{tab:sprint4} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
+
+\begin{table}    
+    \begin{tabularx}{\textwidth}{lXll}
+			\toprule
+			\textbf{Ticket} & \textbf{Titel} & \textbf{Erledigt} & \textbf{Übernommen} \\
+			\midrule
+			1322	&	Anforderungen/Qualitätsziele	&	X	&		\\
+					\midrule
+		\multicolumn{4}{c}{Backend}\\
+		\midrule
+Wiki	&	GraphQL-API-Setup	&	X	&		\\
+		\midrule
+		\multicolumn{4}{c}{Frontend}\\
+		\midrule
+Wiki	&	Frontend-Grundgerüst	&	X	&		\\
+			\bottomrule
+		\end{tabularx}
+\caption{Geplante und erledigte Tickets/Aufgabenpakete im Sprint 4}
+\label{tab:sprint4}
+\end{table} 
+    
+    \section{Ergebnis}
+    Die geplanten Aufgaben konnten im Rahmen des Sprints vollständig erledigt werden.
+    
+    \section{Schwierigkeiten}
+    Es traten keine Probleme auf. 
+    
+    \section{Maßnahmen}
+    Das Projektteam musste keine weiteren Maßnahmen veranlassen.
+    
+    \chapter{Sprint 5: 11.05. – 17.05.2020}
+  Tabelle \ref{tab:sprint5} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
+  
+ \begin{table}   
+    \begin{tabularx}{\textwidth}{lXll}
+			\toprule
+			\textbf{Ticket} & \textbf{Titel} & \textbf{Erledigt} & \textbf{Übernommen} \\
+			\midrule
+1324	&	Administrationshandbuch	&	X	&		\\
+1323	&	Benutzerhandbuch	&	X	&		\\
+1341	&	Datenmodell als UML	&		&		\\
+1325	&	Installationshandbuch	&	X	&		\\
+1319	&	Systemarchitektur	&	X	&		\\
+1326	&	Projektdokumentation	&		&		\\
+	&	Ergebnisdokumentation	&		&		\\
+1320	&	Funktionsbeschreibung	&	X	&		\\
+
+					\midrule
+		\multicolumn{4}{c}{Backend}\\
+		\midrule
+Wiki	&	Implementierung der Spiellogik	&	X	&		\\
+Wiki	&	Fertigstellung API	&	X	&		\\
+		\midrule
+		\multicolumn{4}{c}{Frontend}\\
+		\midrule
+Wiki	&	UI-Entwurf	&	X	&		\\
+Wiki	&	Dialogfluss	&	X	&		\\
+Wiki	&	Fertigstellung Quiz	&	X	&		\\
+Wiki	&	Fertigstellung Knowledge Base	&	X	&		\\
+Wiki	&	Integration der Komponenten	&	X	&		\\
+Wiki	&	Fertigstellung Frontend	&	X	&		\\
+
+			\bottomrule
+		\end{tabularx}
+\caption{Geplante und erledigte Tickets/Aufgabenpakete im Sprint 5}
+\label{tab:sprint5}
+\end{table}
+    
+    \section{Ergebnis}
+    
+    \section{Schwierigkeiten}
+    Das bereits zu Beginn des Projekts identifizierte Risiko, dass die Kurzarbeit in Teilen wieder aufgehoben wird, hat sich realisiert. Der mögliche Workload mindestens eines Teammitglieds wurde dadurch signifikant verringert. Hinzu kam der anhaltende Krankenhausaufenthalt eines Teammitglieds, welche effektives Arbeiten und kommunizieren unmöglich machte.
+    
+    \section{Maßnahmen}
+    Die Auswirkungen der Schwierigkeiten mussten akzeptiert werden und konnten nur teilweise durch eine Umverteilung der Arbeit auf andere Teammitglieder kompensiert werden.
+    
+    \chapter{Sprint 6: 18.05. – 24.05.2020}
+    
+    Im Fokus dieses Sprints stand die Fertigstellung des vierten Meilensteins. Dies beinhaltete die Lieferung der zentralen Ergebnisartefakte. Tabelle \ref{tab:sprint6} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
+    
+\begin{table}    
+    \begin{tabularx}{\textwidth}{lXll}
+			\toprule
+			\textbf{Ticket} & \textbf{Titel} & \textbf{Erledigt} & \textbf{Übernommen} \\
+			\midrule
+1275	&	MS 4: Zentrale Ergebnisartefakte bereitgestellt	&	X	&		\\
+1341	&	Datenmodell als UML	&	X	&	X	\\
+1326	&	Projektdokumentation	&	X	&	X	\\
+1319	&	Ergebnisdokumentation	&	X	&	X	\\
+
+			\bottomrule
+		\end{tabularx}
+\caption{Geplante und erledigte Tickets/Aufgabenpakete im Sprint 6}
+\label{tab:sprint6}
+\end{table}
+    
+    \section{Ergebnis}
+    Dem Auftraggeber wurde der umgesetzte Prototyp inkl. Quellcode als Web-Applikation zur Verfügung gestellt. Weiterhin erhielt der Auftraggeber die Projektdokumentation und die Ergebnisdokumentation.
+    
+    \section{Schwierigkeiten}
+    Die in Sprint 5 aufgetretenen Schwierigkeiten, die Aufhebung der Kurzarbeit sowie der Krankenhausaufenthalt eines Teammitglieds, bestanden weiterhin. Der Arbeitsaufwand insbesondere für den Abschluss der Dokumentation fiel insgesamt höher aus als geplant. 
+    
+    \section{Maßnahmen}
+Es wurden zusätzliche Meetings durchgeführt. Des Weiteren wurden die Aufgaben des ausgefallenen Mitglieds auf andere Mitglieder verteilt. Der Zeitplan konnte trotz der Schwierigkeiten eingehalten werden.
+
+	
+	\newpage	
+	\setcounter{chapter}{\thelastRomanCounter} % Fortsetzen der römischen Kapitelnummerierung
+\renewcommand \thechapter{\Roman{chapter}}	\printbibliography[heading=bibnumbered,title=Literaturverzeichnis]
+
+\end{document}
