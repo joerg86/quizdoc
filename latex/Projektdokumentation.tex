@@ -132,8 +132,8 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 
 
 \subject{Meilensteinbericht}
-\title{Meilenstein 3}
-\subtitle{Dokumentationskonzept bereitgestellt}
+\title{Projektdokumentation}
+\subtitle{Konzeption und prototypische Umsetzung eines kooperativen und kollaborativen Online‐Quizsystems}
 
 \begin{document}
 	\pagenumbering{Roman}
@@ -175,29 +175,29 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
 	\renewcommand \thechapter{\Roman{chapter}}
 	\listoftables
 	\printglossaries
+
+	
+
+
+	
+	\chapter{Vorwort}
+	Die Projektdokumentation als Zusammenfassung des Projektablaufs wird bereits während des Software Engineering Prozess erstellt und dient allen beteiligten Stakeholdern dazu die Arbeit des Projektteams übersichtlich nachvollziehen und bewerten zu können. Hierbei wurde für die Entwicklung bereits zu Projektbeginn das agile Projektmanagement Modell Scrum gewählt, welches den Projektverlauf in einzelne Zyklen (Sprints) aufteilt. Innerhalb dieser werden bereits vorher erarbeitete Anforderungen umgesetzt. 
+	
+	Aufgrund der Orientierung am vorgegebenen Projektleitfaden wurden die dort enthaltenen Meilensteine mit ihren jeweiligen Unteraufgaben als Tickets in das Redmine-System übernommen und dienen so als Anforderungen für die Sprint-Zyklen. Hierbei wurden über den gesamten Projektverlauf fortlaufende Sprints mit einer Dauer von einer Woche vom Projektteam festgelegt. Jeder Sprint umfasst eine Sprintplanung, die täglichen Standup-Meetings, die Entwicklungsarbeit, das Halftime-Meeting und einen Sprintabschluss.
+
+In den folgenden Kapiteln werden die Sprints einzeln dokumentiert. Zu jedem Sprint wird zunächst das Grobziel dargestellt. Die daraus detaillierten Feinziele in Form von Tickets werden tabellarisch gezeigt. Zu jedem Ticket werden die Ticketnummer und der Titel des Tickets aufgeführt. Wurde das Ticket im entsprechenden Sprint erledigt, wird dies durch ein X in der Spalte Erledigt gezeigt, wurde es aus dem vorhergehenden Sprint übernommen, wird dies durch ein X in der Spalte Übernommen gezeigt. Im System Redmine lassen sich weitere Details zu den Tickets nachvollziehen. In den Fällen, bei denen einem Feinziel kein Ticket zugeordnet wurde, ist statt einer Ticketnummer das Wort Wiki in der Spalte Ticket zu finden.
+
+Außerdem wird zu jedem Sprint das Ergebnis zusammengefasst und Schwierigkeiten dargestellt, die die Arbeitsleistung des Teams signifikant beeinflusst haben. Die Maßnahmen zur Wiederherstellung der geplanten Arbeitsleistung werden daraufhin ebenfalls dargestellt.
+
 	\newcounter{lastRomanCounter}
 	\setcounter{lastRomanCounter}{\value{chapter}} % Zwischenspeicher der Kapitelnummerierung (römisch)
-	
 	\newpage
 	\renewcommand \thechapter{\arabic{chapter}}
 	\pagenumbering{arabic}	
 	\setcounter{chapter}{0}
-	
-	\chapter{Einleitung}
-	Die Projektdokumentation als Zusammenfassung des Projektablaufs wird bereits während des Software Engineering Prozess erstellt und dient allen beteiligten Stakeholdern dazu die Arbeit des Projektteams übersichtlich nachvollziehen und bewerten zu können. Hierbei wurde für die Entwicklung bereits zu Projektbeginn das agile Projektmanagement Modell Scrum gewählt, welches den Projektverlauf in einzelne Zyklen (Sprints) aufteilt. Innerhalb dieser werden bereits vorher erarbeitete Anforderungen umgesetzt. 
-	
-	Aufgrund der Orientierung am vorgegebenen Projektleitfaden wurden die dort enthaltenen Meilensteine mit ihren jeweiligen Unteraufgaben als Tickets in das Redmine-System übernommen und dienen so als Anforderungen für die Sprint-Zyklen. Hierbei wurden über den gesamten Projektverlauf fortlaufende Sprints mit einer Dauer von einer Woche vom Projektteam festgelegt. Diese gliedern sich in jeweils 4 Phasen.
-
-\begin{itemize}
-\item Sprint Planung
-\item Sprint Durchführung
-\item Sprint Review
-\item Sprint Retrospektive
-\end{itemize}
 
 
-
-    \chapter{Sprint 1: 13.04. – 19.04.2020}
+    \chapter{Sprint: 13.04. – 19.04.2020}
     
     Der Fokus dieses Sprints lag auf der Projektinitialisierung sowie Festlegung von Rahmenbedingungen – dies entspricht den Vorgaben des Meilenstein 1. Tabelle \ref{tab:sprint1} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
     
@@ -239,12 +239,12 @@ Die von Microsoft betriebene Plattform GitHub.com bietet einen Dienst für das H
     Während des ersten Sprints konnten bereits einige für das Projekt fundamentale Aktivitäten durchgeführt werden. Der vom Team erstellte Zeitplan für Meilensteine, bereits grob ermittelte Anforderungen in Form von User Stories sowie organisatorische Punkte wie Personalmanagement stellen den Grundpfeiler für das weitere Vorgehen dar. 
     
     \section{Schwierigkeiten}
-    Das Team befand sich während dieses Sprints noch in der Findungsphase, deswegen konnte die Velocity noch nicht präzise eingeschätzt werden. Dementsprechend blieben einige geplante Aufgaben unerledigt.
+    Die Arbeitsleistung des Teams konnte vor Beginn des Sprints noch nicht treffsicher eingeschätzt werden, da zum einen das Team bisher noch nicht zusammengearbeitet hat und zum anderen musste die Projektstruktur erst noch erarbeitet und umgesetzt werden. Dementsprechend blieben einige geplante Aufgaben unerledigt.
     
     \section{Maßnahmen}
-    Der Arbeitsaufwand wurde für die Zukunft vorerst minimiert.  
+    Der geplante Arbeitsaufwand für den folgenden Sprint wurde gegenüber diesem Sprint verringert.
     
-    \chapter{Sprint 2: 20.04. – 26.04.2020}
+    \chapter{Sprint: 20.04. – 26.04.2020}
 
 Das Ziel dieses Sprints war die Fertigstellung des ersten und zweiten Meilensteins. Meilenstein 1 umfasst die Projektkonfiguration und -initialisierung. Meilenstein 2 beinhaltet die Konzeption, Erstellung und Lieferung des Projektvideos an den Auftraggeber. Tabelle \ref{tab:sprint2} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
 
@@ -271,7 +271,7 @@ Wiki	&	Risikomanagement	&	X	&	X	\\
 \end{table}
    
     \section{Ergebnis}
-    Die geplanten Aufgaben konnten termingerecht erledigt werden.
+    Die geplanten Aufgaben konnten termingerecht erledigt werden. Das Projekt wurde konfiguriert und die Dokumentation des Meilenstein 1 wurde dem Auftraggeber bereitgestellt. Außerdem wurde das Projektvideo erstellt und veröffentlicht.
     
     \section{Schwierigkeiten}
     Es traten keine Probleme auf. 
@@ -279,7 +279,7 @@ Wiki	&	Risikomanagement	&	X	&	X	\\
     \section{Maßnahmen}
     Das Projektteam musste keine weiteren Maßnahmen veranlassen.
 	    
-    \chapter{Sprint 3: 27.04. – 03.05.2020}
+    \chapter{Sprint: 27.04. – 03.05.2020}
 
 In Sprint 3 galt es den Meilenstein 3 vorzeitig zu erreichen, um Zeit für die Implementierung zu gewinnen. Es sollte das Projekt konfiguriert werden und die Vorgaben für den weiteren Projektverlauf gemacht werden. Aufgrund der kurzen Projektdauer und um den Dokumentationsoverhead zu verringern, sollten hier nicht ausschließlich formale Vorgaben, sondern auch inhaltliche Vorgaben zum Projekt gemacht werden. Tabelle \ref{tab:sprint3} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
 
@@ -299,7 +299,7 @@ In Sprint 3 galt es den Meilenstein 3 vorzeitig zu erreichen, um Zeit für die I
 1300	&	IT-Sicherheit	&	X	&		\\
 1309	&	Konstruktives Qualitätsmanagement	&	X	&		\\
 		\midrule
-		\multicolumn{4}{c}{Backend}\\
+		\multicolumn{4}{c}{\textit{Backend}}\\
 		\midrule
 Wiki	&	Einrichtung des Django-Projekts	&	X	&		\\
 Wiki	&	Erstellung des initialen Datenmodells	&	X	&		\\
@@ -313,7 +313,7 @@ Wiki	&	Importe der Module aus dem Interactive Book Reader	&	X	&		\\
 \end{table}
     
     \section{Ergebnis}
-    Alle geplanten Aufgaben wurden im Sprint abschließend bearbeitet. Meilenstein 3 konnte am Ende des Sprints erreicht werden. Dazu wurde dem Auftraggeber das Dokumentationskonzept bereitgestellt. Des Weiteren konnte bereits mit der Implementierung des Backend begonnen werden. Tabelle \ref{tab:sprint4} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
+    Alle geplanten Aufgaben wurden im Sprint abschließend bearbeitet. Meilenstein 3 konnte am Ende des Sprints erreicht werden. Dazu wurde dem Auftraggeber das Dokumentationskonzept bereitgestellt. Des Weiteren konnte bereits mit der Implementierung des Backend begonnen werden. Tabelle~\ref{tab:sprint4} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
     
     \section{Schwierigkeiten}
     Es traten keine Probleme auf. 
@@ -321,7 +321,7 @@ Wiki	&	Importe der Module aus dem Interactive Book Reader	&	X	&		\\
     \section{Maßnahmen}
     Das Projektteam musste keine weiteren Maßnahmen veranlassen.
     
-    \chapter{Sprint 4: 04.05. – 10.05.2020}
+    \chapter{Sprint: 04.05. – 10.05.2020}
 
 Wesentliches Ziel dieses Sprints war es, das Grundgerüst der Backend-API und des Frontends zu implementieren. Tabelle \ref{tab:sprint4} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
 
@@ -332,11 +332,11 @@ Wesentliches Ziel dieses Sprints war es, das Grundgerüst der Backend-API und de
 			\midrule
 			1322	&	Anforderungen/Qualitätsziele	&	X	&		\\
 					\midrule
-		\multicolumn{4}{c}{Backend}\\
+		\multicolumn{4}{c}{\textit{Backend}}\\
 		\midrule
 Wiki	&	GraphQL-API-Setup	&	X	&		\\
 		\midrule
-		\multicolumn{4}{c}{Frontend}\\
+		\multicolumn{4}{c}{\textit{Frontend}}\\
 		\midrule
 Wiki	&	Frontend-Grundgerüst	&	X	&		\\
 			\bottomrule
@@ -346,7 +346,7 @@ Wiki	&	Frontend-Grundgerüst	&	X	&		\\
 \end{table} 
     
     \section{Ergebnis}
-    Die geplanten Aufgaben konnten im Rahmen des Sprints vollständig erledigt werden.
+    Die geplanten Aufgaben konnten im Rahmen des Sprints vollständig erledigt werden. Das Grundgerüst der Backend-API und des Frontends wurden implementiert.
     
     \section{Schwierigkeiten}
     Es traten keine Probleme auf. 
@@ -354,8 +354,8 @@ Wiki	&	Frontend-Grundgerüst	&	X	&		\\
     \section{Maßnahmen}
     Das Projektteam musste keine weiteren Maßnahmen veranlassen.
     
-    \chapter{Sprint 5: 11.05. – 17.05.2020}
-  Tabelle \ref{tab:sprint5} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
+    \chapter{Sprint: 11.05. – 17.05.2020}
+ Schwerpunkt dieses Sprints war die Fertigstellung der Implementierung der Software. Dies umfasst auch die qualitätssichernden Maßnahmen der Software. Parallel dazu war die im Meilenstein 4 geforderte Dokumentation fertigzustellen. Tabelle \ref{tab:sprint5} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
   
  \begin{table}   
     \begin{tabularx}{\textwidth}{lXll}
@@ -366,18 +366,18 @@ Wiki	&	Frontend-Grundgerüst	&	X	&		\\
 1323	&	Benutzerhandbuch	&	X	&		\\
 1341	&	Datenmodell als UML	&		&		\\
 1325	&	Installationshandbuch	&	X	&		\\
-1319	&	Systemarchitektur	&	X	&		\\
+1321	&	Systemarchitektur	&	X	&		\\
 1326	&	Projektdokumentation	&		&		\\
-	&	Ergebnisdokumentation	&		&		\\
+1319	&	Ergebnisdokumentation	&		&		\\
 1320	&	Funktionsbeschreibung	&	X	&		\\
 
 					\midrule
-		\multicolumn{4}{c}{Backend}\\
+		\multicolumn{4}{c}{\textit{Backend}}\\
 		\midrule
 Wiki	&	Implementierung der Spiellogik	&	X	&		\\
 Wiki	&	Fertigstellung API	&	X	&		\\
 		\midrule
-		\multicolumn{4}{c}{Frontend}\\
+		\multicolumn{4}{c}{\textit{Frontend}}\\
 		\midrule
 Wiki	&	UI-Entwurf	&	X	&		\\
 Wiki	&	Dialogfluss	&	X	&		\\
@@ -393,14 +393,15 @@ Wiki	&	Fertigstellung Frontend	&	X	&		\\
 \end{table}
     
     \section{Ergebnis}
+	Die Software wurde vollständig implementiert. Teile der Dokumentation konnten noch nicht fertiggestellt werden.   
     
     \section{Schwierigkeiten}
-    Das bereits zu Beginn des Projekts identifizierte Risiko, dass die Kurzarbeit in Teilen wieder aufgehoben wird, hat sich realisiert. Der mögliche Workload mindestens eines Teammitglieds wurde dadurch signifikant verringert. Hinzu kam der anhaltende Krankenhausaufenthalt eines Teammitglieds, welche effektives Arbeiten und kommunizieren unmöglich machte.
+    Das bereits zu Beginn des Projekts identifizierte Risiko, dass die Kurzarbeit in Teilen wieder aufgehoben wird, hat sich realisiert. Der mögliche Workload eines Teammitglieds wurde dadurch signifikant verringert. Hinzu kam der anhaltende Krankenhausaufenthalt eines anderen Teammitglieds, welcher effektives Arbeiten und kommunizieren unmöglich machte.
     
     \section{Maßnahmen}
     Die Auswirkungen der Schwierigkeiten mussten akzeptiert werden und konnten nur teilweise durch eine Umverteilung der Arbeit auf andere Teammitglieder kompensiert werden.
     
-    \chapter{Sprint 6: 18.05. – 24.05.2020}
+    \chapter{Sprint: 18.05. – 24.05.2020}
     
     Im Fokus dieses Sprints stand die Fertigstellung des vierten Meilensteins. Dies beinhaltete die Lieferung der zentralen Ergebnisartefakte. Tabelle \ref{tab:sprint6} zeigt die Tickets und Aufgaben, die in diesem Sprint geplant waren.
     
